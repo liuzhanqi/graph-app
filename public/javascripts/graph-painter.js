@@ -13,7 +13,7 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
     graph.vis.on("dblclick", function() {
         var x=d3.mouse(this)[0];
         var y=d3.mouse(this)[1];
-        graph.addNode(x+"_"+y);
+        graph.addNode("Node"+x+"_"+y);
     });
 
     d3.select(window)
@@ -27,11 +27,11 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
     });
 
     // You can do this from the console as much as you like...
-    graph.addNode("Cause");
-    graph.addNode("Effect");
-    graph.addLink("Cause", "Effect");
-    graph.addNode("A");
-    graph.addNode("B");
+    // graph.addNode("Cause");
+    // graph.addNode("Effect");
+    // graph.addLink("Cause", "Effect");
+    // graph.addNode("A");
+    // graph.addNode("B");
     //graph.addLink("A", "B");
 
 })(window.d3, window.saveAs, window.Blob);
@@ -272,7 +272,9 @@ function myGraph(el,w,h) {
                     graph.removeLink(linkID);
                     if (graph.state.selectedEdge == linkID) graph.state.selectedEdge=null;
                 }
-                if (!graph.state.usingEraser) toggleSelectEdge(linkID);
+                if (!graph.state.usingEraser) {
+                    toggleSelectEdge(linkID);
+                }
 
             }); 
 
@@ -305,6 +307,7 @@ function myGraph(el,w,h) {
                     graph.removeNode(nodeID);
                     if (graph.state.selectedNode == nodeID) graph.state.selectedNode=null;
                 }
+                console.log(graph.state.creatingEdge);
                 if (graph.state.creatingEdge) {
                     oldnodeID = graph.state.selectedNode;
                     if (oldnodeID!=null && oldnodeID!=nodeID ) {
@@ -312,7 +315,10 @@ function myGraph(el,w,h) {
                         graph.addLink(nodeID,oldnodeID);
                     }
                 }
-                if (!graph.state.usingEraser) toggleSelectNode(nodeID);
+                if (!graph.state.usingEraser) {
+                    console.log("toggle");
+                    toggleSelectNode(nodeID);
+                }
 
             }); 
 
