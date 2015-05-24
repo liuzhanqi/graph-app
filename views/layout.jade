@@ -5,8 +5,30 @@ html
     link(rel='stylesheet', href='./stylesheets/style.css')
   body
     div(id="graph")
+        div(id="toolbox")
+            input(
+                type="image"
+                title="create node"
+                id="create-node"
+                src='./images/node_button.svg'
+                onclick="graph.toggle_draw_node();"
+            )
+            input(
+                type="image"
+                title="create edge"
+                id="create-edge"
+                src='./images/edge_button.png'
+                onclick="graph.toggle_draw_edge();"
+            )
+            input(
+                type="image"
+                title="eraser"
+                id="eraser"
+                src='./images/eraser_button.png'
+                onclick="graph.toggle_eraser();"
+            )
     block content
     script(src='//cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src='//d3js.org/d3.v3.js')
-    script(src='./javascripts/graph-editor.js')
+    script(src='./javascripts/graph-painter.js')
