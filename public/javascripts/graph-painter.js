@@ -7,10 +7,10 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
 
     graph = new myGraph("#graph",width,height);
 
-    graph.vis.on("mousedown", function(d){
+    graph.svg.on("mousedown", function(d){
         //console.log("mouse down");
     });
-    graph.vis.on("dblclick", function() {
+    graph.svg.on("dblclick", function() {
         if (graph.state.creatingNode) {
             var x=d3.mouse(this)[0];
             var y=d3.mouse(this)[1];
@@ -238,15 +238,26 @@ function myGraph(el,w,h) {
         }); 
     };
 
-    var vis = this.vis = d3.select(el).append("svg:svg")
+    var svg = this.svg = d3.select(el).append("svg:svg")
         .attr("width", w)
         .attr("height", h);
+
+    var zoom = d3.behavior.zoom()
+        .scaleExtent([1, 10])
+        .on("zoom", function() {
+            vis.attr("transform", 
+                "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        });
+
+    var vis = this.vis = svg.append("g").call(zoom).on("dblclick.zoom", null);;
 
     var force = d3.layout.force()
         .gravity(.05)
         .distance(100)
         .charge(-100)
         .size([w, h]);
+
+
 
     var nodes = force.nodes(),
         links = force.links();
