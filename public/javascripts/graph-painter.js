@@ -222,6 +222,22 @@ function myGraph(el,w,h) {
         }
     };
 
+    this.upload_file = function() {
+        queue()
+        .defer(d3.json, "./jsons/n.json")
+        .defer(d3.json, "./jsons/l.json")
+        .await(function (error, n, l) {
+            for (i in n) {
+                graph.addNode(n[i].id);
+            }
+            //console.log(l);
+            for (i in l) {
+                //console.log(l[i]);
+                graph.addLink(n[l[i].source].id,n[l[i].target].id);
+            }
+        }); 
+    };
+
     // set up the D3 visualisation in the specified element
 
     var vis = this.vis = d3.select(el).append("svg:svg")
@@ -246,8 +262,9 @@ function myGraph(el,w,h) {
     var nodes = force.nodes(),
         links = force.links();
 
-    var update = function () {
-        //console.log(nodes);
+    function update () {
+        //console.log(JSON.stringify(nodes));
+        //console.log(JSON.stringify(links));
         var link = vis.selectAll("line.link")
             .data(links, function(d) { return d.source.id + "-" + d.target.id; });
 
@@ -307,7 +324,6 @@ function myGraph(el,w,h) {
                     graph.removeNode(nodeID);
                     if (graph.state.selectedNode == nodeID) graph.state.selectedNode=null;
                 }
-                console.log(graph.state.creatingEdge);
                 if (graph.state.creatingEdge) {
                     oldnodeID = graph.state.selectedNode;
                     if (oldnodeID!=null && oldnodeID!=nodeID ) {
@@ -316,7 +332,7 @@ function myGraph(el,w,h) {
                     }
                 }
                 if (!graph.state.usingEraser) {
-                    console.log("toggle");
+                    //console.log("toggle");
                     toggleSelectNode(nodeID);
                 }
 
@@ -345,5 +361,6 @@ function myGraph(el,w,h) {
 
     // Make it all go
     update();
+
 }
 
