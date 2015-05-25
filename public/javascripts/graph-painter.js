@@ -11,9 +11,11 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
         //console.log("mouse down");
     });
     graph.vis.on("dblclick", function() {
-        var x=d3.mouse(this)[0];
-        var y=d3.mouse(this)[1];
-        graph.addNode("Node"+x+"_"+y);
+        if (graph.state.creatingNode) {
+            var x=d3.mouse(this)[0];
+            var y=d3.mouse(this)[1];
+            graph.addNode("Node"+x+"_"+y);
+        }
     });
 
     d3.select(window)
@@ -230,28 +232,15 @@ function myGraph(el,w,h) {
             for (i in n) {
                 graph.addNode(n[i].id);
             }
-            //console.log(l);
             for (i in l) {
-                //console.log(l[i]);
                 graph.addLink(n[l[i].source].id,n[l[i].target].id);
             }
         }); 
     };
 
-    // set up the D3 visualisation in the specified element
-
     var vis = this.vis = d3.select(el).append("svg:svg")
         .attr("width", w)
         .attr("height", h);
-
-    // d3.selectAll("circle").call(d3.behavior.zoom().on("zoom", function() {
-    //     //console.log("here", d3.event.translate, d3.event.scale);
-    //     console.log("translate(" + d3.event.translate + ")"
-    //         + " scale(" + d3.event.scale + ")");
-    //     vis.attr("transform",
-    //         "translate(" + d3.event.translate + ")"
-    //         + " scale(" + d3.event.scale + ")");
-    // }));
 
     var force = d3.layout.force()
         .gravity(.05)
