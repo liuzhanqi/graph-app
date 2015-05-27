@@ -238,10 +238,6 @@ function myGraph(el,w,h) {
         }); 
     };
 
-    var svg = this.svg = d3.select(el).append("svg:svg")
-        .attr("width", w)
-        .attr("height", h);
-
     var zoom = d3.behavior.zoom()
         .scaleExtent([1, 10])
         .on("zoom", function() {
@@ -249,15 +245,27 @@ function myGraph(el,w,h) {
                 "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         });
 
-    var vis = this.vis = svg.append("g").call(zoom).on("dblclick.zoom", null);;
+    var svg = this.svg = d3.select(el).append("svg:svg")
+        .attr("width", w)
+        .attr("height", h)
+        .call(zoom)
+        .on("dblclick.zoom", null);
+
+    function enableZooming() {
+        graph.svg.call(zoom).on("dblclick.zoom", null);
+    }
+     function disableZooming() {
+        var fake = d3.behavior.zoom();
+        graph.svg.call(fake);
+    }
+
+    var vis = this.vis = svg.append("g");
 
     var force = d3.layout.force()
         .gravity(.05)
         .distance(100)
         .charge(-100)
         .size([w, h]);
-
-
 
     var nodes = force.nodes(),
         links = force.links();
@@ -299,6 +307,10 @@ function myGraph(el,w,h) {
 
         var node = vis.selectAll("g.node")
             .data(nodes, function(d) { return d.id;});
+
+        var drag = force.drag() 
+             .on('dragstart', function() { disableZooming(); })
+             .on('dragend', function() { enableZooming(); });
 
         var nodeEnter = node.enter().append("g")
             .attr("class", "node")
