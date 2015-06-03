@@ -262,9 +262,8 @@ function myGraph(el,w,h) {
     var vis = this.vis = svg.append("g");
 
     var force = d3.layout.force()
-        .gravity(.05)
-        .distance(100)
-        .charge(-100)
+        .linkDistance(100)
+        .charge(-400)
         .size([w, h]);
 
     var nodes = force.nodes(),
@@ -275,6 +274,8 @@ function myGraph(el,w,h) {
         //console.log(JSON.stringify(links));
         var link = vis.selectAll("line.link")
             .data(links, function(d) { return d.source.id + "-" + d.target.id; });
+
+        link.exit().remove();
 
         link.enter().insert("line")
             .attr("class", "link")
@@ -303,14 +304,14 @@ function myGraph(el,w,h) {
 
             }); 
 
-        link.exit().remove();
-
         var node = vis.selectAll("g.node")
             .data(nodes, function(d) { return d.id;});
 
         var drag = force.drag() 
              .on('dragstart', function() { disableZooming(); })
              .on('dragend', function() { enableZooming(); });
+
+        node.exit().remove();
 
         var nodeEnter = node.enter().append("g")
             .attr("class", "node")
@@ -355,8 +356,6 @@ function myGraph(el,w,h) {
             .attr("dx", 22)
             .attr("dy", ".35em")
             .text(function(d) {return d.id});
-
-        node.exit().remove();
 
         force.on("tick", function() {
           link.attr("x1", function(d) { return d.source.x; })
