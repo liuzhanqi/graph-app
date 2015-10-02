@@ -1,0 +1,17 @@
+#run the app
+
+cd ~/Documents/Graph\ Visualization/graph-app/graph-app/
+npm start
+go to localhost:3000
+
+#start Neo4j
+
+cd ~/Documents/Graph\ Visualization/neo4j-community-2.2.1
+bin/neo4j start
+
+http://localhost:7474 
+username: neo4j
+password: liuzhanqi0909
+
+disable authentication
+setting to false the dbms.security.auth_enabled property in <neo4j-install-dir>/conf/neo4j-server.properties, and then restarting the server.

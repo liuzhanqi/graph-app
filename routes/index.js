@@ -31,17 +31,39 @@ router.get('/getGraph', function(req,res,next) {
 });
 
 router.post('/createNode' , function(req,res,next) {
-	var x=req.body.x;
-	var y=req.body.y;
-	var data = graph.createVertex(x,y);
+	console.log(req.body);
+	var attributes = req.body;
+	var data = graph.createVertex(attributes);
 	res.send(JSON.stringify(data));
 });
 
+router.post('/removeNode' , function(req,res,next) {
+	var id =req.body.id;
+	graph.removeVertex(id);
+});
+
 router.post('/createEdge' , function(req,res,next) {
-	var node1=req.body.node1;
-	var node2=req.body.node2;
-	var data = graph.createEdge(node1,node2);
+	var source=req.body.source;
+	var target=req.body.target;
+	var data = graph.createEdge(source,target);
 	res.send(JSON.stringify(data));
+});
+
+router.post('/removeEdge' , function(req,res,next) {
+	var id =req.body.id;
+	graph.removeEdge(id);
+});
+
+router.post('/saveGraph', function(req,rest,next) {
+	//console.log("this is save graph in router");
+	graph.saveGraph();
+});
+
+router.get('/loadGraph', function(req,res,next) {
+	//console.log("this is save graph in router");
+	graph.loadGraph(function(data) {
+		res.send(JSON.stringify(data));
+	});
 });
 
 module.exports = router;

@@ -1,18 +1,23 @@
-var Vertex = function(x,y) {
+var Vertex = function(attr) {
 	if (Vertex.count == undefined) {
 		Vertex.count = 0;
 	} else {
 		Vertex.count ++;
 	}
 	this.id="Vertex"+Vertex.count;
-	this.x=x;
-	this.y=y;
-	console.log("created vertex");
+	if (attr) {
+		for (var key in attr) {
+			if (attr.hasOwnProperty(key)) {
+				this[key] = attr[key];
+			}
+		}
+	}
+	console.log("created vertex, id = " + this.id);
 }
 
-Vertex.prototype.moveTo = function(x,y) {
-	this.x=x;
-	this.y=y;
-}
+// Vertex.prototype.moveTo = function(x,y) {
+// 	this.x=x;
+// 	this.y=y;
+// }
 
 module.exports = Vertex;

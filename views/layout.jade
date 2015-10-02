@@ -4,6 +4,22 @@ html
     title= title
     link(rel='stylesheet', href='./stylesheets/style.css')
   body
+    div.loginbox
+        button#add Add attributes
+        form(id="add-node", name="add-node", method="post")
+          table
+            tr
+              td type:
+              td 
+                input(type="text", name="type")
+            tr.attribute
+              td attribute:
+              td
+                input(type="text", name="attribute")
+            tr
+              td
+              td
+                input(type="submit", name="submit")
     div(id="graph")
         div(id="toolbox")
             input(
@@ -29,6 +45,20 @@ html
             )
             input(
                 type="image"
+                title="save graph to datavase"
+                id="save"
+                src='./images/save_button.png'
+                onclick="graph.save_graph();"
+            )
+            input(
+                type="image"
+                title="load graph from datavase"
+                id="load"
+                src='./images/load_button.png'
+                onclick="graph.load_graph();"
+            )
+            input(
+                type="image"
                 title="upload json"
                 id="upload_json"
                 src='./images/file_button.png'
@@ -39,4 +69,6 @@ html
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src='//d3js.org/d3.v3.js')
     script(src='http://d3js.org/queue.v1.min.js')
+    script(src='./javascripts/GraphView.js')
     script(src='./javascripts/graph-painter.js')
+    script(src='./javascripts/form-actor.js')
