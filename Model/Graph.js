@@ -32,6 +32,25 @@ Graph.prototype.createNewGraphID = function(graphid, callback) {
 	//TODO: how to return message
 }
 
+Graph.prototype.addGraphDefinition = function(definitions) {
+	console.log("in Graph.js addGraphDefinition");
+	var that = this;
+	console.log(that.graphID);
+	console.log(JSON.stringify(definitions));
+	runCypherQuery(
+		'MATCH (n:GRAPHID { graphid: {id}}) SET n.definition = {def}',
+		{id: that.graphID, def:JSON.stringify(definitions)}, 
+	    function (err, resp) {
+	    	if (err) {
+	    		console.log(err);
+	    	} else {
+	    		console.log(resp);
+	    	}
+	  	}
+	);
+	//TODO: how to return message
+}
+
 Graph.prototype.getGraph = function() {
 	var data = {
 		"links" : this.edgeList,

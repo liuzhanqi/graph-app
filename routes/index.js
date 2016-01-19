@@ -29,6 +29,11 @@ router.post('/createGraphID', function(req,res,next) {
 	});
 });
 
+router.post('/createGraphDefinition', function(req,res,next) {
+	console.log("in index.js /createGraphDefinition")
+	graph.addGraphDefinition(req.body);
+});
+
 router.get('/getGraph', function(req,res,next) {
 	var data = graph.getGraph();
 	res.send(JSON.stringify(data));

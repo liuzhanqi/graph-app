@@ -6,7 +6,7 @@ html
   body
     div
         div.container
-            form(method="post")
+            form(id="graph-definition" method="post")
             div.left#node-form
                 button#more-node-attributes More Node Attributes
                 button#less-node-attributes Less Node Attributes
@@ -14,7 +14,7 @@ html
                     tr
                         td Name:
                         td 
-                            input(type="text", name="name")
+                            input(type="text", name="node-name")
                     tr#node-attribute1
                         td Attribute:
                         td
@@ -26,7 +26,7 @@ html
                     tr
                         td Name:
                         td 
-                            input(type="text", name="name")
+                            input(type="text", name="edge-name")
                     tr#edge-attribute1
                         td Attribute:
                         td
@@ -35,7 +35,7 @@ html
                 tr
                     td
                     td
-                        input(type="submit", name="submit")
+                        input(id="submit" type="submit", name="submit")
     block content
     script(src='./javascripts/jquery.min.js')
     script(src='./javascripts/form-actor.js')

@@ -4,22 +4,6 @@ html
     title= title
     link(rel='stylesheet', href='./stylesheets/style.css')
   body
-    div.loginbox
-        button#add Add attributes
-        form(id="add-node", name="add-node", method="post")
-          table
-            tr
-              td type:
-              td 
-                input(type="text", name="type")
-            tr.attribute
-              td attribute:
-              td
-                input(type="text", name="attribute")
-            tr
-              td
-              td
-                input(type="submit", name="submit")
     div(id="graph")
         div(id="toolbox")
             input(

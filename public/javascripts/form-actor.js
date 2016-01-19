@@ -58,3 +58,17 @@ $('#less-edge-attributes').click(function() {
     if ($row.attr('id') != "edge-attribute1") 
         $row.remove();
 });
+
+$('#submit').click(function () {
+    console.log("hello");
+    var $inputs = $('input');
+    var definitions = {};
+    $inputs.each(function() {
+        if (this.name != "submit")
+            definitions[this.name] = $(this).val();
+    });
+    console.log(definitions);
+    //TODO: do some input checking
+    $.post("/createGraphDefinition", {def: definitions});
+    location.href='/editor';
+});
