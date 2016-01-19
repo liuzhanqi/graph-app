@@ -6,24 +6,28 @@ var graph= new Graph();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+	res.render('entry');
+});
+
+router.get('/graphID', function(req, res, next) {
+	res.render('graphID');
+});
+
+router.get('/graphDefinition', function(req, res, next) {
+	res.render('graphDefinition');
+});
+
+router.get('/editor', function(req, res, next) {
 	res.render('index');
 });
 
-// router.post('/eventHandler', function(req,res,next) {
-// 	if (req.body.eventType == "create-vertex") {
-// 		var x=req.body.x;
-// 		var y=req.body.y;
-// 		var data = graph.createVertex(x,y);
-// 		res.send(JSON.stringify(data));
-// 	} else if (req.body.eventType == "update-vertex") {
-// 		var x=req.body.x;
-// 		var y=req.body.y;
-// 		var id=req.body.id;
-// 		var data = graph.updateVertexPosition(id,x,y);
-// 		res.send(JSON.stringify(data));
-// 	}
-	
-// });
+router.post('/createGraphID', function(req,res,next) {
+	var id =req.body.id;
+	console.log(id);
+	graph.createNewGraphID(id, function(message) {
+		res.send(message);
+	});
+});
 
 router.get('/getGraph', function(req,res,next) {
 	var data = graph.getGraph();

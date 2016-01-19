@@ -8,6 +8,28 @@ var Graph = function() {
 	this.vertexList=[];
 	this.edgeList=[];
 	this.adjList=[];
+	this.graphID = "";
+}
+
+Graph.prototype.createNewGraphID = function(graphid, callback) {
+	var that = this;
+	runCypherQuery(
+		'MERGE (newID:GRAPHID { graphid : {id}}) ' +
+		'ON CREATE SET newID.state="new"' + 
+		'ON MATCH SET newID.state="old"' +
+		'RETURN newID.state', {id: graphid}, 
+	    function (err, resp) {
+	    	if (err) {
+	    		console.log(err);
+	    	} else {
+	    		console.log(resp);
+	    		message = resp.results[0].data[0].row[0];
+	    		that.graphID = graphid;
+	    		callback(message);
+	    	}
+	  	}
+	);
+	//TODO: how to return message
 }
 
 Graph.prototype.getGraph = function() {
@@ -107,26 +129,6 @@ Graph.prototype.removeEdge = function(id) {
 	//   	}
 	// );
 }
-
-// Graph.prototype.saveGraph = function() {
-// 	console.log(JSON.stringify(this.vertexList));
-// 	runCypherQuery(
-// 		'FOREACH (edge IN {edges} |' +
-// 		'MERGE (node1:Node{id:edge.source})' +
-// 		'MERGE (node2:Node{id:edge.target})' +
-// 		'MERGE (node1)-[:Link{id:edge.id}]->(node2))' +
-// 		'FOREACH (node IN {nodes} |' +
-// 		'MERGE (n:Node{id:node.id}))',
-// 		{edges: this.edgeList, nodes: this.vertexList},
-// 	    function (err, resp) {
-// 	    	if (err) {
-// 	    		console.log(err);
-// 	    	} else {
-// 	    		console.log(resp);
-// 	    	}
-// 	  	}
-// 	);
-// }
 
 Graph.prototype.saveGraph = function() {
 	console.log(JSON.stringify(this.vertexList));

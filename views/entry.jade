@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='./stylesheets/entrystyle.css')
+  body
+    div(id="option-box")
+        div(id="options")
+            input(
+                type="image"
+                title="create new graph"
+                id="create-graph"
+                src='./images/node_button.svg'
+                onclick="location.href='/graphID'"
+            )
+            input(
+                type="image"
+                title="create edge"
+                id="create-edge"
+                src='./images/file_button.png'
+                onclick="entry.upload_file();"
+            )
+    block content
+    script(src='//cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min.js')
+    script(src='./javascripts/jquery.min.js')
+    script(src='//d3js.org/d3.v3.js')
+    script(src='http://d3js.org/queue.v1.min.js')
+    script(src='./javascripts/EntryView.js')

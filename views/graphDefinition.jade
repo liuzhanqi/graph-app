@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='./stylesheets/definitionstyle.css')
+  body
+    div
+        div.container
+            form(method="post")
+            div.left#node-form
+                button#more-node-attributes More Node Attributes
+                button#less-node-attributes Less Node Attributes
+                table
+                    tr
+                        td Name:
+                        td 
+                            input(type="text", name="name")
+                    tr#node-attribute1
+                        td Attribute:
+                        td
+                            input(type="text", name="node-attribute1")
+            div.right#edge-form
+                button#more-edge-attributes More Edge Attributes                
+                button#less-edge-attributes Less Edge Attributes
+                table
+                    tr
+                        td Name:
+                        td 
+                            input(type="text", name="name")
+                    tr#edge-attribute1
+                        td Attribute:
+                        td
+                            input(type="text", name="edge-attribute1")
+            div.newline
+                tr
+                    td
+                    td
+                        input(type="submit", name="submit")
+    block content
+    script(src='./javascripts/jquery.min.js')
+    script(src='./javascripts/form-actor.js')
+    script(src='//d3js.org/d3.v3.js')

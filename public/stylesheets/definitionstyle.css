@@ -1,0 +1,47 @@
+body { 
+	background-color: rgb(248, 248, 248) 
+}
+
+.container {
+	margin:0 auto;
+	width: 80%;
+}
+
+.left, .right, .center { 
+	width: 50%; float: left; 
+	text-align: center; 
+}
+
+table, .newline input{
+	margin: 0px auto;
+}
+
+.newline {
+	clear: both;
+}
+
+#error{
+	color: red;
+}
+
+span, input, select { 
+	display: block; padding: 5px; margin: 5px; 
+}
+
+span   { 
+	font-family: sans-serif; 
+	line-height: 20px; 
+	font-weight: bold;     
+}
+
+input  { 
+	width: 200px;            
+	height: 30px;      
+	box-sizing: border-box; 
+}
+
+select { 
+	width: 200px;            
+	height: 30px;      
+	box-sizing: border-box; 
+}

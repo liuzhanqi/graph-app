@@ -270,20 +270,6 @@ GraphView.prototype.toggle_eraser = function() {
     }
 };
 
-GraphView.prototype.upload_file = function() {
-    queue()
-    .defer(d3.json, "./jsons/n.json")
-    .defer(d3.json, "./jsons/l.json")
-    .await(function (error, n, l) {
-        for (i in n) {
-            this.addNode(n[i].id);
-        }
-        for (i in l) {
-            this.addLink(n[l[i].source].id,n[l[i].target].id);
-        }
-    }); 
-};
-
 GraphView.prototype.save_graph = function() {
     //TODO for now, save graph wont delete the deleted node in db.
     $.post( "/saveGraph");
@@ -323,6 +309,7 @@ GraphView.prototype.update = function() {
     console.log(this.nodes);
     console.log("links");
     console.log(this.links);
+    var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id"]; 
 
     var graph = this;
 
@@ -357,9 +344,6 @@ GraphView.prototype.update = function() {
             }
 
         }); 
-
-    // var node = this.vis.selectAll("g.node")
-    //     .data(nodes, function(d) { return d.id;});
 
     var node = this.vis.selectAll("g.node").data(this.nodes);
 
@@ -400,7 +384,16 @@ GraphView.prototype.update = function() {
                 .classed("info", true)
                 .attr("dx", 0)
                 .attr("dy", -20)
-                .text(function(d) {return JSON.stringify(d.attr)});
+                .text(function(d) {
+                    var header = d3.select(this);
+                    var label = "";
+                    // loop through the keys - this assumes no extra data
+                    d3.keys(d).forEach(function(key) {
+                        if ($.inArray(key, hiddenLabel) == -1)
+                            label+=key+": "+d[key]+"; ";
+                    });
+                    return label;
+                });
         })
         .on("mouseout", function(){
             graph.updateColor(d3.select(this));
