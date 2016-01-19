@@ -32,11 +32,32 @@ function GraphView(el,w,h) {
     };
 
     // TODO: bulk adding and bulk removal
+    this.showInputBox();
     this.showGraph();
     // Make it all go
     this.update();
 }
 
+GraphView.prototype.showInputBox = function() {
+   $.get( "/getGraphDefinition")
+    .done(function( data ) {
+        data = JSON.parse(data);
+        document.getElementById("node-name").innerHTML = data.nodeName;
+        document.getElementById("edge-name").innerHTML = data.edgeName;
+        for (index = 0; index < data.nodeAttribute.length; ++index) {
+            if (index == 0) {
+                document.getElementById("node-attribute-col").innerHTML=data.nodeAttribute[index];
+            } else {
+                var $lastRow = $('#node-attribute-row:last');
+                var $newRow = $lastRow.clone();
+                $newRow.find('#node-attribute-col').innerHTML=data.nodeAttribute[index];
+                $newRow.insertAfter($lastRow);
+            }
+        }
+    });
+}
+
+//不成功
 GraphView.prototype.showGraph = function() {
     var graph = this;
     $.get( "/getGraph")

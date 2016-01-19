@@ -102,7 +102,7 @@ path.link.selected {
     stroke: rgb(229, 172, 247);
 }
 
-.loginbox{
+.inputbox{
     width:200px;
     position: absolute;
 /*  margin: auto;

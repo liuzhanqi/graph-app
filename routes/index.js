@@ -30,13 +30,18 @@ router.post('/createGraphID', function(req,res,next) {
 });
 
 router.post('/createGraphDefinition', function(req,res,next) {
-	console.log("in index.js /createGraphDefinition")
-	graph.addGraphDefinition(req.body);
+	graph.addGraphDefinition(req.body.def);
 });
 
 router.get('/getGraph', function(req,res,next) {
 	var data = graph.getGraph();
 	res.send(JSON.stringify(data));
+});
+
+router.get('/getGraphDefinition', function(req,res,next) {
+	graph.getGraphDefinition(function(definition) {
+		res.send(definition);
+	});
 });
 
 router.post('/createNode' , function(req,res,next) {

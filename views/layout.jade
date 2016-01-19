@@ -4,6 +4,25 @@ html
     title= title
     link(rel='stylesheet', href='./stylesheets/style.css')
   body
+    div.inputbox
+        span(id="node-name")
+        form(id="add-node", name="add-node", method="post")
+          table
+            tr(id="node-attribute-row")
+              td(id="node-attribute-col")
+              td 
+                input(type="text", name="type")
+        div
+            button#add Add Nodes
+        span(id="edge-name")
+        form(id="add-edge", name="add-edge", method="post")
+          table
+            tr(id="edge-attribute-row")
+              td(id="edge-attribute-col")
+              td 
+                input(type="text", name="type")
+        div
+            button#add Add Edge
     div(id="graph")
         div(id="toolbox")
             input(

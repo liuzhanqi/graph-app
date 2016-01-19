@@ -63,12 +63,21 @@ $('#submit').click(function () {
     console.log("hello");
     var $inputs = $('input');
     var definitions = {};
+    definitions.nodeAttribute=[];
+    definitions.edgeAttribute=[];
     $inputs.each(function() {
-        if (this.name != "submit")
-            definitions[this.name] = $(this).val();
+        if (this.name != "submit") {
+            if (this.name.substring(0,14) === "node-attribute") {
+                definitions.nodeAttribute.push($(this).val());
+            } else if (this.name.substring(0,14) === "edge-attribute") {
+                definitions.edgeAttribute.push($(this).val());
+            } else {
+                definitions[this.name] = $(this).val();
+            }
+        }    
     });
-    console.log(definitions);
+    console.log(JSON.stringify(definitions));
     //TODO: do some input checking
-    $.post("/createGraphDefinition", {def: definitions});
+    $.post("/createGraphDefinition", {def: JSON.stringify(definitions)});
     location.href='/editor';
 });
