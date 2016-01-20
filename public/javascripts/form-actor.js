@@ -4,17 +4,6 @@ $('#add').click(function() {
     $lastRow.clone().insertAfter($lastRow);
 });
 
-$('#add-node').submit(function () {
-	var $inputs = $('#add-node :input');
-    var values = {};
-    $inputs.each(function() {
-    	if (this.name != "submit")
-        	values[this.name] = $(this).val();
-    });
-	graph.addNode(values);
-	return false;
-});
-
 //for graphDefinition.jade
 $('#more-node-attributes').click(function() {
     $form = $('#node-form');

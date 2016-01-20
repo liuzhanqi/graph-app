@@ -46,12 +46,38 @@ GraphView.prototype.showInputBox = function() {
         document.getElementById("edge-name").innerHTML = data.edgeName;
         for (index = 0; index < data.nodeAttribute.length; ++index) {
             if (index == 0) {
-                document.getElementById("node-attribute-col").innerHTML=data.nodeAttribute[index];
+                $row = $('#node-attribute-row');
+                $label = $row.find('#node-attribute-col');
+                $label.text(data.nodeAttribute[index]);
+                $input = $row.find('#node-attribute-input');
+                $input.attr('name', data.nodeAttribute[index]);
+                console.log($input);
             } else {
-                var $lastRow = $('#node-attribute-row:last');
-                var $newRow = $lastRow.clone();
-                $newRow.find('#node-attribute-col').innerHTML=data.nodeAttribute[index];
-                $newRow.insertAfter($lastRow);
+                $lastRow = $('#node-attribute-row:last');
+                $row = $lastRow.clone();
+                $label = $row.find('#node-attribute-col');
+                $label.text(data.nodeAttribute[index]);
+                $input = $row.find('#node-attribute-input');
+                $input.attr('name', data.nodeAttribute[index]);
+                $row.insertAfter($lastRow);
+            }
+        }
+        for (index = 0; index < data.edgeAttribute.length; ++index) {
+            if (index == 0) {
+                $row = $('#edge-attribute-row');
+                $label = $row.find('#edge-attribute-col');
+                $label.text(data.edgeAttribute[index]);
+                $input = $row.find('#edge-attribute-input');
+                $input.attr('name', data.edgeAttribute[index]);
+                console.log($input);
+            } else {
+                $lastRow = $('#edge-attribute-row:last');
+                $row = $lastRow.clone();
+                $label = $row.find('#edge-attribute-col');
+                $label.text(data.edgeAttribute[index]);
+                $input = $row.find('#edge-attribute-input');
+                $input.attr('name', data.edgeAttribute[index]);
+                $row.insertAfter($lastRow);
             }
         }
     });
@@ -65,8 +91,6 @@ GraphView.prototype.showGraph = function() {
             data = JSON.parse(data);
             graph.nodes = graph.force.nodes();
             graph.links = graph.force.links();
-            console.log(data.nodes);
-            console.log(data.links);
             for (var i=0; i<data.nodes.length; i++) {
                 graph.nodes.push(data.nodes[i]);
                 graph.update();
@@ -74,11 +98,10 @@ GraphView.prototype.showGraph = function() {
             for (var i=0; i<data.links.length; i++)  {
                 var sourceNode = graph.findNode(data.links[i].source);
                 var targetNode = graph.findNode(data.links[i].target);
-                graph.links.push(
-                    { "source": sourceNode, 
-                      "target": targetNode, 
-                      "id": data.links[i].id
-                    });
+                newLink=data.links[i];
+                newLink.source=sourceNode;
+                newLink.target=targetNode;
+                graph.links.push(newLink);
                 graph.update();
             }
         });
@@ -106,9 +129,6 @@ GraphView.prototype.addNode = function (attributeDict) {
         .done(function( data ) {
             newNode = JSON.parse(data);
             graph.nodes.push(newNode);
-            console.log("nodes in addnode");
-            console.log(data);
-            console.log(graph.nodes);
             graph.update();
         });
 };
@@ -128,7 +148,7 @@ GraphView.prototype.removeNode = function (id) {
     }
 };
 
-GraphView.prototype.addLink = function (sourceId, targetId) {
+GraphView.prototype.addLink = function (sourceId, targetId, attributeDict) {
     console.log("adding link: " + sourceId + " " + targetId);
     var sourceNode = this.findNode(sourceId);
     var targetNode = this.findNode(targetId);
@@ -136,10 +156,21 @@ GraphView.prototype.addLink = function (sourceId, targetId) {
     var graph = this;
 
     if((sourceNode !== undefined) && (targetNode !== undefined)) {
-        $.post( "/createEdge", {source: sourceNode.id, target: targetNode.id})
+        $.post( "/createEdge", 
+            {source: sourceNode.id, target: targetNode.id, attr: JSON.stringify(attributeDict)})
             .done(function( data ) {
                 data = JSON.parse(data);
-                graph.links.push({"source":sourceNode, "target":targetNode, "id":data.id});
+                newLink = {"source":sourceNode, "target":targetNode, "id":data.id};
+                if (attributeDict) {
+                    for (var key in attributeDict) {
+                        if (attributeDict.hasOwnProperty(key)) {
+                            newLink[key] = attributeDict[key];
+                        }
+                    }
+                }
+                console.log("newLink");
+                console.log(newLink);
+                graph.links.push(newLink);
                 graph.update();
             });
     }
@@ -326,9 +357,10 @@ GraphView.prototype.load_graph = function() {
 GraphView.prototype.update = function() {
     //console.log(JSON.stringify(nodes));
     //console.log(JSON.stringify(links));
-    console.log("nodes");
-    console.log(this.nodes);
-    console.log("links");
+    // console.log("nodes");
+    // console.log(this.nodes);
+    // console.log("links");
+    console.log("this.links");
     console.log(this.links);
     var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id"]; 
 
@@ -338,7 +370,6 @@ GraphView.prototype.update = function() {
         .data(this.links, function(d) { return d.source.id + "-" + d.target.id; });
 
     link.exit().remove();
-
     link.enter().insert("line")
         .attr("class", "link")
         .attr("source", function(d) {return d.source.id;})
@@ -346,13 +377,26 @@ GraphView.prototype.update = function() {
         .attr("id", function(d) {return d.id;})
         .style("stroke", "#bbb")
         .style("stroke-width", 5)
+        .each(function(d) {
+            var header = d3.select(this);
+            console.log("in link enter")
+            console.log(d);
+            // loop through the keys - this assumes no extra data
+            d3.keys(d).forEach(function(key) {
+                console.log(key);
+                if (key != "id")
+                    header.attr(key, d[key]);
+            });
+        })
         .on("mouseover", function(){
             //if (this.state.selectedEdge!=d3.select(this).attr("id") )
             d3.select(this).style("stroke", "LightSkyBlue ");
             //console.log("mouse over " + d3.select(this).attr("id"));
+            //TODO:link attributes
         })
         .on("mouseout", function(){
             graph.updateColor(d3.select(this));
+            d3.select(this.parentNode).select('text.info').remove();
         })
         .on("click", function() {
             linkID = d3.select(this).attr("id");
@@ -400,7 +444,6 @@ GraphView.prototype.update = function() {
         .on("mouseover", function(){
             //if (this.state.selectedNode!=d3.select(this).attr("id") )
             d3.select(this).style("fill", "LightSkyBlue ");
-            console.log("mouse over");
             d3.select(this.parentNode).append("text")
                 .classed("info", true)
                 .attr("dx", 0)
@@ -410,7 +453,7 @@ GraphView.prototype.update = function() {
                     var label = "";
                     // loop through the keys - this assumes no extra data
                     d3.keys(d).forEach(function(key) {
-                        if ($.inArray(key, hiddenLabel) == -1)
+                        if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
                             label+=key+": "+d[key]+"; ";
                     });
                     return label;
@@ -430,7 +473,14 @@ GraphView.prototype.update = function() {
                 oldnodeID = graph.state.selectedNode;
                 if (oldnodeID!=null && oldnodeID!=nodeID ) {
                     console.log("creating edge between "+oldnodeID+" and " + nodeID);
-                    graph.addLink(nodeID,oldnodeID);
+                    //get the current edge attribute in the form
+                    var $inputs = $('#add-edge :input');
+                    var values = {};
+                    $inputs.each(function() {
+                        values[this.name] = $(this).val();
+                    });
+                    console.log(values);
+                    graph.addLink(nodeID,oldnodeID,values);
                 }
             }
             if (!graph.state.usingEraser) {

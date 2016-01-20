@@ -92,6 +92,7 @@ Graph.prototype.createVertex = function () {
 
 //create vertex with attributes
 Graph.prototype.createVertex = function (attributes) {
+	attributes["graphID"] = this.graphID;
 	var newVertex = new Vertex(attributes);
 	this.vertexList.push(newVertex);
 	return newVertex;
@@ -124,8 +125,9 @@ Graph.prototype.removeVertex = function(id) {
 }
 
 //source and target are both id
-Graph.prototype.createEdge = function(source,target) {
-	var newEdge = new Edge(source,target);
+Graph.prototype.createEdge = function(source,target,attr) {
+	var newEdge = new Edge(source,target,attr);
+	console.log(newEdge);
 	this.edgeList.push(newEdge);
 	// Neo4j query to create Edge
 	// runCypherQuery(
@@ -168,10 +170,20 @@ Graph.prototype.saveGraph = function() {
 	//TODO: unable to remove deleted nodes and edges
 	//TODO: edge attributes
 	runCypherQuery(
+		// 'FOREACH (edge IN {edges} |' +
+		// 'MERGE (node1:Node{id:edge.source})' +
+		// 'MERGE (node2:Node{id:edge.target})' +
+		// 'MERGE (node1)-[:Link{id:edge.id}]->(node2))' +
+		// 'FOREACH (node IN {nodes} |' +
+		// 'MERGE (n:Node{id:node.id}) ' + 
+		// 'ON CREATE SET n = node ' +
+		// 'ON MATCH SET n = node)',
 		'FOREACH (edge IN {edges} |' +
 		'MERGE (node1:Node{id:edge.source})' +
 		'MERGE (node2:Node{id:edge.target})' +
-		'MERGE (node1)-[:Link{id:edge.id}]->(node2))' +
+		'MERGE (node1)-[l:Link{id:edge.id}]->(node2)' +
+		'ON CREATE SET l = edge ' +
+		'ON MATCH SET l = edge)' +
 		'FOREACH (node IN {nodes} |' +
 		'MERGE (n:Node{id:node.id}) ' + 
 		'ON CREATE SET n = node ' +

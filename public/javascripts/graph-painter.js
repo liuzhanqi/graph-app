@@ -10,13 +10,13 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
     graph.svg.on("mousedown", function(d){
         //console.log("mouse down");
     });
-    graph.svg.on("dblclick", function() {
-        if (graph.state.creatingNode) {
-            var x=d3.mouse(this)[0];
-            var y=d3.mouse(this)[1];
-            graph.addNode("Node"+x+"_"+y);
-        }
-    });
+    // graph.svg.on("dblclick", function() {
+    //     if (graph.state.creatingNode) {
+    //         var x=d3.mouse(this)[0];
+    //         var y=d3.mouse(this)[1];
+    //         graph.addNode("Node"+x+"_"+y);
+    //     }
+    // });
 
     d3.select(window)
     .on("keydown", function(){
@@ -31,3 +31,13 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
     //graph.showGraph();
 
 })(window.d3, window.saveAs, window.Blob);
+
+$('#addNodeButton').click(function () {
+    var $inputs = $('#add-node :input');
+    var values = {};
+    $inputs.each(function() {
+        values[this.name] = $(this).val();
+    });
+    console.log(values);
+    graph.addNode(values);
+});

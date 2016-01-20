@@ -10,19 +10,17 @@ html
           table
             tr(id="node-attribute-row")
               td(id="node-attribute-col")
-              td 
-                input(type="text", name="type")
+              td
+                input(type="text", name="type" id="node-attribute-input")
         div
-            button#add Add Nodes
+            button#addNodeButton Add Nodes
         span(id="edge-name")
         form(id="add-edge", name="add-edge", method="post")
           table
             tr(id="edge-attribute-row")
               td(id="edge-attribute-col")
               td 
-                input(type="text", name="type")
-        div
-            button#add Add Edge
+                input(type="text", name="type" id="edge-attribute-input")
     div(id="graph")
         div(id="toolbox")
             input(

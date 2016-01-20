@@ -59,7 +59,8 @@ router.post('/removeNode' , function(req,res,next) {
 router.post('/createEdge' , function(req,res,next) {
 	var source=req.body.source;
 	var target=req.body.target;
-	var data = graph.createEdge(source,target);
+	var attr = JSON.parse(req.body.attr);
+	var data = graph.createEdge(source,target,attr);
 	res.send(JSON.stringify(data));
 });
 

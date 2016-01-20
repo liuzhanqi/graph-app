@@ -4,6 +4,7 @@ var Vertex = function(attr) {
 	} else {
 		Vertex.count ++;
 	}
+	//TODO:add graph ID
 	this.id="Vertex"+Vertex.count;
 	if (attr) {
 		for (var key in attr) {
