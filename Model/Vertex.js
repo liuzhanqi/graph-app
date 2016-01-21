@@ -4,8 +4,8 @@ var Vertex = function(attr) {
 	} else {
 		Vertex.count ++;
 	}
-	//TODO:add graph ID
-	this.id="Vertex"+Vertex.count;
+	this.graphID=attr.graphID;
+	this.id="GraphID"+this.graphID+"Vertex"+Vertex.count;
 	if (attr) {
 		for (var key in attr) {
 			if (attr.hasOwnProperty(key)) {
@@ -13,7 +13,8 @@ var Vertex = function(attr) {
 			}
 		}
 	}
-	console.log("created vertex, id = " + this.id);
+	console.log("creating vertex with attributes");
+	console.log(this);
 }
 
 // Vertex.prototype.moveTo = function(x,y) {

@@ -39,9 +39,12 @@ function GraphView(el,w,h) {
 }
 
 GraphView.prototype.showInputBox = function() {
+    that = this;
    $.get( "/getGraphDefinition")
     .done(function( data ) {
         data = JSON.parse(data);
+        console.log("in showInputBox");
+        console.log(data);
         document.getElementById("node-name").innerHTML = data.nodeName;
         document.getElementById("edge-name").innerHTML = data.edgeName;
         for (index = 0; index < data.nodeAttribute.length; ++index) {
@@ -83,22 +86,26 @@ GraphView.prototype.showInputBox = function() {
     });
 }
 
-//不成功
 GraphView.prototype.showGraph = function() {
     var graph = this;
     $.get( "/getGraph")
         .done(function( data ) {
-            data = JSON.parse(data);
+            console.log("in showGraph");
+            console.log(data);
             graph.nodes = graph.force.nodes();
             graph.links = graph.force.links();
-            for (var i=0; i<data.nodes.length; i++) {
-                graph.nodes.push(data.nodes[i]);
-                graph.update();
+            var n = data.nodes;
+            var l = data.links;
+            for (i=0; i<n.length; ++i) {
+                if (n[i]) {
+                    graph.nodes.push(n[i]);
+                    graph.update();
+                }
             }
-            for (var i=0; i<data.links.length; i++)  {
-                var sourceNode = graph.findNode(data.links[i].source);
-                var targetNode = graph.findNode(data.links[i].target);
-                newLink=data.links[i];
+            for (i=0; i<l.length; ++i) {
+                var sourceNode = graph.findNode(l[i].source);
+                var targetNode = graph.findNode(l[i].target);
+                newLink=l[i];
                 newLink.source=sourceNode;
                 newLink.target=targetNode;
                 graph.links.push(newLink);
@@ -360,8 +367,6 @@ GraphView.prototype.update = function() {
     // console.log("nodes");
     // console.log(this.nodes);
     // console.log("links");
-    console.log("this.links");
-    console.log(this.links);
     var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id"]; 
 
     var graph = this;
@@ -379,11 +384,8 @@ GraphView.prototype.update = function() {
         .style("stroke-width", 5)
         .each(function(d) {
             var header = d3.select(this);
-            console.log("in link enter")
-            console.log(d);
             // loop through the keys - this assumes no extra data
             d3.keys(d).forEach(function(key) {
-                console.log(key);
                 if (key != "id")
                     header.attr(key, d[key]);
             });

@@ -9,9 +9,10 @@ var Edge = function(v1, v2, attr) {
     	Edge.count ++;
     }
     //this.id = Edge.count;
+    this.graphID=attr.graphID;
     this.source=v1;
     this.target=v2;
-    this.id="Edge"+Edge.count;
+    this.id="GraphID"+this.graphID+"Edge"+Edge.count;
     if (attr) {
 		for (var key in attr) {
 			console.log(key);

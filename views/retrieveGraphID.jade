@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='./stylesheets/definitionstyle.css')
+    script(type='text/javascript').
+        var checkID = function() {
+            inputID = document.querySelector('#graphID').value;
+            console.log(inputID)
+            //check empty
+            errorMessage = "";
+            if (0 === inputID.length) {
+                errorMessage = "Empty ID is not allowed.";
+            }
+            //check illegal character
+            //check duplication
+            if (0 === errorMessage.length) {
+                //create the new graph with this ID
+                $.post( "/retrieveOldGraphID", {id: inputID}).done(function(data) {
+                    if (data.length > 0) {
+                        location.href='/editor';
+                    } else {
+                        errorMessage = "This ID does not exists.";
+                        $("#error").text(errorMessage);
+                    }
+                });
+            }
+            $("#error").text(errorMessage);
+        }
+  body
+    div
+        div
+            Please Input the Graph ID to Retrieve the Graph
+        div(id="error")
+        div
+            input(type="text" id="graphID")
+        div
+            button(onclick='checkID()') Next
+    block content
+    script(src='./javascripts/jquery.min.js')
+    script(src='//d3js.org/d3.v3.js')

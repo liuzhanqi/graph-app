@@ -17,8 +17,19 @@ router.get('/graphDefinition', function(req, res, next) {
 	res.render('graphDefinition');
 });
 
+router.get('/retrieveGraphID', function(req, res, next) {
+	res.render('retrieveGraphID');
+})
+
 router.get('/editor', function(req, res, next) {
 	res.render('index');
+});
+
+router.post('/retrieveOldGraphID', function(req,res,next) {
+	var id =req.body.id;
+	graph.retrieveOldGraphID(id, function(message) {
+		res.send(message);
+	});
 });
 
 router.post('/createGraphID', function(req,res,next) {
@@ -34,8 +45,10 @@ router.post('/createGraphDefinition', function(req,res,next) {
 });
 
 router.get('/getGraph', function(req,res,next) {
-	var data = graph.getGraph();
-	res.send(JSON.stringify(data));
+	var data = graph.getGraph(function(message) {
+		console.log(message);
+		res.send(message);
+	});
 });
 
 router.get('/getGraphDefinition', function(req,res,next) {

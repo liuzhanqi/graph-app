@@ -5,10 +5,15 @@ var host = 'localhost', port = 7474;
 var httpUrlForTransaction = 'http://' + host + ':' + port + '/db/data/transaction/commit';
 
 var Graph = function() {
-	this.vertexList=[];
-	this.edgeList=[];
-	this.adjList=[];
+	this.vertexList = [];
+	this.edgeList = [];
 	this.graphID = "";
+	this.state = ""; //"new" means get from memory, "old" means get from db
+}
+
+Graph.prototype.initialize = function() { 
+	this.vertexList = [];
+	this.edgeList = [];
 }
 
 Graph.prototype.createNewGraphID = function(graphid, callback) {
@@ -25,6 +30,34 @@ Graph.prototype.createNewGraphID = function(graphid, callback) {
 	    		console.log(resp);
 	    		message = resp.results[0].data[0].row[0];
 	    		that.graphID = graphid;
+	    		that.state = message.state;
+	    		if (that.state == "new") {
+	    			that.initialize();
+	    		}
+	    		callback(message);
+	    	}
+	  	}
+	);
+	//TODO: how to return message
+}
+
+
+Graph.prototype.retrieveOldGraphID = function(graphid, callback) {
+	var that = this;
+	runCypherQuery(
+		'MATCH (n:GRAPHID { graphid : {id}}) SET n.state="old" RETURN n',
+		{id: graphid}, 
+	    function (err, resp) {
+	    	if (err) {
+	    		console.log(err);
+	    	} else {
+	    		message = resp.results[0].data;
+	    		if (message.length>0) {
+	    			console.log("changing graph id to");
+	    			console.log(graphid);
+	    			that.graphID = graphid;
+	    			that.state = message[0].row[0].state;
+	    		}
 	    		callback(message);
 	    	}
 	  	}
@@ -64,13 +97,58 @@ Graph.prototype.getGraphDefinition = function(callback) {
 	);
 }
 
-Graph.prototype.getGraph = function() {
-	var data = {
-		"links" : this.edgeList,
-		"nodes" : this.vertexList
-	};
-	console.log(data);
-	return data;
+Graph.prototype.getGraph = function(callback) {
+	if (this.state == "new") {
+		var data = {
+			"links" : this.edgeList,
+			"nodes" : this.vertexList
+		};
+		console.log(data);
+		callback(data);
+	} else {
+		this.initialize();
+		console.log("getting nodes from db");
+		that = this;
+		runCypherQuery(
+			'MATCH (n {graphID:{id}}) return DISTINCT n',
+			// 'MATCH (n {graphID:{id}})' +
+			// 'OPTIONAL MATCH (n)-[r {graphID:{id}}]->()' +
+			// 'return n,r',
+			{id: that.graphID}, 
+		    function (err, r1) {
+		    	if (err) {
+		    		console.log(err);
+		    	} else {
+		    		n = r1.results[0].data;
+		    		for (i=0; i<n.length; ++i) {
+		                if (n[i].row[0]) {
+		                    that.vertexList.push(n[i].row[0]);
+		                }
+		            }
+		    		console.log("getting links from db");
+		    		runCypherQuery(
+		    			'MATCH ()-[r {graphID:{id}}]->() return DISTINCT r',
+		    			{id: that.graphID}, 
+		    			function (err, r2) {
+		    				if (err) {
+		    					console.log(err);
+		    				} else {
+		    					l = r2.results[0].data;
+		    					for (i=0; i<l.length; ++i) {
+					                that.edgeList.push(l[i].row[0]);
+					            }
+		    					var data = {
+									"links" : that.edgeList,
+									"nodes" : that.vertexList
+								};
+								callback(data);
+							}
+		    			}
+		    		);
+		    	}
+		  	}
+		);
+	}
 }
 
 Graph.prototype.createVertex = function () {
@@ -126,6 +204,7 @@ Graph.prototype.removeVertex = function(id) {
 
 //source and target are both id
 Graph.prototype.createEdge = function(source,target,attr) {
+	attr["graphID"] = this.graphID;
 	var newEdge = new Edge(source,target,attr);
 	console.log(newEdge);
 	this.edgeList.push(newEdge);

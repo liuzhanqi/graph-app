@@ -15,10 +15,17 @@ html
             )
             input(
                 type="image"
+                title="load graph from database"
+                id="load"
+                src='./images/load_button.png'
+                onclick="location.href='/retrieveGraphID'"
+            )
+            input(
+                type="image"
                 title="create edge"
                 id="create-edge"
                 src='./images/file_button.png'
-                onclick="entry.upload_file();"
+                onclick="location.href='/retrieveGraphID'"
             )
     block content
     script(src='//cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min.js')
