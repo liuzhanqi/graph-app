@@ -46,15 +46,14 @@ function GraphView(el,w,h) {
         isDirected: false
     };
 
+    var graph = this;
+
     // TODO: bulk adding and bulk removal
-    this.showInputBox();
-    console.log("here");
-    this.showGraph();
+    this.showInputBox(this.showGraph);
     // Make it all go
-    this.update();
 }
 
-GraphView.prototype.showInputBox = function() {
+GraphView.prototype.showInputBox = function(callback) {
     that = this;
    $.get( "/getGraphDefinition")
     .done(function( data ) {
@@ -100,11 +99,13 @@ GraphView.prototype.showInputBox = function() {
                 $row.insertAfter($lastRow);
             }
         }
+        callback();
     });
 }
 
 GraphView.prototype.showGraph = function() {
-    var graph = this;
+    console.log("in show graph");
+    console.log(this.state);
     $.get( "/getGraph")
         .done(function( data ) {
             console.log("in showGraph");
@@ -398,6 +399,8 @@ GraphView.prototype.update = function() {
         .attr("target", function(d) {return d.target.id;})
         .attr("id", function(d) {return d.id;})
         .attr("marker-end", function(d) {
+            console.log("market-end");
+            console.log(graph.state.isDirected);
             if (graph.state.isDirected)
                 return "url(#arrow)";
             else return "";

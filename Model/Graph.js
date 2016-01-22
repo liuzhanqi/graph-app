@@ -8,7 +8,8 @@ var Graph = function() {
 	this.vertexList = [];
 	this.edgeList = [];
 	this.graphID = "";
-	this.state = "new"; //"new" means get from memory, "old" means get from db
+	this.state = "new";
+	this.savedToDB = true;
 	this.isDirected = "off";
 }
 
@@ -102,7 +103,7 @@ Graph.prototype.getGraphDefinition = function(callback) {
 
 Graph.prototype.getGraph = function(callback) {
 	//TODO: get graph from memory have errors
-	if (this.state == "new") {
+	if (!this.savedToDB) {
 		var data = {
 			"links" : this.edgeList,
 			"nodes" : this.vertexList
@@ -153,6 +154,7 @@ Graph.prototype.getGraph = function(callback) {
 }
 
 Graph.prototype.createVertex = function () {
+	this.savedToDB = false;
 	var newVertex = new Vertex();
 	this.vertexList.push(newVertex);
 	// Neo4j query to create vertex
@@ -171,6 +173,7 @@ Graph.prototype.createVertex = function () {
 
 //create vertex with attributes
 Graph.prototype.createVertex = function (attributes) {
+	this.savedToDB = false;
 	attributes["graphID"] = this.graphID;
 	var newVertex = new Vertex(attributes);
 	this.vertexList.push(newVertex);
@@ -178,6 +181,7 @@ Graph.prototype.createVertex = function (attributes) {
 }
 
 Graph.prototype.removeVertex = function(id) {
+	this.savedToDB = false;
 	var i = 0;
 	while (i < this.edgeList.length) {
         if ((this.edgeList[i].source == id)||(this.edgeList[i].target == id)) {
@@ -205,6 +209,7 @@ Graph.prototype.removeVertex = function(id) {
 
 //source and target are both id
 Graph.prototype.createEdge = function(source,target,attr) {
+	this.savedToDB = false;
 	attr["graphID"] = this.graphID;
 	var newEdge = new Edge(source,target,attr);
 	console.log(newEdge);
@@ -226,6 +231,7 @@ Graph.prototype.createEdge = function(source,target,attr) {
 }
 
 Graph.prototype.removeEdge = function(id) {
+	this.savedToDB = false;
 	for (var i=0; i<this.edgeList.length; i++) {
         if (this.edgeList[i].id === id) {
             this.edgeList.splice(i, 1);
@@ -245,6 +251,7 @@ Graph.prototype.removeEdge = function(id) {
 }
 
 Graph.prototype.saveGraph = function() {
+	var that = this;
 	console.log(JSON.stringify(this.vertexList));
 	console.log(JSON.stringify(this.edgeList));
 	//TODO: unable to remove deleted nodes and edges
@@ -274,6 +281,7 @@ Graph.prototype.saveGraph = function() {
 	    		console.log(err);
 	    	} else {
 	    		console.log(resp);
+				that.savedToDB = false;
 	    	}
 	  	}
 	);
