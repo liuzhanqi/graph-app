@@ -32,10 +32,10 @@ html
                         td
                             input(type="text", name="edge-attribute1")
             div.newline
-                tr
-                    td
-                    td
-                        input(id="submit" type="submit", name="submit")
+                input(type="checkbox" name="isDirected") 
+                label Directed Graph
+                br
+                input(id="submit" type="submit", name="submit")
     block content
     script(src='./javascripts/jquery.min.js')
     script(src='./javascripts/form-actor.js')

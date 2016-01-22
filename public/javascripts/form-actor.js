@@ -60,7 +60,11 @@ $('#submit').click(function () {
                 definitions.nodeAttribute.push($(this).val());
             } else if (this.name.substring(0,14) === "edge-attribute") {
                 definitions.edgeAttribute.push($(this).val());
-            } else {
+            } else if (this.name == "isDirected") {
+                definitions.isDirected = $(this).is(':checked');
+            }
+            else {
+                //TODO: limit the name of attributes or modify the reserved names
                 definitions[this.name] = $(this).val();
             }
         }    

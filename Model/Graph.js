@@ -8,7 +8,8 @@ var Graph = function() {
 	this.vertexList = [];
 	this.edgeList = [];
 	this.graphID = "";
-	this.state = ""; //"new" means get from memory, "old" means get from db
+	this.state = "new"; //"new" means get from memory, "old" means get from db
+	this.isDirected = "off";
 }
 
 Graph.prototype.initialize = function() { 
@@ -67,6 +68,8 @@ Graph.prototype.retrieveOldGraphID = function(graphid, callback) {
 
 Graph.prototype.addGraphDefinition = function(definitions) {
 	var that = this;
+	that.isDirected = JSON.parse(definitions).isDirected;
+	console.log(that);
 	runCypherQuery(
 		'MATCH (n:GRAPHID { graphid: {id}}) SET n.definition = {def}',
 		{id: that.graphID, def:definitions}, 
@@ -98,6 +101,7 @@ Graph.prototype.getGraphDefinition = function(callback) {
 }
 
 Graph.prototype.getGraph = function(callback) {
+	//TODO: get graph from memory have errors
 	if (this.state == "new") {
 		var data = {
 			"links" : this.edgeList,
@@ -111,9 +115,6 @@ Graph.prototype.getGraph = function(callback) {
 		that = this;
 		runCypherQuery(
 			'MATCH (n {graphID:{id}}) return DISTINCT n',
-			// 'MATCH (n {graphID:{id}})' +
-			// 'OPTIONAL MATCH (n)-[r {graphID:{id}}]->()' +
-			// 'return n,r',
 			{id: that.graphID}, 
 		    function (err, r1) {
 		    	if (err) {

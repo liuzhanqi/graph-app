@@ -30,6 +30,8 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
 
     //graph.showGraph();
 
+    $('#arrow').html('<path d="M0,-5L10,0L0,5Z">');
+
 })(window.d3, window.saveAs, window.Blob);
 
 $('#addNodeButton').click(function () {

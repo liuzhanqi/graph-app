@@ -1,14 +1,19 @@
 body { 
-	background-color: rgb(248, 248, 248) 
+	background-color: rgb(248, 248, 248) ;
 }
-
+/*
 .container {
 	margin:0 auto;
 	width: 80%;
 }
+*/
 
 .left, .right, .center { 
 	width: 50%; float: left; 
+	text-align: center; 
+}
+
+.newline {
 	text-align: center; 
 }
 
@@ -16,16 +21,16 @@ table, .newline input{
 	margin: 0px auto;
 }
 
-.newline {
-	clear: both;
-}
-
 #error{
 	color: red;
 }
-
-span, input, select { 
+/*
+span, input { 
 	display: block; padding: 5px; margin: 5px; 
+}*/
+
+input { 
+	padding: 5px; margin: 5px; 
 }
 
 span   { 
@@ -34,7 +39,7 @@ span   {
 	font-weight: bold;     
 }
 
-input  { 
+.left input, .right input { 
 	width: 200px;            
 	height: 30px;      
 	box-sizing: border-box; 

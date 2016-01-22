@@ -13,6 +13,20 @@ function GraphView(el,w,h) {
         .call(this.zoom)
         .on("dblclick.zoom", null);
 
+    svg.append("defs").append("marker")
+        .attr({
+            "id":"arrow",
+            "viewBox":"0 -5 10 10",
+            "refX":5,
+            "refY":0,
+            "markerWidth":4,
+            "markerHeight":4,
+            "orient":"auto"
+        })
+        .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("class","arrowHead");
+
     var vis = this.vis = svg.append("g");
 
     this.force = d3.layout.force()
@@ -28,11 +42,13 @@ function GraphView(el,w,h) {
         selectedEdge: null,
         creatingNode: false,
         creatingEdge: false,
-        usingEraser: false
+        usingEraser: false,
+        isDirected: false
     };
 
     // TODO: bulk adding and bulk removal
     this.showInputBox();
+    console.log("here");
     this.showGraph();
     // Make it all go
     this.update();
@@ -45,6 +61,7 @@ GraphView.prototype.showInputBox = function() {
         data = JSON.parse(data);
         console.log("in showInputBox");
         console.log(data);
+        that.state.isDirected = data.isDirected;
         document.getElementById("node-name").innerHTML = data.nodeName;
         document.getElementById("edge-name").innerHTML = data.edgeName;
         for (index = 0; index < data.nodeAttribute.length; ++index) {
@@ -380,6 +397,11 @@ GraphView.prototype.update = function() {
         .attr("source", function(d) {return d.source.id;})
         .attr("target", function(d) {return d.target.id;})
         .attr("id", function(d) {return d.id;})
+        .attr("marker-end", function(d) {
+            if (graph.state.isDirected)
+                return "url(#arrow)";
+            else return "";
+        })
         .style("stroke", "#bbb")
         .style("stroke-width", 5)
         .each(function(d) {
@@ -482,7 +504,7 @@ GraphView.prototype.update = function() {
                         values[this.name] = $(this).val();
                     });
                     console.log(values);
-                    graph.addLink(nodeID,oldnodeID,values);
+                    graph.addLink(oldnodeID,nodeID,values);
                 }
             }
             if (!graph.state.usingEraser) {
