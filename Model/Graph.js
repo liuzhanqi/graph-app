@@ -61,6 +61,7 @@ Graph.prototype.retrieveOldGraphID = function(graphid, callback) {
 	    			that.state = message[0].row[0].state;
 	    		}
 	    		callback(message);
+	    		that.savedToDB = true;
 	    	}
 	  	}
 	);
@@ -248,23 +249,38 @@ Graph.prototype.removeEdge = function(id) {
 	//     	}
 	//   	}
 	// );
+};
+
+//public
+Graph.prototype.saveGraphToDB = function() {
+	this.clearGraphInDB(this.saveGraph);
 }
 
-Graph.prototype.saveGraph = function() {
+//private
+Graph.prototype.clearGraphInDB = function(callback) {
 	var that = this;
-	console.log(JSON.stringify(this.vertexList));
-	console.log(JSON.stringify(this.edgeList));
+	runCypherQuery(
+		'MATCH (n {graphID: {graphid}})' +
+		'OPTIONAL MATCH (n)-[r]-() DELETE n,r',
+		{graphid: that.graphID},
+	    function (err, resp) {
+	    	if (err) {
+	    		console.log(err);
+	    	} else {
+	    		console.log(resp);
+	    		callback(that);
+	    	}
+	  	}
+	);
+}
+
+//private
+Graph.prototype.saveGraph = function(graph) {
+	console.log(JSON.stringify(graph.vertexList));
+	console.log(JSON.stringify(graph.edgeList));
 	//TODO: unable to remove deleted nodes and edges
 	//TODO: edge attributes
 	runCypherQuery(
-		// 'FOREACH (edge IN {edges} |' +
-		// 'MERGE (node1:Node{id:edge.source})' +
-		// 'MERGE (node2:Node{id:edge.target})' +
-		// 'MERGE (node1)-[:Link{id:edge.id}]->(node2))' +
-		// 'FOREACH (node IN {nodes} |' +
-		// 'MERGE (n:Node{id:node.id}) ' + 
-		// 'ON CREATE SET n = node ' +
-		// 'ON MATCH SET n = node)',
 		'FOREACH (edge IN {edges} |' +
 		'MERGE (node1:Node{id:edge.source})' +
 		'MERGE (node2:Node{id:edge.target})' +
@@ -275,13 +291,13 @@ Graph.prototype.saveGraph = function() {
 		'MERGE (n:Node{id:node.id}) ' + 
 		'ON CREATE SET n = node ' +
 		'ON MATCH SET n = node)',
-		{edges: this.edgeList, nodes: this.vertexList},
+		{edges: graph.edgeList, nodes: graph.vertexList},
 	    function (err, resp) {
 	    	if (err) {
 	    		console.log(err);
 	    	} else {
 	    		console.log(resp);
-				that.savedToDB = false;
+				graph.savedToDB = false;
 	    	}
 	  	}
 	);

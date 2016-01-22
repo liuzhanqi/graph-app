@@ -84,7 +84,7 @@ router.post('/removeEdge' , function(req,res,next) {
 
 router.post('/saveGraph', function(req,rest,next) {
 	//console.log("this is save graph in router");
-	graph.saveGraph();
+	graph.saveGraphToDB();
 });
 
 router.get('/loadGraph', function(req,res,next) {
