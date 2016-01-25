@@ -47,6 +47,25 @@ table td:last-child {
     padding: 1em;
     z-index: 5;
     float: left;
+    clear:both;
+}
+
+#inputbox {
+    position: absolute;
+}
+
+#attributebox, #colorbox {
+    margin-top: 0.5em;
+    margin-left: 1em;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+    padding: 1em;
+    z-index: 5;
+    float: left;
+    clear: both;
+    font-family: consolas;
+    font-size: 18px;
+    color: rgb(110, 110, 110);
 }
 
 #console {
@@ -117,12 +136,4 @@ path.link.hidden{
 
 path.link.selected {
     stroke: rgb(229, 172, 247);
-}
-
-.inputbox{
-    width:200px;
-    position: absolute;
-/*  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;*/
 }

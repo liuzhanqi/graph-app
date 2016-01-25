@@ -4,35 +4,51 @@ html
     title= title
     link(rel='stylesheet', href='./stylesheets/style.css')
   body
-    div.inputbox
-        span(id="node-name")
-        form(id="add-node", name="add-node", method="post")
-          table
-            tr(id="node-attribute-row")
-              td(id="node-attribute-col")
-              td
-                input(type="text", name="type" id="node-attribute-input")
-        div
-            button#addNodeButton Add Nodes
-        span(id="edge-name")
-        form(id="add-edge", name="add-edge", method="post")
-          table
-            tr(id="edge-attribute-row")
-              td(id="edge-attribute-col")
-              td 
-                input(type="text", name="type" id="edge-attribute-input")
+    div#inputbox
+        div#attributebox
+            label Attribute Values
+            br
+            span(id="node-name")
+            form(id="add-node", name="add-node", method="post")
+              table
+                tr(id="node-attribute-row")
+                  td(id="node-attribute-col")
+                  td
+                    input(type="text", name="type" id="node-attribute-input")
+            div
+                button#addNodeButton Add Nodes
+            span(id="edge-name")
+            form(id="add-edge", name="add-edge", method="post")
+              table
+                tr(id="edge-attribute-row")
+                  td(id="edge-attribute-col")
+                  td 
+                    input(type="text", name="type" id="edge-attribute-input")
+        div#colorbox
+            table
+                tr
+                    td(colspan="2")
+                        label Color By Attribute
+                tr
+                    td
+                        label Name
+                    td
+                        input(type="text", id="colorname" name="colorByName")
+                tr
+                    td
+                        label Value
+                    td
+                        input(type="text", id="colorvalue" name="colorByValue")
+                tr
+                    td
+                        label Color
+                    td
+                        input(class="jscolor" id="colorcolor" name="colorByColor")
     div(id="graph")
         table(id="bottomContainer")
             tr
                 td
                     div(id="toolbox")
-                        input(
-                            type="image"
-                            title="create node"
-                            id="create-node"
-                            src='./images/node_button.svg'
-                            onclick="graph.toggle_draw_node();"
-                        )
                         input(
                             type="image"
                             title="create edge"
@@ -54,13 +70,6 @@ html
                             src='./images/save_button.png'
                             onclick="graph.save_graph();"
                         )
-                        input(
-                            type="image"
-                            title="upload json"
-                            id="upload_json"
-                            src='./images/file_button.png'
-                            onclick="graph.upload_file();"
-                        )
                 td
                     div(id="console")
     block content
@@ -71,3 +80,4 @@ html
     script(src='./javascripts/GraphView.js')
     script(src='./javascripts/graph-painter.js')
     script(src='./javascripts/form-actor.js')
+    script(src='./javascripts/jscolor.min.js')

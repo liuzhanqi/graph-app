@@ -45,3 +45,19 @@ $('#addNodeButton').click(function () {
     console.log(values);
     graph.addNode(values);
 });
+
+var colorHandler = function () {
+    d3.selectAll("circle").style("fill","#FFF");
+    var name = $('#colorname').val();
+    var value = $('#colorvalue').val();
+    var color = $('#colorcolor').val();
+    if (name!="" && value!="" && color!="") {
+        var selector = "circle[" + name + "='" + value + "']";
+        d3.selectAll(selector).style("fill", "#"+color);
+    }
+}
+
+$('#colorname').change(colorHandler);
+$('#colorvalue').change(colorHandler);
+$('#colorcolor').change(colorHandler);
+
