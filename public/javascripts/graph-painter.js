@@ -39,7 +39,9 @@ $('#addNodeButton').click(function () {
     var values = {};
     $inputs.each(function() {
         values[this.name] = $(this).val();
+        $(this).val("");
     });
+    $('#console').text("Node Created: " + JSON.stringify(values));
     console.log(values);
     graph.addNode(values);
 });

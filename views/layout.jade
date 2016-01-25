@@ -22,42 +22,47 @@ html
               td 
                 input(type="text", name="type" id="edge-attribute-input")
     div(id="graph")
-        div(id="toolbox")
-            input(
-                type="image"
-                title="create node"
-                id="create-node"
-                src='./images/node_button.svg'
-                onclick="graph.toggle_draw_node();"
-            )
-            input(
-                type="image"
-                title="create edge"
-                id="create-edge"
-                src='./images/edge_button.png'
-                onclick="graph.toggle_draw_edge();"
-            )
-            input(
-                type="image"
-                title="eraser"
-                id="eraser"
-                src='./images/eraser_button.png'
-                onclick="graph.toggle_eraser();"
-            )
-            input(
-                type="image"
-                title="save graph to datavase"
-                id="save"
-                src='./images/save_button.png'
-                onclick="graph.save_graph();"
-            )
-            input(
-                type="image"
-                title="upload json"
-                id="upload_json"
-                src='./images/file_button.png'
-                onclick="graph.upload_file();"
-            )
+        table(id="bottomContainer")
+            tr
+                td
+                    div(id="toolbox")
+                        input(
+                            type="image"
+                            title="create node"
+                            id="create-node"
+                            src='./images/node_button.svg'
+                            onclick="graph.toggle_draw_node();"
+                        )
+                        input(
+                            type="image"
+                            title="create edge"
+                            id="create-edge"
+                            src='./images/edge_button.png'
+                            onclick="graph.toggle_draw_edge();"
+                        )
+                        input(
+                            type="image"
+                            title="eraser"
+                            id="eraser"
+                            src='./images/eraser_button.png'
+                            onclick="graph.toggle_eraser();"
+                        )
+                        input(
+                            type="image"
+                            title="save graph to datavase"
+                            id="save"
+                            src='./images/save_button.png'
+                            onclick="graph.save_graph();"
+                        )
+                        input(
+                            type="image"
+                            title="upload json"
+                            id="upload_json"
+                            src='./images/file_button.png'
+                            onclick="graph.upload_file();"
+                        )
+                td
+                    div(id="console")
     block content
     script(src='//cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min.js')
     script(src='./javascripts/jquery.min.js')

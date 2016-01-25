@@ -25,16 +25,33 @@ circle{
     fill:white;
 }
 
-#toolbox{
+#bottomContainer {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+table td:first-child {
+    white-space: nowrap;
+}
+
+table td:last-child {
+    width: 100%;
+}
+
+#toolbox, #console{
     margin-bottom: 0.5em;
     margin-left: 1em;
-    border: 2px solid #EEEEEE;
+    border: 2px solid #CCC;
     border-radius: 5px;
     padding: 1em;
     z-index: 5;
+    float: left;
+}
+
+#console {
+    width: 700px;
+    height: 55.6px;
 }
 
 #toolbox input{

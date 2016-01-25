@@ -385,7 +385,7 @@ GraphView.prototype.update = function() {
     // console.log("nodes");
     // console.log(this.nodes);
     // console.log("links");
-    var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id"]; 
+    var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id", "source", "target"]; 
 
     var graph = this;
 
@@ -415,15 +415,26 @@ GraphView.prototype.update = function() {
                     header.attr(key, d[key]);
             });
         })
-        .on("mouseover", function(){
+        .on("mouseover", function(d){
             //if (this.state.selectedEdge!=d3.select(this).attr("id") )
             d3.select(this).style("stroke", "LightSkyBlue ");
             //console.log("mouse over " + d3.select(this).attr("id"));
-            //TODO:link attributes
+            // show edge attribute in console
+            d3.select("#console").text(function() {
+                    var header = d3.select(that);
+                    var label = "";
+                    // loop through the keys - this assumes no extra data
+                    d3.keys(d).forEach(function(key) {
+                        if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
+                            label+=key+": "+d[key]+"; ";
+                    });
+                    return label;
+                });
         })
         .on("mouseout", function(){
             graph.updateColor(d3.select(this));
-            d3.select(this.parentNode).select('text.info').remove();
+            d3.select("#console").text("");
+            //d3.select(this.parentNode).select('text.info').remove();
         })
         .on("click", function() {
             linkID = d3.select(this).attr("id");
@@ -468,15 +479,13 @@ GraphView.prototype.update = function() {
                     header.attr(key, d[key]);
             });
         })
-        .on("mouseover", function(){
+        .on("mouseover", function(d){
             //if (this.state.selectedNode!=d3.select(this).attr("id") )
             d3.select(this).style("fill", "LightSkyBlue ");
-            d3.select(this.parentNode).append("text")
-                .classed("info", true)
-                .attr("dx", 0)
-                .attr("dy", -20)
-                .text(function(d) {
-                    var header = d3.select(this);
+            var that = this;
+            // show label in the console
+            d3.select("#console").text(function() {
+                    var header = d3.select(that);
                     var label = "";
                     // loop through the keys - this assumes no extra data
                     d3.keys(d).forEach(function(key) {
@@ -485,10 +494,26 @@ GraphView.prototype.update = function() {
                     });
                     return label;
                 });
+            // show label near the circle
+            // d3.select(this.parentNode).append("text")
+            //     .classed("info", true)
+            //     .attr("dx", 0)
+            //     .attr("dy", -20)
+            //     .text(function(d) {
+            //         var header = d3.select(this);
+            //         var label = "";
+            //         // loop through the keys - this assumes no extra data
+            //         d3.keys(d).forEach(function(key) {
+            //             if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
+            //                 label+=key+": "+d[key]+"; ";
+            //         });
+            //         return label;
+            //     });
         })
         .on("mouseout", function(){
             graph.updateColor(d3.select(this));
-            d3.select(this.parentNode).select('text.info').remove();
+            d3.select("#console").text("");
+            //d3.select(this.parentNode).select('text.info').remove();
         })
         .on("click", function() {
             nodeID = d3.select(this).attr("id");
@@ -505,6 +530,7 @@ GraphView.prototype.update = function() {
                     var values = {};
                     $inputs.each(function() {
                         values[this.name] = $(this).val();
+                        $(this).val("");
                     });
                     console.log(values);
                     graph.addLink(oldnodeID,nodeID,values);
