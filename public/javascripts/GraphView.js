@@ -1,10 +1,14 @@
 function GraphView(el,w,h) {
 
+    var that = this;
+
     this.zoom = d3.behavior.zoom()
         .scaleExtent([1, 10])
         .on("zoom", function() {
-            vis.attr("transform", 
-                "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+            if (!that.state.usingSelection) {
+                vis.attr("transform", 
+                    "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+            }
         });
 
     var svg = this.svg = d3.select(el).append("svg:svg")
@@ -39,7 +43,7 @@ function GraphView(el,w,h) {
 
     this.state = {
         selectedNode: null,
-        selectedEdge: null,
+        //selectedEdge: null,
         creatingNode: false,
         creatingEdge: false,
         usingEraser: false,
@@ -228,79 +232,51 @@ GraphView.prototype.findNodeIndex = function (id) {
     };
 }
 
-GraphView.prototype.updateColor = function (target) {
-    if (target==null) return;
-    if (target.attr("class")==="circle") {
-        var node=target;
-        var nodeID = node.attr("id");
-        //console.log("updating color for " + nodeID);
-        if (!this.state.selectedNode || this.state.selectedNode != nodeID) {
-            node.style("fill", "white");
-        } else {
-            node.style("fill", "LightCoral");
-        }
-    } else {
-        var link=target;
-        var linkID = link.attr("id");
-        //console.log("updating color for " + nodeID);
-        if (!this.state.selectedEdge || this.state.selectedEdge != linkID) {
-            link.style("stroke", "#bbb");
-        } else {
-            link.style("stroke", "LightCoral");
-        }
-    }
-};
-
 GraphView.prototype.cancelNodeSelection = function() {
+    d3.select('circle.selected').classed("selected", false);
     if (this.state.selectedNode !== null) {
-        d3.select("#"+this.state.selectedNode).style("fill", "white");
         this.state.selectedNode=null;
     }
 }
 
 GraphView.prototype.cancelLinkSelection = function() {
+    d3.select('line.selected').classed("selected", false);
     if (this.state.selectedEdge !== null) {
-        d3.select("#"+this.state.selectedEdge).style("stroke", "#bbb");
         this.state.selectedEdge=null;
     }
 }
 
 GraphView.prototype.toggleSelectNode = function (nodeID) {
     this.cancelLinkSelection();
-    //cancel selection
+    var currentNode = d3.select("#"+nodeID);
+    if (!currentNode.classed( "selected")) {
+        d3.select('circle.selected').classed("selected", false);
+        currentNode.classed("selected", true);
+    } else {
+        currentNode.classed("selected", false);
+    }
+    //update selectedNode
     if (this.state.selectedNode == nodeID) {
         this.state.selectedNode = null;
-        d3.select("#"+nodeID).style("fill", "white");
     } else {
-        var oldnodeID = this.state.selectedNode;
         this.state.selectedNode = nodeID;
-        if (oldnodeID!=null) {
-            var oldnode = d3.select("#"+oldnodeID);
-            //console.log("calling update color for " + oldnodeID);
-            this.updateColor(oldnode);
-        }
-        var node=d3.select("#"+nodeID);
-        //console.log("calling update color for " + nodeID);
-        this.updateColor(node);
     }
 };
 
 GraphView.prototype.toggleSelectEdge = function (linkID) {
     this.cancelNodeSelection();
+    var currentEdge = d3.select("#"+linkID);
+    if (!currentEdge.classed( "selected")) {
+        d3.select('line.selected').classed("selected", false);
+        currentEdge.classed("selected", true);
+    } else {
+        currentEdge.classed("selected", false);
+    }
+    //update selectedEdge
     if (this.state.selectedEdge == linkID) {
         this.state.selectedEdge = null;
-        d3.select("#"+linkID).style("stroke", "#bbb");
     } else {
-        var oldlinkID = this.state.selectedEdge;
         this.state.selectedEdge = linkID;
-        if (oldlinkID!=null) {
-            var oldlink = d3.select("#"+oldlinkID);
-            //console.log("calling update color for " + oldnodeID);
-            updateColor(oldlink);
-        }
-        var link=d3.select("#"+linkID);
-        //console.log("calling update color for " + nodeID);
-        updateColor(link);
     }
 };
 
@@ -308,9 +284,11 @@ GraphView.prototype.all_button_false = function() {
     this.state.creatingNode=false;
     this.state.creatingEdge=false;
     this.state.usingEraser=false;
-    d3.select("#create-edge").attr("style","opacity:0.4;");
-    d3.select("#create-node").attr("style","opacity:0.4;");
-    d3.select("#eraser").attr("style","opacity:0.4;");
+    this.state.usingSelection=false;
+    d3.select("#create-edge-button").attr("style","opacity:0.4;");
+    d3.select("#create-node-button").attr("style","opacity:0.4;");
+    d3.select("#eraser-button").attr("style","opacity:0.4;");
+    d3.select('#selection-button').attr("style","opacity:0.4;");
 }
 
 GraphView.prototype.toggle_draw_node = function() {
@@ -320,7 +298,7 @@ GraphView.prototype.toggle_draw_node = function() {
     } else {
         this.all_button_false();
         this.state.creatingNode=true;
-        d3.select("#create-node").attr("style","opacity:1.0;");
+        d3.select("#create-node-button").attr("style","opacity:1.0;");
         console.log("draw node to true");
     }
 };
@@ -331,7 +309,7 @@ GraphView.prototype.toggle_draw_edge = function() {
     } else {
         this.all_button_false();
         this.state.creatingEdge=true;
-        d3.select("#create-edge").attr("style","opacity:1.0;");
+        d3.select("#create-edge-button").attr("style","opacity:1.0;");
         console.log("draw edge to true");
     }
 };
@@ -342,10 +320,21 @@ GraphView.prototype.toggle_eraser = function() {
     } else {
         this.all_button_false();
         this.state.usingEraser=true;
-        d3.select("#eraser").attr("style","opacity:1.0;");
+        d3.select("#eraser-button").attr("style","opacity:1.0;");
         console.log("using eraser to true");
     }
 };
+
+GraphView.prototype.toggle_selection = function() {
+    if (this.state.usingSelection) {
+        this.all_button_false();
+    } else {
+        this.all_button_false();
+        this.state.usingSelection=true;
+        d3.select("#selection-button").attr("style","opacity:1.0;");
+        console.log("selection to true");
+    }
+}
 
 GraphView.prototype.save_graph = function() {
     //TODO for now, save graph wont delete the deleted node in db.
@@ -405,7 +394,7 @@ GraphView.prototype.update = function() {
                 return "url(#arrow)";
             else return "";
         })
-        .style("stroke", "#bbb")
+        //.style("stroke", "#bbb")
         .style("stroke-width", 5)
         .each(function(d) {
             var header = d3.select(this);
@@ -416,9 +405,7 @@ GraphView.prototype.update = function() {
             });
         })
         .on("mouseover", function(d){
-            //if (this.state.selectedEdge!=d3.select(this).attr("id") )
-            d3.select(this).style("stroke", "LightSkyBlue ");
-            //console.log("mouse over " + d3.select(this).attr("id"));
+            d3.select(this).classed("selecting", true);
             // show edge attribute in console
             d3.select("#console").text(function() {
                     var header = d3.select(that);
@@ -432,7 +419,7 @@ GraphView.prototype.update = function() {
                 });
         })
         .on("mouseout", function(){
-            graph.updateColor(d3.select(this));
+            d3.select(this).classed("selecting", false);
             d3.select("#console").text("");
             //d3.select(this.parentNode).select('text.info').remove();
         })
@@ -452,6 +439,11 @@ GraphView.prototype.update = function() {
 
     var drag = this.force.drag() 
         .on('dragstart', function disableZooming() {
+            console.log("dragstart");
+            if (graph.state.usingEraser) {
+                console.log("setting drag to null");
+                drag.on("drag", null);
+            }
             var fake = d3.behavior.zoom();
             graph.svg.call(fake);
         })
@@ -463,7 +455,7 @@ GraphView.prototype.update = function() {
 
     var nodeEnter = node.enter().append("g")
         .attr("class", "node")
-        .call(this.force.drag);
+        .call(drag);
 
     nodeEnter.append("circle")
         .attr("class","circle")
@@ -480,8 +472,7 @@ GraphView.prototype.update = function() {
             });
         })
         .on("mouseover", function(d){
-            //if (this.state.selectedNode!=d3.select(this).attr("id") )
-            d3.select(this).style("fill", "LightSkyBlue ");
+            d3.select(this).classed("selecting", true);
             var that = this;
             // show label in the console
             d3.select("#console").text(function() {
@@ -511,7 +502,7 @@ GraphView.prototype.update = function() {
             //     });
         })
         .on("mouseout", function(){
-            graph.updateColor(d3.select(this));
+            d3.select(this).classed("selecting", false);
             d3.select("#console").text("");
             //d3.select(this.parentNode).select('text.info').remove();
         })
@@ -520,6 +511,9 @@ GraphView.prototype.update = function() {
             if (graph.state.usingEraser) {
                 graph.removeNode(nodeID);
                 if (graph.state.selectedNode == nodeID) graph.state.selectedNode=null;
+                if (!d3.select(this).classed( "selected")) {
+                    d3.select(this).classed("selected", true);
+                }
             }
             if (graph.state.creatingEdge) {
                 oldnodeID = graph.state.selectedNode;

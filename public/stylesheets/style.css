@@ -137,3 +137,30 @@ path.link.hidden{
 path.link.selected {
     stroke: rgb(229, 172, 247);
 }
+
+rect.selection {
+    stroke          : gray;
+    stroke-dasharray: 4px;
+    stroke-opacity  : 0.5;
+    fill            : transparent;
+}
+
+circle{
+    fill:white;
+}
+circle.selected{
+    fill:LightCoral;
+}
+circle.selecting{
+    fill:LightSkyBlue;
+}
+line {
+    stroke:#bbb;
+}
+line.selected{
+    stroke:LightCoral;
+}
+line.selecting{
+    stroke:LightSkyBlue;
+}
+

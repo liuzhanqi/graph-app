@@ -52,23 +52,30 @@ html
                         input(
                             type="image"
                             title="create edge"
-                            id="create-edge"
+                            id="create-edge-button"
                             src='./images/edge_button.png'
                             onclick="graph.toggle_draw_edge();"
                         )
                         input(
                             type="image"
                             title="eraser"
-                            id="eraser"
+                            id="eraser-button"
                             src='./images/eraser_button.png'
                             onclick="graph.toggle_eraser();"
                         )
                         input(
                             type="image"
                             title="save graph to datavase"
-                            id="save"
+                            id="save-button"
                             src='./images/save_button.png'
                             onclick="graph.save_graph();"
+                        )
+                        input(
+                            type="image"
+                            title="rectangular seelction"
+                            id="selection-button"
+                            src='./images/selection.png'
+                            onclick="graph.toggle_selection();"
                         )
                 td
                     div(id="console")
