@@ -77,6 +77,13 @@ html
                             src='./images/selection.png'
                             onclick="graph.toggle_selection();"
                         )
+                        input(
+                            type="image"
+                            title="extract a subgraph"
+                            id="extract-button"
+                            src='./images/extract.png'
+                            onclick="graph.extract_subgraph();"
+                        )
                 td
                     div(id="console")
     block content

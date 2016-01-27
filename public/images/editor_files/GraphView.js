@@ -221,41 +221,18 @@ GraphView.prototype.removeLink = function (id) {
 GraphView.prototype.extract_subgraph = function() {
     this.all_button_false();
     console.log("extract_subgraph");
-    var nodes = [];
-    d3.selectAll("circle.selected").each(function (node) {
-        nodes.push(node.id);
+    var lines = d3.selectAll("line");
+    console.log(lines);
+    d3.selectAll("line").each(function (l) {
+        console.log(l.attr("source"));
+        // var s = d3.select(l.source).classed("selected");
+        // var t = d3.select(l.target).classed("selected");
+        // console.log(s);
+        // console.log(t);
     });
-    console.log(nodes);
-    $.post( "/extractSubgraph", {nodes : JSON.stringify(nodes)})
-        .done(function( data ) {
-            console.log("in showGraph");
-            console.log(data);
-            // graph.nodes = graph.force.nodes();
-            // graph.links = graph.force.links();
-            graph.nodes.splice(0,graph.nodes.length);
-            graph.links.splice(0,graph.links.length);
-            console.log(graph.nodes);
-            console.log(graph.links);
-            var n = data.nodes;
-            var l = data.links;
-            for (i=0; i<n.length; ++i) {
-                if (n[i]) {
-                    graph.nodes.push(n[i]);
-                    graph.update();
-                }
-            }
-            for (i=0; i<l.length; ++i) {
-                var sourceNode = graph.findNode(l[i].source);
-                var targetNode = graph.findNode(l[i].target);
-                newLink=l[i];
-                newLink.source=sourceNode;
-                newLink.target=targetNode;
-                graph.links.push(newLink);
-                graph.update();
-            }
-            console.log(graph.nodes);
-            console.log(graph.links);
-        });
+    d3.selectAll("circle:not(.selected)").each(function (n) {
+        console.log(n);
+    });
 }
 
 GraphView.prototype.findNode = function (id) {

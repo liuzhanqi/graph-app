@@ -102,6 +102,37 @@ Graph.prototype.getGraphDefinition = function(callback) {
 	);
 }
 
+Graph.prototype.extractSubgraph = function(nodes, callback) {
+	this.savedToDB = false;
+	console.log("extractSubgraph");
+	console.log(JSON.stringify(nodes));
+	for(var i = this.edgeList.length - 1; i >= 0; i--) {
+		var s = false, t = false;
+		for (var j = 0; j < nodes.length; j++) {
+			if (this.edgeList[i].source == nodes[j]) s = true;
+			if (this.edgeList[i].target == nodes[j]) t = true;
+		}
+	    if(!(s&&t)) {
+	    	this.edgeList.splice(i, 1);
+	    }
+	}
+	for(var i = this.vertexList.length - 1; i >= 0; i--) {
+		var contains = false;
+		for (var j = 0; j < nodes.length; j++) {
+			if (this.vertexList[i].id == nodes[j]) contains = true;
+		}
+	    if(!contains) {
+	    	this.vertexList.splice(i, 1);
+	    }
+	}
+	var data = {
+			"links" : this.edgeList,
+			"nodes" : this.vertexList
+	};
+	console.log(data);
+	callback(data);
+}
+
 Graph.prototype.getGraph = function(callback) {
 	//TODO: get graph from memory have errors
 	if (!this.savedToDB) {

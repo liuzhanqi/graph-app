@@ -94,4 +94,13 @@ router.get('/loadGraph', function(req,res,next) {
 	});
 });
 
+router.post('/extractSubgraph', function(req,res,next) {
+	var nodes = JSON.parse(req.body['nodes']);
+	console.log("in index /extractSubgraph");
+	console.log(nodes);
+	graph.extractSubgraph(nodes, function(data) {
+		res.send(data);
+	})
+})
+
 module.exports = router;
