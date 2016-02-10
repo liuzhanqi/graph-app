@@ -54,7 +54,7 @@ table td:last-child {
     position: absolute;
 }
 
-#attributebox, #colorbox {
+#attributebox, #colorbox, #extractbox {
     margin-top: 0.5em;
     margin-left: 1em;
     border: 2px solid #CCC;
@@ -66,6 +66,7 @@ table td:last-child {
     font-family: consolas;
     font-size: 18px;
     color: rgb(110, 110, 110);
+    display: table;
 }
 
 #console {

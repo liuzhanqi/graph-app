@@ -24,6 +24,32 @@ html
                   td(id="edge-attribute-col")
                   td 
                     input(type="text", name="type" id="edge-attribute-input")
+
+        div#extractbox
+            table
+                tr
+                    td(colspan="2")
+                        label Extract By Attribute
+                tr
+                    td
+                        label Name
+                    td
+                        input(type="text", id="extractname" name="extractByName")
+                tr
+                    td
+                        label Value
+                    td
+                        input(type="text", id="extractvalue" name="extractByValue")
+                tr
+                    td
+                        label Hops
+                    td
+                        input(type="text", id="extracthop" name="extractByHop")
+                tr
+                    td
+                        button(id="highlightbutton") Highlight
+                    td
+                        button(id="extractbutton") Extract
         div#colorbox
             table
                 tr

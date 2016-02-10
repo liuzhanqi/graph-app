@@ -163,18 +163,28 @@ GraphView.prototype.addNode = function (attributeDict) {
 };
 
 GraphView.prototype.removeNode = function (id) {
+    console.log("removeNode" + id);
     var i = 0;
     var n = this.findNode(id);
+    console.log(n);
+    console.log(this.links);
     while (i < this.links.length) {
-        if ((this.links[i]['source'] === n)||(this.links[i]['target'] == n)) this.links.splice(i,1);
-        else i++;
+        if ((this.links[i]['source'] === n)||(this.links[i]['target'] == n)) {
+            this.links.splice(i,1);
+        }
+        else {
+            i++;
+        }
     }
+    console.log(this.links);
+    console.log(this.nodes);
     var index = this.findNodeIndex(id);
     if(index !== undefined) {
         this.nodes.splice(index, 1);
-        this.update();
         $.post( "/removeNode", {id: id});
     }
+    console.log(this.nodes);
+    this.update();
 };
 
 GraphView.prototype.addLink = function (sourceId, targetId, attributeDict) {
@@ -410,7 +420,8 @@ GraphView.prototype.load_graph = function() {
 
 GraphView.prototype.update = function() {
     //console.log(JSON.stringify(nodes));
-    //console.log(JSON.stringify(links));
+    // //console.log(JSON.stringify(links));
+    // console.log("GraphView.prototype.update");
     // console.log("nodes");
     // console.log(this.nodes);
     // console.log("links");
@@ -497,6 +508,7 @@ GraphView.prototype.update = function() {
         .attr("class", "node")
         .call(drag);
 
+    //BUG: update issue, redo: delete a random node
     nodeEnter.append("circle")
         .attr("class","circle")
         .attr("r",20)
@@ -546,14 +558,15 @@ GraphView.prototype.update = function() {
             d3.select("#console").text("");
             //d3.select(this.parentNode).select('text.info').remove();
         })
-        .on("click", function() {
+        .on("click", function(e) {
             nodeID = d3.select(this).attr("id");
             if (graph.state.usingEraser) {
                 graph.removeNode(nodeID);
                 if (graph.state.selectedNode == nodeID) graph.state.selectedNode=null;
-                if (!d3.select(this).classed( "selected")) {
-                    d3.select(this).classed("selected", true);
-                }
+                // if (d3.select(this).classed( "selected")) {
+                //     console.log("selected true in node click event");
+                //     d3.select(this).classed("selected", true);
+                // }
             }
             if (graph.state.creatingEdge) {
                 oldnodeID = graph.state.selectedNode;

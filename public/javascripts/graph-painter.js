@@ -17,6 +17,16 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
     //         graph.addNode("Node"+x+"_"+y);
     //     }
     // });
+    graph.shiftKeyPressed = false;
+    $(window).keydown(function(evt) {
+        if (evt.keyCode == 16) {
+            graph.shiftKeyPressed = true;
+        }
+    }).keyup(function(evt) {
+        if (evt.keyCode == 16) {
+            graph.shiftKeyPressed = false;
+        }
+    });
 
     graph.svg.on( "mousedown", function() {
         console.log("mousedown selected false");
@@ -120,7 +130,56 @@ var colorHandler = function () {
     }
 }
 
+var highlightHandler = function() {
+    console.log("highlightHandler");
+    var name = $('#extractname').val();
+    var value = $('#extractvalue').val();
+    var hop = $('#extracthop').val();
+    if (name!="" && value!="" && hop!="") {
+        var selector = "circle[" + name + "='" + value + "']";
+        d3.selectAll(selector).style("fill", "red");
+    }
+}
+
+var extractHandler = function() {
+    console.log("extractHandler");
+    var name = $('#extractname').val();
+    var value = $('#extractvalue').val();
+    var hop = $('#extracthop').val();    
+    $.post( "/extractSubgraphByAttribute", {name: name, value: value, hop: hop})
+        .done(function( data ) {
+            console.log("in showGraph");
+            console.log(data);
+            // graph.nodes = graph.force.nodes();
+            // graph.links = graph.force.links();
+            graph.nodes.splice(0,graph.nodes.length);
+            graph.links.splice(0,graph.links.length);
+            console.log(graph.nodes);
+            console.log(graph.links);
+            var n = data.nodes;
+            var l = data.links;
+            for (i=0; i<n.length; ++i) {
+                if (n[i]) {
+                    graph.nodes.push(n[i]);
+                    graph.update();
+                }
+            }
+            for (i=0; i<l.length; ++i) {
+                var sourceNode = graph.findNode(l[i].source);
+                var targetNode = graph.findNode(l[i].target);
+                newLink=l[i];
+                newLink.source=sourceNode;
+                newLink.target=targetNode;
+                graph.links.push(newLink);
+                graph.update();
+            }
+            console.log(graph.nodes);
+            console.log(graph.links);
+        });
+}
+
 $('#colorname').change(colorHandler);
 $('#colorvalue').change(colorHandler);
 $('#colorcolor').change(colorHandler);
-
+$('#highlightbutton').click(highlightHandler);
+$('#extractbutton').click(extractHandler);

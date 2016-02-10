@@ -103,4 +103,17 @@ router.post('/extractSubgraph', function(req,res,next) {
 	})
 })
 
+router.post('/extractSubgraphByAttribute', function(req,res,next) {
+	var name = req.body.name;
+	var value = req.body.value;
+	var hop = req.body.hop;
+	console.log("in index /extractSubgraphByAttribute");
+	console.log(name);
+	console.log(value);
+	console.log(hop);
+	graph.extractSubgraphByAttribute(name, value, hop, function(data) {
+		res.send(data);
+	})
+})
+
 module.exports = router;

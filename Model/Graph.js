@@ -11,6 +11,7 @@ var Graph = function() {
 	this.state = "new";
 	this.savedToDB = true;
 	this.isDirected = "off";
+	this.adjacencyList = [];
 }
 
 Graph.prototype.initialize = function() { 
@@ -131,6 +132,73 @@ Graph.prototype.extractSubgraph = function(nodes, callback) {
 	};
 	console.log(data);
 	callback(data);
+}
+
+Graph.prototype.buildAdjacencyList = function() {
+	console.log("buildAdjacencyList");
+	var IDtoindex = [];
+	this.adjacencyList = [];
+	for(var i = 0; i < this.vertexList.length; i++) { 
+		this.adjacencyList[i] = [];
+		IDtoindex[this.vertexList[i].id] = i;
+	}
+	for (var i = 0; i < this.edgeList.length; i++) {
+		var s = this.edgeList[i].source;
+		var t = this.edgeList[i].target;
+		var si = IDtoindex[s];
+		var ti = IDtoindex[t];
+		this.adjacencyList[si].push(ti);
+		this.adjacencyList[ti].push(si);
+	}
+	console.log(this.vertexList);
+	console.log(this.edgeList);
+	console.log(this.adjacencyList);
+}
+
+
+Graph.prototype.extractSubgraphByAttribute = function(name, value, hop, callback) {
+	this.savedToDB = false;
+	console.log("extractSubgraphByAttribute");
+	//TODO: Computation, implement graph data structure
+	this.buildAdjacencyList();
+	//TODO: BFS hop level and color the selected nodes and edges
+	// step 1, make all node with name and value to selected
+	var mark = [];
+	var queue = [];
+	var head = 0;
+	var tail = 0;
+	for(var i = 0; i < this.vertexList.length; i++) { 
+		if (this.vertexList[i][name] == value) {
+			mark[i] = true; 
+			queue.push({index: i, depth: 0});
+			tail++;
+		} else {
+			mark[i] = false;
+		}
+	}
+	// step 2, BFS to mark all the node within k hops
+	while (head < tail) {
+		var v = queue[head];
+		console.log(v);
+		head++;
+		if (v.depth == hop) continue;
+		for (var i = 0; i < this.adjacencyList[v.index].length; i++) {
+			var u = this.adjacencyList[v.index][i];
+			if (mark[u] == false) {
+				queue.push({index: u, depth:(v.depth+1) });
+				tail++;
+				mark[u] = true;
+			}
+		}
+	}
+	// step 3, prepare the id list for extraction
+	var nodes = [];
+	for(var i = 0; i < this.vertexList.length; i++) { 
+		if (mark[i]) {
+			nodes.push(this.vertexList[i].id);
+		}
+	}
+	this.extractSubgraph(nodes,callback);
 }
 
 Graph.prototype.getGraph = function(callback) {
