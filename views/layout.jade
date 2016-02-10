@@ -24,7 +24,26 @@ html
                   td(id="edge-attribute-col")
                   td 
                     input(type="text", name="type" id="edge-attribute-input")
-
+        div#extractcenterbox
+            table
+                tr
+                    td(colspan="2")
+                        label Extract By Attribute
+                tr
+                    td
+                        label Center
+                    td
+                        input(type="text", id="extractcenterid" name="extractCenterByID")
+                tr
+                    td
+                        label Hops
+                    td
+                        input(type="text", id="extractcenterhop" name="extractCenterByHop")
+                tr
+                    td
+                        button(id="highlightbutton") Highlight
+                    td
+                        button(id="extractcenterbutton") Extract
         div#extractbox
             table
                 tr
@@ -121,3 +140,4 @@ html
     script(src='./javascripts/graph-painter.js')
     script(src='./javascripts/form-actor.js')
     script(src='./javascripts/jscolor.min.js')
+    script(src='https://code.jquery.com/ui/1.10.3/jquery-ui.min.js')

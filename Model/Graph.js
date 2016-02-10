@@ -201,6 +201,58 @@ Graph.prototype.extractSubgraphByAttribute = function(name, value, hop, callback
 	this.extractSubgraph(nodes,callback);
 }
 
+Graph.prototype.extractSubgraphByCenter = function(id, hop, callback) {
+	console.log("id = " + id);
+	this.savedToDB = false;
+	console.log("extractSubgraphByCenter");
+	//TODO: Computation, implement graph data structure
+	this.buildAdjacencyList();
+	//TODO: BFS hop level and color the selected nodes and edges
+	// step 1, make all node with name and value to selected
+	var mark = [];
+	var queue = [];
+	var head = 0;
+	var tail = 0;
+	for(var i = 0; i < this.vertexList.length; i++) { 
+		console.log("this.vertexList[i].id = " + this.vertexList[i].id);
+		if (this.vertexList[i].id == id) {
+			mark[i] = true; 
+			queue.push({index: i, depth: 0});
+			tail++;
+		} else {
+			mark[i] = false;
+		}
+	}
+	console.log("mark = " + mark);
+	console.log("head = " + head);
+	console.log("tail = " + tail);
+	console.log("hop = " + hop);
+	// step 2, BFS to mark all the node within k hops
+	while (head < tail) {
+		var v = queue[head];
+		console.log(v);
+		head++;
+		if (v.depth == hop) continue;
+		for (var i = 0; i < this.adjacencyList[v.index].length; i++) {
+			var u = this.adjacencyList[v.index][i];
+			if (mark[u] == false) {
+				queue.push({index: u, depth:(v.depth+1) });
+				tail++;
+				mark[u] = true;
+			}
+		}
+	}
+	// step 3, prepare the id list for extraction
+	var nodes = [];
+	for(var i = 0; i < this.vertexList.length; i++) { 
+		if (mark[i]) {
+			nodes.push(this.vertexList[i].id);
+		}
+	}
+	this.extractSubgraph(nodes,callback);
+}
+
+
 Graph.prototype.getGraph = function(callback) {
 	//TODO: get graph from memory have errors
 	if (!this.savedToDB) {

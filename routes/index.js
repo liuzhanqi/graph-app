@@ -116,4 +116,15 @@ router.post('/extractSubgraphByAttribute', function(req,res,next) {
 	})
 })
 
+router.post('/extractSubgraphByCenter', function(req,res,next) {
+	var id = req.body.id;
+	var hop = req.body.hop;
+	console.log("in index /extractSubgraphByCenter");
+	console.log(id);
+	console.log(hop);
+	graph.extractSubgraphByCenter(id, hop, function(data) {
+		res.send(data);
+	})
+})
+
 module.exports = router;

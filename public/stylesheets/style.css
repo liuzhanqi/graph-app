@@ -54,7 +54,7 @@ table td:last-child {
     position: absolute;
 }
 
-#attributebox, #colorbox, #extractbox {
+#attributebox, #colorbox, #extractbox, #extractcenterbox {
     margin-top: 0.5em;
     margin-left: 1em;
     border: 2px solid #CCC;

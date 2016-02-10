@@ -310,6 +310,7 @@ GraphView.prototype.toggleSelectNode = function (nodeID) {
         this.state.selectedNode = null;
     } else {
         this.state.selectedNode = nodeID;
+        $('#extractcenterid').val(nodeID);
     }
 };
 
