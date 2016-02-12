@@ -25,8 +25,15 @@ html
                 title="load graph from json file"
                 id="create-edge"
                 src='./images/file_button.png'
-                onclick="location.href='/retrieveGraphID'"
+                onclick="$('#fileinput').trigger('click'); "
             )
+            div.hiddenfile
+                form(id='jsonFileUploadForm' action='/jsonUpload' method='post')
+                    input(
+                        type="file"
+                        title="load graph from json file"
+                        id="fileinput"
+                    )
     block content
     script(src='//cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min.js')
     script(src='./javascripts/jquery.min.js')

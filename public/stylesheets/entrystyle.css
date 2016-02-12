@@ -43,3 +43,8 @@ body{
     width: 300px;
     height: 100px;
 }
+
+
+.hiddenfile{
+    display: none;
+}
