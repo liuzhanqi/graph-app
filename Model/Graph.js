@@ -19,7 +19,7 @@ Graph.prototype.initialize = function() {
 	this.edgeList = [];
 }
 
-Graph.prototype.createNewGraphID = function(graphid, callback) {
+Graph.prototype.createNewGraphID = function(graphid, callback, optionalDefinitionFromJson) {
 	var that = this;
 	runCypherQuery(
 		'MERGE (newID:GRAPHID { graphid : {id}}) ' +
@@ -37,7 +37,10 @@ Graph.prototype.createNewGraphID = function(graphid, callback) {
 	    		if (that.state == "new") {
 	    			that.initialize();
 	    		}
-	    		callback(message);
+	    		if (optionalDefinitionFromJson)
+	    			callback(optionalDefinitionFromJson, that.graphID);
+	    		else
+	    			callback(message);
 	    	}
 	  	}
 	);
@@ -69,13 +72,17 @@ Graph.prototype.retrieveOldGraphID = function(graphid, callback) {
 	//TODO: how to return message
 }
 
-Graph.prototype.addGraphDefinition = function(definitions) {
+Graph.prototype.addGraphDefinition = function(definitions, optionalGraphIDWhenJson) {
+	console.log("addGraphDefinition");
+	console.log(definitions);
 	var that = this;
+	var id;
+	if (optionalGraphIDWhenJson) id = optionalGraphIDWhenJson;
+	else id = that.id;
 	that.isDirected = JSON.parse(definitions).isDirected;
-	console.log(that);
 	runCypherQuery(
 		'MATCH (n:GRAPHID { graphid: {id}}) SET n.definition = {def}',
-		{id: that.graphID, def:definitions}, 
+		{id: id, def:definitions}, 
 	    function (err, resp) {
 	    	if (err) {
 	    		console.log(err);
@@ -303,6 +310,20 @@ Graph.prototype.getGraph = function(callback) {
 		  	}
 		);
 	}
+}
+
+Graph.prototype.createGraphFromJson = function(data, callback) {
+	console.log("createGraphFromJson");
+	this.createNewGraphID(data.graphID, this.addGraphDefinition, JSON.stringify(data.definition));
+
+	//TODO implement this method
+	this.vertexList = data.nodes;
+	this.edgeList = data.links;
+	
+	console.log(this.vertexList);
+	console.log(this.edgeList);
+	this.savedToDB = false;
+	callback();
 }
 
 Graph.prototype.createVertex = function () {

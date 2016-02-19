@@ -132,7 +132,9 @@ router.post('/jsonUpload', function(req,res,next) {
 	console.log(req.body);
 	var data = JSON.parse(req.body.data);
 	console.log(data);
-	res.send(data);
+	graph.createGraphFromJson(data, function() {
+		res.send("200");
+	})
 })
 
 module.exports = router;

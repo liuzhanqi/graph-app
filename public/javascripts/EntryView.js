@@ -42,6 +42,7 @@ function readFile(evt) {
                 .done(function( data ) {
                     // console.log("in showGraph");
                     console.log(data);
+                    location.href='/editor';
                     // // graph.nodes = graph.force.nodes();
                     // // graph.links = graph.force.links();
                     // graph.nodes.splice(0,graph.nodes.length);

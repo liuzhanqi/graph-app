@@ -187,7 +187,7 @@ var extractCenterHandler = function() {
         .done(function( data ) {
             console.log("in showGraph");
             console.log(data);
-            // graph.nodes = graph.force.nodes();
+            // graph.nodes = graph.forjsonUploadce.nodes();
             // graph.links = graph.force.links();
             graph.nodes.splice(0,graph.nodes.length);
             graph.links.splice(0,graph.links.length);
