@@ -593,7 +593,14 @@ GraphView.prototype.update = function() {
         .attr("class", "nodetext")
         .attr("dx", 22)
         .attr("dy", ".35em")
-        .text(function(d) {return d.id});
+        .text(function(d) { 
+            var label = "";
+            d3.keys(d).forEach(function(key) {
+                if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
+                    label+=key+": "+d[key]+"; ";
+            });
+            return label;
+        });
 
     this.force.on("tick", function() {
         link.attr("x1", function(d) { return d.source.x; })
