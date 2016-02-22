@@ -76,13 +76,13 @@ Graph.prototype.addGraphDefinition = function(definitions, optionalGraphIDWhenJs
 	console.log("addGraphDefinition");
 	console.log(definitions);
 	var that = this;
-	var id;
+	var ide;
 	if (optionalGraphIDWhenJson) id = optionalGraphIDWhenJson;
-	else id = that.id;
+	else ide = that.graphID;
 	that.isDirected = JSON.parse(definitions).isDirected;
 	runCypherQuery(
 		'MATCH (n:GRAPHID { graphid: {id}}) SET n.definition = {def}',
-		{id: id, def:definitions}, 
+		{id: ide, def:definitions}, 
 	    function (err, resp) {
 	    	if (err) {
 	    		console.log(err);

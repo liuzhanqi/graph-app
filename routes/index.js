@@ -53,6 +53,7 @@ router.get('/getGraph', function(req,res,next) {
 
 router.get('/getGraphDefinition', function(req,res,next) {
 	graph.getGraphDefinition(function(definition) {
+		console.log(definition);
 		res.send(definition);
 	});
 });
