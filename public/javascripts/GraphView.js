@@ -303,9 +303,10 @@ GraphView.prototype.cancelLinkSelection = function() {
 }
 
 GraphView.prototype.toggleSelectNode = function (nodeID) {
+    console.log("toggleSelectNode");
     this.cancelLinkSelection();
     var currentNode = d3.select("#"+nodeID);
-    if (!currentNode.classed( "selected")) {
+    if (!currentNode.classed("selected")) {
         d3.select('circle.selected').classed("selected", false);
         currentNode.classed("selected", true);
     } else {
