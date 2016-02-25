@@ -66,46 +66,46 @@ function GraphView(el,w,h) {
 GraphView.prototype.showInputBox = function(callback) {
     that = this;
    $.get( "/getGraphDefinition")
-    .done(function( data ) {
-        data = JSON.parse(data);
+    .done(function(definition) {
+        definition = JSON.parse(definition);
         console.log("in showInputBox");
-        console.log(data);
-        that.state.isDirected = data.isDirected;
-        document.getElementById("node-name").innerHTML = data.nodeName;
-        document.getElementById("edge-name").innerHTML = data.edgeName;
-        for (index = 0; index < data.nodeAttribute.length; ++index) {
+        console.log(definition);
+        that.state.isDirected = definition.isDirected;
+        document.getElementById("node-name").innerHTML = definition.nodeName;
+        document.getElementById("edge-name").innerHTML = definition.edgeName;
+        for (index = 0; index < definition.nodeAttribute.length; ++index) {
             if (index == 0) {
                 $row = $('#node-attribute-row');
                 $label = $row.find('#node-attribute-col');
-                $label.text(data.nodeAttribute[index]);
+                $label.text(definition.nodeAttribute[index]);
                 $input = $row.find('#node-attribute-input');
-                $input.attr('name', data.nodeAttribute[index]);
+                $input.attr('name', definition.nodeAttribute[index]);
                 console.log($input);
             } else {
                 $lastRow = $('#node-attribute-row:last');
                 $row = $lastRow.clone();
                 $label = $row.find('#node-attribute-col');
-                $label.text(data.nodeAttribute[index]);
+                $label.text(definition.nodeAttribute[index]);
                 $input = $row.find('#node-attribute-input');
-                $input.attr('name', data.nodeAttribute[index]);
+                $input.attr('name', definition.nodeAttribute[index]);
                 $row.insertAfter($lastRow);
             }
         }
-        for (index = 0; index < data.edgeAttribute.length; ++index) {
+        for (index = 0; index < definition.edgeAttribute.length; ++index) {
             if (index == 0) {
                 $row = $('#edge-attribute-row');
                 $label = $row.find('#edge-attribute-col');
-                $label.text(data.edgeAttribute[index]);
+                $label.text(definition.edgeAttribute[index]);
                 $input = $row.find('#edge-attribute-input');
-                $input.attr('name', data.edgeAttribute[index]);
+                $input.attr('name', definition.edgeAttribute[index]);
                 console.log($input);
             } else {
                 $lastRow = $('#edge-attribute-row:last');
                 $row = $lastRow.clone();
                 $label = $row.find('#edge-attribute-col');
-                $label.text(data.edgeAttribute[index]);
+                $label.text(definition.edgeAttribute[index]);
                 $input = $row.find('#edge-attribute-input');
-                $input.attr('name', data.edgeAttribute[index]);
+                $input.attr('name', definition.edgeAttribute[index]);
                 $row.insertAfter($lastRow);
             }
         }

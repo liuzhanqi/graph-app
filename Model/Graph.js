@@ -1,5 +1,5 @@
-Vertex = require("./Vertex");
-Edge = require("./Edge");
+var Vertex = require("./Vertex");
+var Edge = require("./Edge");
 var request = require("request");
 var host = 'localhost', port = 7474;
 var httpUrlForTransaction = 'http://' + host + ':' + port + '/db/data/transaction/commit';
@@ -7,6 +7,8 @@ var httpUrlForTransaction = 'http://' + host + ':' + port + '/db/data/transactio
 var Graph = function() {
 	this.vertexList = [];
 	this.edgeList = [];
+	Edge.INDEXMAX = 0;
+	Vertex.INDEXMAX = 0;
 	this.graphID = "";
 	this.state = "new";
 	this.savedToDB = true;
@@ -14,7 +16,7 @@ var Graph = function() {
 	this.adjacencyList = [];
 }
 
-Graph.prototype.initialize = function() { 
+Graph.prototype.initialize = function() {
 	this.vertexList = [];
 	this.edgeList = [];
 }
@@ -96,19 +98,39 @@ Graph.prototype.addGraphDefinition = function(definitions, optionalGraphIDWhenJs
 Graph.prototype.getGraphDefinition = function(callback) {
 	var that = this;
 	runCypherQuery(
-		'MATCH (n:GRAPHID { graphid: {id}}) return n.definition',
+		'MATCH (n:GRAPHID { graphid: {id}}) return n.definition, n.NODEINDEXMAX, n.EDGEINDEXMAX',
 		{id: that.graphID}, 
 	    function (err, resp) {
 	    	if (err) {
 	    		console.log(err);
 	    	} else {
 	    		console.log(resp);
+	    		//console.log("Vertex = " + Vertex);
+	    		// TODO: here, that.Vertex is undefined for newly created graph definition
 	    		definition=resp.results[0].data[0].row[0];
-	    		callback(definition);
+	    		vertexIndexMax = 0;
+	    		edgeIndexMax = 0;
+	    		if (resp.results[0].data[0].row[1]) {
+	    			vertexIndexMax = resp.results[0].data[0].row[1];
+	    		}
+	    		if (resp.results[0].data[0].row[2]) {
+	    			edgeIndexMax = resp.results[0].data[0].row[2];
+	    		}
+	    		console.log("vertexIndexMax = " + vertexIndexMax);
+	    		console.log("edgeIndexMax = " + edgeIndexMax);
+	    		callback(definition, vertexIndexMax, edgeIndexMax);
 	    	}
 	  	}
 	);
 }
+
+Graph.prototype.setVertexIndexMax = function(vertexIndexMax) {
+	Vertex.INDEXMAX = vertexIndexMax;
+};
+
+Graph.prototype.setEdgeIndexMax = function(edgeIndexMax) {
+	Edge.INDEXMAX = edgeIndexMax;
+};
 
 Graph.prototype.extractSubgraph = function(nodes, callback) {
 	this.savedToDB = false;
@@ -434,7 +456,7 @@ Graph.prototype.saveGraphAtOnce = function() {
 		'OPTIONAL MATCH (n)-[r]-() DELETE n,r ' + 
 		'WITH count(*) as dummy ' + 
 		'MATCH (def:GRAPHID {graphid: {graphid}}) ' +
-		'SET def.NODECOUNT = {nodecount}, def.EDGECOUNT = {edgecount}' +
+		'SET def.NODEINDEXMAX = {nodeindexmax}, def.EDGEINDEXMAX = {edgeindexmax}' +
 		'WITH count(*) as dummy ' + 
 		'FOREACH (edge IN {edges} | ' +
 		'MERGE (node1:Node{id:edge.source}) ' +
@@ -446,7 +468,7 @@ Graph.prototype.saveGraphAtOnce = function() {
 		'MERGE (nn:Node{id:node.id}) ' + 
 		'ON CREATE SET nn = node ' +
 		'ON MATCH SET nn = node)',
-		{graphid: that.graphID, nodecount: 0, edgecount: 0,
+		{graphid: that.graphID, nodeindexmax: Vertex.INDEXMAX, edgeindexmax: Edge.INDEXMAX,
 		edges: that.edgeList, nodes: that.vertexList},
 	    function (err, resp) {
 	    	if (err) {
@@ -459,43 +481,43 @@ Graph.prototype.saveGraphAtOnce = function() {
 	);
 }
 
-Graph.prototype.loadGraph = function(callback) {
-	var graph = this;
-	runCypherQuery(
-		'MATCH (n) OPTIONAL MATCH (n)-[r]->(m) RETURN r,n,m;',{},
-		function (err, resp) {
-	    	if (err) {
-	    		console.log(err);
-	    	} else {
-				console.log(JSON.stringify(resp));
-				var nodes = [];
-				var edges = [];
-				var rows=resp.results[0].data;
-				rows.forEach(function(value, index, ar) {
-					//TODO: add other attributs of nodes to the list
- 	    			nodes.push(value.row[1]);
- 	    			if (value.row[0]) {
- 	    				var edge = {
- 	    					id: value.row[0].id,
- 	    					source: value.row[1].id,
- 	    					target: value.row[2].id
- 	    				}
- 	    				edges.push(edge);
- 	    			}
- 	    		});
- 	    		// console.log("in load graph before assignment");
- 	    		// console.log(graph.vertexList);
- 	    		// console.log(graph.edgeList);
- 	    		graph.vertexList=nodes;
-				graph.edgeList=edges;
-				// console.log("in load graph after assignment");
- 	  //   		console.log(graph.vertexList);
- 	  //   		console.log(graph.edgeList);
- 	    		callback({nodes:nodes, links:edges});
-	    	}
-	  	}
-	);
-}
+// Graph.prototype.loadGraph = function(callback) {
+// 	var graph = this;
+// 	runCypherQuery(
+// 		'MATCH (n) OPTIONAL MATCH (n)-[r]->(m) RETURN r,n,m;',{},
+// 		function (err, resp) {
+// 	    	if (err) {
+// 	    		console.log(err);
+// 	    	} else {
+// 				console.log(JSON.stringify(resp));
+// 				var nodes = [];
+// 				var edges = [];
+// 				var rows=resp.results[0].data;
+// 				rows.forEach(function(value, index, ar) {
+// 					//TODO: add other attributs of nodes to the list
+//  	    			nodes.push(value.row[1]);
+//  	    			if (value.row[0]) {
+//  	    				var edge = {
+//  	    					id: value.row[0].id,
+//  	    					source: value.row[1].id,
+//  	    					target: value.row[2].id
+//  	    				}
+//  	    				edges.push(edge);
+//  	    			}
+//  	    		});
+//  	    		// console.log("in load graph before assignment");
+//  	    		// console.log(graph.vertexList);
+//  	    		// console.log(graph.edgeList);
+//  	    		graph.vertexList=nodes;
+// 				graph.edgeList=edges;
+// 				// console.log("in load graph after assignment");
+//  	  //   		console.log(graph.vertexList);
+//  	  //   		console.log(graph.edgeList);
+//  	    		callback({nodes:nodes, links:edges});
+// 	    	}
+// 	  	}
+// 	);
+// }
 
 Graph.prototype.returnVertexList = function() {
 	return this.vertexList;

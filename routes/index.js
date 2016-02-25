@@ -52,8 +52,10 @@ router.get('/getGraph', function(req,res,next) {
 });
 
 router.get('/getGraphDefinition', function(req,res,next) {
-	graph.getGraphDefinition(function(definition) {
+	graph.getGraphDefinition(function(definition, vertexIndexMax, edgeIndexMax) {
 		console.log(definition);
+		graph.setVertexIndexMax(vertexIndexMax);
+		graph.setEdgeIndexMax(edgeIndexMax);
 		res.send(definition);
 	});
 });
