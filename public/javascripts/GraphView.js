@@ -1,6 +1,8 @@
 function GraphView(el,w,h) {
 
     var that = this;
+    this.w = w;
+    this.h = h;
 
     this.zoom = d3.behavior.zoom()
         .scaleExtent([1, 10])
@@ -37,6 +39,10 @@ function GraphView(el,w,h) {
         .linkDistance(100)
         .charge(-400)
         .size([w, h]);
+
+    // this.force = cola.d3adaptor()
+    //     .linkDistance(100)
+    //     .size([w, h]);
 
     this.nodes = this.force.nodes();
     this.links = this.force.links();
@@ -419,13 +425,22 @@ GraphView.prototype.load_graph = function() {
     });
 }
 
+GraphView.prototype.changeLayout = function() {
+    console.log("changeLayout");
+    this.force = cola.d3adaptor()
+        .avoidOverlaps(true)
+        .size([this.w, this.h]);
+    this.update();
+
+    this.force
+        .nodes(this.nodes)
+        .links(this.links)
+        .flowLayout("y", 60)
+        .symmetricDiffLinkLengths(24)
+        .start(10,20,20);
+}
+
 GraphView.prototype.update = function() {
-    //console.log(JSON.stringify(nodes));
-    // //console.log(JSON.stringify(links));
-    // console.log("GraphView.prototype.update");
-    // console.log("nodes");
-    // console.log(this.nodes);
-    // console.log("links");
     var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id", "source", "target"]; 
 
     var graph = this;

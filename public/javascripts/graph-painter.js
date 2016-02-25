@@ -215,9 +215,14 @@ var extractCenterHandler = function() {
         });
 } 
 
+var layoutHandler = function() {
+    graph.changeLayout();
+}
+
 $('#colorname').change(colorHandler);
 $('#colorvalue').change(colorHandler);
 $('#colorcolor').change(colorHandler);
 $('#highlightbutton').click(highlightHandler);
 $('#extractbutton').click(extractHandler);
 $('#extractcenterbutton').click(extractCenterHandler);
+$('#layout1').click(layoutHandler);
