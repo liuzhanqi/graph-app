@@ -423,53 +423,37 @@ Graph.prototype.removeEdge = function(id) {
 	// );
 };
 
-//public
-Graph.prototype.saveGraphToDB = function() {
-	this.clearGraphInDB(this.saveGraph);
-}
 
-//private
-Graph.prototype.clearGraphInDB = function(callback) {
+//submit multiple queries at once
+Graph.prototype.saveGraphAtOnce = function() {
 	var that = this;
-	runCypherQuery(
-		'MATCH (n {graphID: {graphid}})' +
-		'OPTIONAL MATCH (n)-[r]-() DELETE n,r',
-		{graphid: that.graphID},
-	    function (err, resp) {
-	    	if (err) {
-	    		console.log(err);
-	    	} else {
-	    		console.log(resp);
-	    		callback(that);
-	    	}
-	  	}
-	);
-}
-
-//private
-Graph.prototype.saveGraph = function(graph) {
-	console.log(JSON.stringify(graph.vertexList));
-	console.log(JSON.stringify(graph.edgeList));
 	//TODO: unable to remove deleted nodes and edges
 	//TODO: edge attributes
 	runCypherQuery(
-		'FOREACH (edge IN {edges} |' +
-		'MERGE (node1:Node{id:edge.source})' +
-		'MERGE (node2:Node{id:edge.target})' +
-		'MERGE (node1)-[l:Link{id:edge.id}]->(node2)' +
+		'MATCH (n:Node {graphID: {graphid}}) ' +
+		'OPTIONAL MATCH (n)-[r]-() DELETE n,r ' + 
+		'WITH count(*) as dummy ' + 
+		'MATCH (def:GRAPHID {graphid: {graphid}}) ' +
+		'SET def.NODECOUNT = {nodecount}, def.EDGECOUNT = {edgecount}' +
+		'WITH count(*) as dummy ' + 
+		'FOREACH (edge IN {edges} | ' +
+		'MERGE (node1:Node{id:edge.source}) ' +
+		'MERGE (node2:Node{id:edge.target}) ' +
+		'MERGE (node1)-[l:Link{id:edge.id}]->(node2) ' +
 		'ON CREATE SET l = edge ' +
-		'ON MATCH SET l = edge)' +
-		'FOREACH (node IN {nodes} |' +
-		'MERGE (n:Node{id:node.id}) ' + 
-		'ON CREATE SET n = node ' +
-		'ON MATCH SET n = node)',
-		{edges: graph.edgeList, nodes: graph.vertexList},
+		'ON MATCH SET l = edge) ' +
+		'FOREACH (node IN {nodes} | ' +
+		'MERGE (nn:Node{id:node.id}) ' + 
+		'ON CREATE SET nn = node ' +
+		'ON MATCH SET nn = node)',
+		{graphid: that.graphID, nodecount: 0, edgecount: 0,
+		edges: that.edgeList, nodes: that.vertexList},
 	    function (err, resp) {
 	    	if (err) {
 	    		console.log(err);
 	    	} else {
 	    		console.log(resp);
-				graph.savedToDB = false;
+				that.savedToDB = false;
 	    	}
 	  	}
 	);

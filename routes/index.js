@@ -84,8 +84,13 @@ router.post('/removeEdge' , function(req,res,next) {
 });
 
 router.post('/saveGraph', function(req,rest,next) {
-	//console.log("this is save graph in router");
-	graph.saveGraphToDB();
+	//graph.saveGraphToDB();
+	/*
+	1. clear the old graph in db; 
+	2. update nodecount/edgecount;
+	3. save the new graph to db;
+	*/
+	graph.saveGraphAtOnce();
 });
 
 router.get('/loadGraph', function(req,res,next) {
