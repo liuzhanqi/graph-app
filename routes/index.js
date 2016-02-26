@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Graph = require('../Model/Graph');
 
+console.log("creating new Graph");
 var graph= new Graph();
 
 /* GET home page. */
@@ -54,8 +55,10 @@ router.get('/getGraph', function(req,res,next) {
 router.get('/getGraphDefinition', function(req,res,next) {
 	graph.getGraphDefinition(function(definition, vertexIndexMax, edgeIndexMax) {
 		console.log(definition);
-		graph.setVertexIndexMax(vertexIndexMax);
-		graph.setEdgeIndexMax(edgeIndexMax);
+		if (vertexIndexMax && edgeIndexMax) {
+			graph.setVertexIndexMax(vertexIndexMax);
+			graph.setEdgeIndexMax(edgeIndexMax);
+		}
 		res.send(definition);
 	});
 });

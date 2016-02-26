@@ -116,9 +116,15 @@ Graph.prototype.getGraphDefinition = function(callback) {
 	    		if (resp.results[0].data[0].row[2]) {
 	    			edgeIndexMax = resp.results[0].data[0].row[2];
 	    		}
-	    		console.log("vertexIndexMax = " + vertexIndexMax);
-	    		console.log("edgeIndexMax = " + edgeIndexMax);
-	    		callback(definition, vertexIndexMax, edgeIndexMax);
+	    		// if the graph is retrived from db, update the indexmax
+	    		// else the indexmax maintained by current back-end is the corrent one
+	    		if (!that.savedToDB) {
+	    			callback(definition);
+	    		} else {
+	    			console.log("vertexIndexMax = " + vertexIndexMax);
+		    		console.log("edgeIndexMax = " + edgeIndexMax);
+		    		callback(definition, vertexIndexMax, edgeIndexMax);
+	    		}
 	    	}
 	  	}
 	);
@@ -283,6 +289,8 @@ Graph.prototype.extractSubgraphByCenter = function(id, hop, callback) {
 
 
 Graph.prototype.getGraph = function(callback) {
+	console.log("in getGraph");
+	console.log("Vertex.INDEXMAX = " + Vertex.INDEXMAX);
 	//TODO: get graph from memory have errors
 	if (!this.savedToDB) {
 		var data = {
@@ -333,6 +341,7 @@ Graph.prototype.getGraph = function(callback) {
 		);
 	}
 }
+
 
 Graph.prototype.createGraphFromJson = function(data, callback) {
 	console.log("createGraphFromJson");
