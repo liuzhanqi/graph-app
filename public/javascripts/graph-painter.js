@@ -32,8 +32,11 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
         console.log("mousedown selected false");
         //making this sentence outside cause bug in cancelling selection
         //d3.selectAll( 'circle.selected').classed("selected", false);    
-        if (graph.state.usingSelection) {
-            d3.selectAll( 'circle.selected').classed("selected", false);    
+        selectedNodes = d3.selectAll( 'circle.selected');
+        if (selectedNodes.size() > 1) {
+            selectedNodes.classed("selected", false);   
+        }
+        if (graph.state.usingSelection) { 
             var p = d3.mouse( this);
 
             graph.svg.append("rect")
