@@ -25,7 +25,7 @@ Graph.prototype.createNewGraphID = function(graphid, callback, optionalDefinitio
 	var that = this;
 	runCypherQuery(
 		'MERGE (newID:GRAPHID { graphid : {id}}) ' +
-		'ON CREATE SET newID.state="new"' + 
+		'ON CREATE SET newID.state="new", newID.NODEINDEXMAX=0, newID.EDGEINDEXMAX=0 ' + 
 		'ON MATCH SET newID.state="old"' +
 		'RETURN newID.state', {id: graphid}, 
 	    function (err, resp) {

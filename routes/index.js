@@ -55,7 +55,7 @@ router.get('/getGraph', function(req,res,next) {
 router.get('/getGraphDefinition', function(req,res,next) {
 	graph.getGraphDefinition(function(definition, vertexIndexMax, edgeIndexMax) {
 		console.log(definition);
-		if (vertexIndexMax && edgeIndexMax) {
+		if (vertexIndexMax !== undefined && edgeIndexMax !== undefined) {
 			graph.setVertexIndexMax(vertexIndexMax);
 			graph.setEdgeIndexMax(edgeIndexMax);
 		}
