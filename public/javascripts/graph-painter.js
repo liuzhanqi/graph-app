@@ -220,8 +220,9 @@ var extractCenterHandler = function() {
         });
 } 
 
-var layoutHandler = function() {
-    graph.changeLayout();
+var layoutHandler = function(event) {
+    console.log(event.target.id);
+    graph.changeLayout(event.target.id);
 }
 
 $('#colorname').change(colorHandler);
@@ -230,4 +231,6 @@ $('#colorcolor').change(colorHandler);
 $('#highlightbutton').click(highlightHandler);
 $('#extractbutton').click(extractHandler);
 $('#extractcenterbutton').click(extractCenterHandler);
-$('#layout1').click(layoutHandler);
+$('#nonoverlap').click(layoutHandler);
+$('#force').click(layoutHandler);
+$('#layout2').click(layoutHandler);

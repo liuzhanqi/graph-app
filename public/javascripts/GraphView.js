@@ -426,19 +426,35 @@ GraphView.prototype.load_graph = function() {
     });
 }
 
-GraphView.prototype.changeLayout = function() {
+GraphView.prototype.changeLayout = function(layoutName) {
     console.log("changeLayout");
-    this.force = cola.d3adaptor()
-        .avoidOverlaps(true)
-        .size([this.w, this.h]);
-    this.update();
+    if (layoutName == "nonoverlap") {
+        this.force = cola.d3adaptor()
+            .avoidOverlaps(true)
+            .size([this.w, this.h]);
+        
+        this.update();
 
-    this.force
-        .nodes(this.nodes)
-        .links(this.links)
-        .flowLayout("y", 60)
-        .symmetricDiffLinkLengths(24)
-        .start(10,20,20);
+        this.force
+            .nodes(this.nodes)
+            .links(this.links)
+            .flowLayout("y", 60)
+            .symmetricDiffLinkLengths(24)
+            .start(10,20,20);   
+    }
+    if (layoutName == "force") {
+        this.force = d3.layout.force()
+            .linkDistance(100)
+            .charge(-400)
+            .size([this.w, this.h]);
+        this.update();
+
+        this.force
+            .nodes(this.nodes)
+            .links(this.links)
+            .start();
+    }
+    
 }
 
 GraphView.prototype.update = function() {
