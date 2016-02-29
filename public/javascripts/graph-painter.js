@@ -231,9 +231,11 @@ $('#colorcolor').change(colorHandler);
 $('#highlightbutton').click(highlightHandler);
 $('#extractbutton').click(extractHandler);
 $('#extractcenterbutton').click(extractCenterHandler);
-$('#nonoverlap').click(layoutHandler);
+
+$('#flow').click(layoutHandler);
 $('#force').click(layoutHandler);
-$('#layout2').click(layoutHandler);
+$('#hierarchy').click(layoutHandler);
+
 $('#expand-trigger1').click(function(){
     $('#expand-content1').slideToggle('slow');
 });
