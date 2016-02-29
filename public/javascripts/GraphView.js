@@ -456,14 +456,18 @@ GraphView.prototype.changeLayout = function(layoutName) {
             .start();
     }
     if (layoutName == "flow") {
-        this.force = cola.d3adaptor().avoidOverlaps(true)
-            .flowLayout('x', 150)
-            .size([this.w, this.h])
-            .nodes(this.nodes)
-            .links(this.links)             
-            .jaccardLinkLengths(150)
-            .start();
+        this.force = cola.d3adaptor()
+            .avoidOverlaps(true)  
+            .size([this.w, this.h]);
+
         this.update();
+
+        this.force
+            .nodes(this.nodes)
+            .links(this.links)
+            .flowLayout('x', 60) 
+            .jaccardLinkLengths(60)  
+            .start(10,20,20);
     }
     
 }
