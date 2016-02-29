@@ -234,3 +234,12 @@ $('#extractcenterbutton').click(extractCenterHandler);
 $('#nonoverlap').click(layoutHandler);
 $('#force').click(layoutHandler);
 $('#layout2').click(layoutHandler);
+$('#expand-trigger1').click(function(){
+    $('#expand-content1').slideToggle('slow');
+});
+$('#expand-trigger2').click(function(){
+    $('#expand-content2').slideToggle('slow');
+});
+$('#expand-trigger3').click(function(){
+    $('#expand-content3').slideToggle('slow');
+});

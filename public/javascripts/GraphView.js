@@ -428,7 +428,7 @@ GraphView.prototype.load_graph = function() {
 
 GraphView.prototype.changeLayout = function(layoutName) {
     console.log("changeLayout");
-    if (layoutName == "nonoverlap") {
+    if (layoutName == "hierarchy") {
         this.force = cola.d3adaptor()
             .avoidOverlaps(true)
             .size([this.w, this.h]);
@@ -447,12 +447,23 @@ GraphView.prototype.changeLayout = function(layoutName) {
             .linkDistance(100)
             .charge(-400)
             .size([this.w, this.h]);
+            
         this.update();
 
         this.force
             .nodes(this.nodes)
             .links(this.links)
             .start();
+    }
+    if (layoutName == "flow") {
+        this.force = cola.d3adaptor().avoidOverlaps(true)
+            .flowLayout('x', 150)
+            .size([this.w, this.h])
+            .nodes(this.nodes)
+            .links(this.links)             
+            .jaccardLinkLengths(150)
+            .start();
+        this.update();
     }
     
 }

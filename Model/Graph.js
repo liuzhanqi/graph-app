@@ -22,6 +22,8 @@ Graph.prototype.initialize = function() {
 }
 
 Graph.prototype.createNewGraphID = function(graphid, callback, optionalDefinitionFromJson) {
+	console.log("createNewGraphID");
+	console.log("optionalDefinitionFromJson = " + optionalDefinitionFromJson);
 	var that = this;
 	runCypherQuery(
 		'MERGE (newID:GRAPHID { graphid : {id}}) ' +
@@ -79,8 +81,9 @@ Graph.prototype.addGraphDefinition = function(definitions, optionalGraphIDWhenJs
 	console.log(definitions);
 	var that = this;
 	var ide;
-	if (optionalGraphIDWhenJson) id = optionalGraphIDWhenJson;
+	if (optionalGraphIDWhenJson) ide = optionalGraphIDWhenJson;
 	else ide = that.graphID;
+	console.log("ide = " + ide);
 	that.isDirected = JSON.parse(definitions).isDirected;
 	runCypherQuery(
 		'MATCH (n:GRAPHID { graphid: {id}}) SET n.definition = {def}',

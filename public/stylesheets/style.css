@@ -164,3 +164,12 @@ line.selected{
 line.selecting{
     stroke:LightSkyBlue;
 }
+
+div#expand-content1, div#expand-content2, div#expand-content3 {
+    display:none;
+}
+.pseudo-link {
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}

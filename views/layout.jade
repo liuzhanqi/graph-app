@@ -5,8 +5,9 @@ html
     link(rel='stylesheet', href='./stylesheets/style.css')
   body
     div#inputbox
-        button#nonoverlap Non-overlap Layout
-        button#force Force Layout
+        button#force Unconstraint Layout
+        button#hierarchy Hierarchy Layout
+        button#flow Flow Layout
         div#attributebox
             label Attribute Values
             br
@@ -26,71 +27,72 @@ html
                   td(id="edge-attribute-col")
                   td 
                     input(type="text", name="type" id="edge-attribute-input")
+
         div#extractcenterbox
-            table
-                tr
-                    td(colspan="2")
-                        label Extract By Attribute
-                tr
-                    td
-                        label Center
-                    td
-                        input(type="text", id="extractcenterid" name="extractCenterByID")
-                tr
-                    td
-                        label Hops
-                    td
-                        input(type="text", id="extractcenterhop" name="extractCenterByHop")
-                tr
-                    td
-                        button(id="highlightbutton") Highlight
-                    td
-                        button(id="extractcenterbutton") Extract
+            div#expand-trigger1
+                label.pseudo-link Extract By Center
+            div#expand-content1
+                table       
+                    tr
+                        td
+                            label Center
+                        td
+                            input(type="text", id="extractcenterid" name="extractCenterByID")
+                    tr
+                        td
+                            label Hops
+                        td
+                            input(type="text", id="extractcenterhop" name="extractCenterByHop")
+                    tr
+                        td
+                            button(id="highlightbutton") Highlight
+                        td
+                            button(id="extractcenterbutton") Extract
         div#extractbox
-            table
-                tr
-                    td(colspan="2")
-                        label Extract By Attribute
-                tr
-                    td
-                        label Name
-                    td
-                        input(type="text", id="extractname" name="extractByName")
-                tr
-                    td
-                        label Value
-                    td
-                        input(type="text", id="extractvalue" name="extractByValue")
-                tr
-                    td
-                        label Hops
-                    td
-                        input(type="text", id="extracthop" name="extractByHop")
-                tr
-                    td
-                        button(id="highlightbutton") Highlight
-                    td
-                        button(id="extractbutton") Extract
+            div#expand-trigger2
+                label.pseudo-link Extract By Attribute
+            div#expand-content2
+                table
+                    tr
+                        td
+                            label Name
+                        td
+                            input(type="text", id="extractname" name="extractByName")
+                    tr
+                        td
+                            label Value
+                        td
+                            input(type="text", id="extractvalue" name="extractByValue")
+                    tr
+                        td
+                            label Hops
+                        td
+                            input(type="text", id="extracthop" name="extractByHop")
+                    tr
+                        td
+                            button(id="highlightbutton") Highlight
+                        td
+                            button(id="extractbutton") Extract
         div#colorbox
-            table
-                tr
-                    td(colspan="2")
-                        label Color By Attribute
-                tr
-                    td
-                        label Name
-                    td
-                        input(type="text", id="colorname" name="colorByName")
-                tr
-                    td
-                        label Value
-                    td
-                        input(type="text", id="colorvalue" name="colorByValue")
-                tr
-                    td
-                        label Color
-                    td
-                        input(class="jscolor" id="colorcolor" name="colorByColor")
+            div#expand-trigger3
+                label.pseudo-link Color By Attribute
+            div#expand-content3
+                table
+                    tr
+                        td
+                            label Name
+                        td
+                            input(type="text", id="colorname" name="colorByName")
+                    tr
+                        td
+                            label Value
+                        td
+                            input(type="text", id="colorvalue" name="colorByValue")
+                    tr
+                        td
+                            label Color
+                        td
+                            input(class="jscolor" id="colorcolor" name="colorByColor")
     div(id="graph")
         table(id="bottomContainer")
             tr
