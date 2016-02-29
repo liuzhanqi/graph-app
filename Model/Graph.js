@@ -11,6 +11,7 @@ var Graph = function() {
 	Vertex.INDEXMAX = 0;
 	this.graphID = "";
 	this.state = "new";
+	console.log("Graph Constructor that.savedToDB = true;");
 	this.savedToDB = true;
 	this.isDirected = "off";
 	this.adjacencyList = [];
@@ -24,6 +25,7 @@ Graph.prototype.initialize = function() {
 Graph.prototype.createNewGraphID = function(graphid, callback, optionalDefinitionFromJson) {
 	console.log("createNewGraphID");
 	console.log("optionalDefinitionFromJson = " + optionalDefinitionFromJson);
+	this.savedToDB = true;
 	var that = this;
 	runCypherQuery(
 		'MERGE (newID:GRAPHID { graphid : {id}}) ' +
@@ -53,6 +55,8 @@ Graph.prototype.createNewGraphID = function(graphid, callback, optionalDefinitio
 
 
 Graph.prototype.retrieveOldGraphID = function(graphid, callback) {
+	that.savedToDB = true;
+	console.log("retrieveOldGraphID that.savedToDB = true;");
 	var that = this;
 	runCypherQuery(
 		'MATCH (n:GRAPHID { graphid : {id}}) SET n.state="old" RETURN n',
@@ -69,7 +73,6 @@ Graph.prototype.retrieveOldGraphID = function(graphid, callback) {
 	    			that.state = message[0].row[0].state;
 	    		}
 	    		callback(message);
-	    		that.savedToDB = true;
 	    	}
 	  	}
 	);
@@ -143,6 +146,7 @@ Graph.prototype.setEdgeIndexMax = function(edgeIndexMax) {
 
 Graph.prototype.extractSubgraph = function(nodes, callback) {
 	this.savedToDB = false;
+	console.log("extractSubgraph that.savedToDB = false;");
 	console.log("extractSubgraph");
 	console.log(JSON.stringify(nodes));
 	for(var i = this.edgeList.length - 1; i >= 0; i--) {
@@ -196,6 +200,7 @@ Graph.prototype.buildAdjacencyList = function() {
 
 Graph.prototype.extractSubgraphByAttribute = function(name, value, hop, callback) {
 	this.savedToDB = false;
+	console.log("extractSubgraphByAttribute that.savedToDB = false;");
 	console.log("extractSubgraphByAttribute");
 	//TODO: Computation, implement graph data structure
 	this.buildAdjacencyList();
@@ -242,6 +247,7 @@ Graph.prototype.extractSubgraphByAttribute = function(name, value, hop, callback
 Graph.prototype.extractSubgraphByCenter = function(id, hop, callback) {
 	console.log("id = " + id);
 	this.savedToDB = false;
+	console.log("extractSubgraphByCenter that.savedToDB = false;");
 	console.log("extractSubgraphByCenter");
 	//TODO: Computation, implement graph data structure
 	this.buildAdjacencyList();
@@ -293,7 +299,7 @@ Graph.prototype.extractSubgraphByCenter = function(id, hop, callback) {
 
 Graph.prototype.getGraph = function(callback) {
 	console.log("in getGraph");
-	console.log("Vertex.INDEXMAX = " + Vertex.INDEXMAX);
+	console.log("this.savedToDB = " + this.savedToDB);
 	//TODO: get graph from memory have errors
 	if (!this.savedToDB) {
 		var data = {
@@ -356,11 +362,13 @@ Graph.prototype.createGraphFromJson = function(data, callback) {
 	
 	console.log(this.vertexList);
 	console.log(this.edgeList);
+	console.log("createGraphFromJson that.savedToDB = false;");
 	this.savedToDB = false;
 	callback();
 }
 
 Graph.prototype.createVertex = function () {
+	console.log("createVertex that.savedToDB = false;");
 	this.savedToDB = false;
 	var newVertex = new Vertex();
 	this.vertexList.push(newVertex);
@@ -380,6 +388,7 @@ Graph.prototype.createVertex = function () {
 
 //create vertex with attributes
 Graph.prototype.createVertex = function (attributes) {
+	console.log("createVertex that.savedToDB = false;");
 	this.savedToDB = false;
 	attributes["graphID"] = this.graphID;
 	var newVertex = new Vertex(attributes);
@@ -388,6 +397,7 @@ Graph.prototype.createVertex = function (attributes) {
 }
 
 Graph.prototype.removeVertex = function(id) {
+	console.log("removeVertex that.savedToDB = false;");
 	this.savedToDB = false;
 	var i = 0;
 	while (i < this.edgeList.length) {
@@ -416,6 +426,7 @@ Graph.prototype.removeVertex = function(id) {
 
 //source and target are both id
 Graph.prototype.createEdge = function(source,target,attr) {
+	console.log("createEdge that.savedToDB = false;");
 	this.savedToDB = false;
 	attr["graphID"] = this.graphID;
 	var newEdge = new Edge(source,target,attr);
@@ -438,6 +449,7 @@ Graph.prototype.createEdge = function(source,target,attr) {
 }
 
 Graph.prototype.removeEdge = function(id) {
+	console.log("removeEdge that.savedToDB = false;");
 	this.savedToDB = false;
 	for (var i=0; i<this.edgeList.length; i++) {
         if (this.edgeList[i].id === id) {
@@ -487,49 +499,12 @@ Graph.prototype.saveGraphAtOnce = function() {
 	    		console.log(err);
 	    	} else {
 	    		console.log(resp);
-				that.savedToDB = false;
+				that.savedToDB = true;
+				console.log("saveGraphAtOnce that.savedToDB = true;");
 	    	}
 	  	}
 	);
 }
-
-// Graph.prototype.loadGraph = function(callback) {
-// 	var graph = this;
-// 	runCypherQuery(
-// 		'MATCH (n) OPTIONAL MATCH (n)-[r]->(m) RETURN r,n,m;',{},
-// 		function (err, resp) {
-// 	    	if (err) {
-// 	    		console.log(err);
-// 	    	} else {
-// 				console.log(JSON.stringify(resp));
-// 				var nodes = [];
-// 				var edges = [];
-// 				var rows=resp.results[0].data;
-// 				rows.forEach(function(value, index, ar) {
-// 					//TODO: add other attributs of nodes to the list
-//  	    			nodes.push(value.row[1]);
-//  	    			if (value.row[0]) {
-//  	    				var edge = {
-//  	    					id: value.row[0].id,
-//  	    					source: value.row[1].id,
-//  	    					target: value.row[2].id
-//  	    				}
-//  	    				edges.push(edge);
-//  	    			}
-//  	    		});
-//  	    		// console.log("in load graph before assignment");
-//  	    		// console.log(graph.vertexList);
-//  	    		// console.log(graph.edgeList);
-//  	    		graph.vertexList=nodes;
-// 				graph.edgeList=edges;
-// 				// console.log("in load graph after assignment");
-//  	  //   		console.log(graph.vertexList);
-//  	  //   		console.log(graph.edgeList);
-//  	    		callback({nodes:nodes, links:edges});
-// 	    	}
-// 	  	}
-// 	);
-// }
 
 Graph.prototype.returnVertexList = function() {
 	return this.vertexList;

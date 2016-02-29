@@ -33,7 +33,7 @@ function GraphView(el,w,h) {
             .attr("d", "M0,-5L10,0L0,5")
             .attr("class","arrowHead");
 
-    var vis = this.vis = svg.append("g");
+    var vis = this.vis = svg.append("g").attr("id", "vis");
 
     this.force = d3.layout.force()
         .linkDistance(100)
@@ -469,7 +469,6 @@ GraphView.prototype.changeLayout = function(layoutName) {
             .jaccardLinkLengths(60)  
             .start(10,20,20);
     }
-    
 }
 
 GraphView.prototype.update = function() {
