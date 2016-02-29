@@ -396,7 +396,11 @@ GraphView.prototype.toggle_selection = function() {
 
 GraphView.prototype.save_graph = function() {
     //TODO for now, save graph wont delete the deleted node in db.
-    $.post( "/saveGraph");
+    $.post( "/saveGraph").done(function(message) {
+        console.log(message);
+        if (message == "200") alert("Successfully saved.");
+        else alert("Connection error")
+    });
 }
 
 GraphView.prototype.load_graph = function() {

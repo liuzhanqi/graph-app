@@ -55,7 +55,7 @@ Graph.prototype.createNewGraphID = function(graphid, callback, optionalDefinitio
 
 
 Graph.prototype.retrieveOldGraphID = function(graphid, callback) {
-	that.savedToDB = true;
+	this.savedToDB = true;
 	console.log("retrieveOldGraphID that.savedToDB = true;");
 	var that = this;
 	runCypherQuery(
@@ -471,7 +471,7 @@ Graph.prototype.removeEdge = function(id) {
 
 
 //submit multiple queries at once
-Graph.prototype.saveGraphAtOnce = function() {
+Graph.prototype.saveGraphAtOnce = function(callback) {
 	var that = this;
 	//TODO: unable to remove deleted nodes and edges
 	//TODO: edge attributes
@@ -497,10 +497,12 @@ Graph.prototype.saveGraphAtOnce = function() {
 	    function (err, resp) {
 	    	if (err) {
 	    		console.log(err);
+	    		callback("500");
 	    	} else {
 	    		console.log(resp);
 				that.savedToDB = true;
 				console.log("saveGraphAtOnce that.savedToDB = true;");
+				callback("200");
 	    	}
 	  	}
 	);
