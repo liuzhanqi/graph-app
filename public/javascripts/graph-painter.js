@@ -29,14 +29,16 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
     });
 
     graph.svg.on( "mousedown", function() {
-        console.log("mousedown selected false");
         //making this sentence outside cause bug in cancelling selection
         //d3.selectAll( 'circle.selected').classed("selected", false);    
         selectedNodes = d3.selectAll( 'circle.selected');
         if (selectedNodes.size() > 1) {
+            console.log("mousedown selected size>1, selection false");
             selectedNodes.classed("selected", false);   
         }
         if (graph.state.usingSelection) { 
+            // cancel the coloring when starting selection box
+            d3.selectAll("circle").style('fill', null);
             var p = d3.mouse( this);
 
             graph.svg.append("rect")
@@ -125,7 +127,8 @@ $('#addNodeButton').click(function () {
 });
 
 var colorHandler = function () {
-    d3.selectAll("circle").style("fill","#FFF");
+    console.log("colorHandler");
+    // d3.selectAll("circle").style("fill","#FFF");
     var name = $('#colorname').val();
     var value = $('#colorvalue').val();
     var color = $('#colorcolor').val();
