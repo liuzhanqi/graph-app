@@ -16,14 +16,14 @@ html
             input(
                 type="image"
                 title="load graph from database"
-                id="load"
+                id="load-graph"
                 src='./images/load_button.png'
                 onclick="location.href='/retrieveGraphID'"
             )
             input(
                 type="image"
                 title="load graph from json file"
-                id="create-edge"
+                id="load-json"
                 src='./images/file_button.png'
                 onclick="$('#fileinput').trigger('click'); "
             )
@@ -35,8 +35,6 @@ html
                         id="fileinput"
                     )
     block content
-    script(src='//cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min.js')
     script(src='./javascripts/jquery.min.js')
     script(src='//d3js.org/d3.v3.js')
-    script(src='http://d3js.org/queue.v1.min.js')
     script(src='./javascripts/EntryView.js')

@@ -9,74 +9,94 @@
     },
     "nodes" : [
         {
-            "id": "a"
+            "id": "a",
+            "nn": "a"
         },
         {
-            "id": "b"
+            "id": "b",
+            "nn": "b"
         },
         {
-            "id": "c"
+            "id": "c",
+            "nn": "c"
         },
         {
-            "id": "d"
+            "id": "d",
+            "nn": "d"
         },
         {
-            "id": "e"
+            "id": "e",
+            "nn": "e"
         },
         {
-            "id": "f"
+            "id": "f",
+            "nn": "f"
         },
         {
-            "id": "g"
+            "id": "g",
+            "nn": "g"
         },
         {
-            "id": "h"
+            "id": "h",
+            "nn": "h"
         },
         {
-            "id": "i"
+            "id": "i",
+            "nn": "i"
         },
         {
-            "id": "j"
+            "id": "j",
+            "nn": "j"
         },
         {
-            "id": "k"
+            "id": "k",
+            "nn": "k"
         },
         {
-            "id": "l"
+            "id": "l",
+            "nn": "l"
         }
     ],
     "links" : [
         {
             "source": "a",
-            "target": "g"
+            "target": "g",
+            "ee": 1
         },
         {
             "source": "c",
-            "target": "a"
+            "target": "a",
+            "ee": 1
         },
         {
             "source": "c",
-            "target": "i"
+            "target": "i",
+            "ee": 1
         },
         {
             "source": "f",
-            "target": "e"
+            "target": "e",
+            "ee": 1
         },
         {
             "source": "f",
-            "target": "c"
+            "target": "c",
+            "ee": 1
         },
         {
             "source": "h",
-            "target": "h"
+            "target": "h",
+            "ee": 1
         },
         {
             "source": "j",
-            "target": "c"
+            "target": "c",
+            "ee": 1
         },
         {
             "source": "k",
-            "target": "c"
+            "target": "c",
+            "ee": 1
         }
     ]
 }

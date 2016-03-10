@@ -36,8 +36,10 @@ function GraphView(el,w,h) {
     var vis = this.vis = svg.append("g").attr("id", "vis");
 
     this.force = d3.layout.force()
-        .linkDistance(100)
-        .charge(-400)
+        // .linkDistance(100)
+        // .charge(-400)
+        .charge(-120)
+        .linkDistance(90)
         .size([w, h]);
 
     // this.force = cola.d3adaptor()
@@ -497,7 +499,7 @@ GraphView.prototype.update = function() {
             else return "";
         })
         //.style("stroke", "#bbb")
-        .style("stroke-width", 5)
+        .style("stroke-width", 3)
         .each(function(d) {
             var header = d3.select(this);
             // loop through the keys - this assumes no extra data
@@ -562,7 +564,7 @@ GraphView.prototype.update = function() {
     //BUG: update issue, redo: delete a random node
     nodeEnter.append("circle")
         .attr("class","circle")
-        .attr("r",20)
+        .attr("r", 15)
         .attr("x", "-8px")
         .attr("y", "-8px")
         .attr("id", function(d) {return d.id})

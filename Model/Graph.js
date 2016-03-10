@@ -22,6 +22,17 @@ Graph.prototype.initialize = function() {
 	this.edgeList = [];
 }
 
+Graph.prototype.executePython = function() {
+	var spawn = require("child_process").spawn;
+	var process = spawn('python',["/Users/LZQ/Documents/Graph Visualization/graph-app/graph-app/Model/pythoncode.py", "this is the message"]);
+	var StringDecoder = require('string_decoder').StringDecoder;
+	var decoder = new StringDecoder('utf8');
+	process.stdout.on('data', function (data){
+		var textChunk = decoder.write(data);
+		console.log(textChunk)
+	});
+}
+
 Graph.prototype.createNewGraphID = function(graphid, callback, optionalDefinitionFromJson) {
 	console.log("createNewGraphID");
 	console.log("optionalDefinitionFromJson = " + optionalDefinitionFromJson);
@@ -383,8 +394,8 @@ Graph.prototype.createVertex = function () {
 	//     	}
 	//   	}
 	// );
-	return newVertex;
 }
+
 
 //create vertex with attributes
 Graph.prototype.createVertex = function (attributes) {

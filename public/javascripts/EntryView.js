@@ -8,9 +8,9 @@ function EntryView() {
 
 }
 
-EntryView.prototype.create_new_graph = function() {
-    $.get( "/graphDefinition");
-};
+// EntryView.prototype.create_new_graph = function() {
+//     $.get( "/graphDefinition");
+// };
 
 function readFile(evt) {
     //Retrieve the first (and only!) File from the FileList object
