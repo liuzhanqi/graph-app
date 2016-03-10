@@ -22,3 +22,9 @@
     margin: 0 auto;
     text-align: left;
 }
+circle.MCS{
+    fill:LightCoral;
+}
+line.MCS{
+    stroke:LightSkyBlue;
+}

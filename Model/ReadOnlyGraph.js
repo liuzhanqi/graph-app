@@ -11,17 +11,6 @@ var ReadOnlyGraph = function() {
 	this.isDirected = "off";
 }
 
-ReadOnlyGraph.prototype.executePython = function() {
-	var spawn = require("child_process").spawn;
-	var process = spawn('python',["/Users/LZQ/Documents/Graph Visualization/graph-app/graph-app/Model/pythoncode.py", "this is the message"]);
-	var StringDecoder = require('string_decoder').StringDecoder;
-	var decoder = new StringDecoder('utf8');
-	process.stdout.on('data', function (data){
-		var textChunk = decoder.write(data);
-		console.log(textChunk)
-	});
-}
-
 ReadOnlyGraph.prototype.retrieveOldGraphID = function(graphid, callback) {
 	var that = this;
 	runCypherQuery(

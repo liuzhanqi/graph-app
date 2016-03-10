@@ -156,7 +156,7 @@ circle.selecting{
     fill:LightSkyBlue;
 }
 line {
-    stroke:#bbb;
+    stroke:#666;
 }
 line.selected{
     stroke:LightCoral;
