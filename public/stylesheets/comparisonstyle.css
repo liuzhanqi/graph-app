@@ -1,0 +1,24 @@
+#left, #right {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+#left { left: 0; background-color: #f9f9f9; }
+#right { right: 0; background-color:#EEE; }
+
+#wrapper {
+    text-align: center;
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#container {
+    width: 400px;
+    height: 100%;
+    background-color: #cccccc;
+    margin: 0 auto;
+    text-align: left;
+}

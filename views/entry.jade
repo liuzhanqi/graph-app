@@ -27,6 +27,13 @@ html
                 src='./images/file_button.png'
                 onclick="$('#fileinput').trigger('click'); "
             )
+            input(
+                type="image"
+                title="compare two grpahs"
+                id="compare"
+                src='./images/comparison.png'
+                onclick="location.href='/comparisonID'"
+            )
             div.hiddenfile
                 form(id='jsonFileUploadForm' action='/jsonUpload' method='post')
                     input(

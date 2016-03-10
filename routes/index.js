@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var Graph = require('../Model/Graph');
+var ReadOnlyGraph = require('../Model/ReadOnlyGraph');
 
 console.log("creating new Graph");
-var graph= new Graph();
+var graph = new Graph();
+//for comparison
+var graph1 = new ReadOnlyGraph();
+var graph2 = new ReadOnlyGraph();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,6 +29,47 @@ router.get('/retrieveGraphID', function(req, res, next) {
 router.get('/editor', function(req, res, next) {
 	res.render('index');
 });
+
+router.get('/comparisonID', function(req, res, next) {
+	res.render('comparisonID');
+})
+
+router.get('/comparison', function(req, res, next) {
+	res.render('comparison');
+})
+
+router.get('/getGraph1', function(req,res,next) {
+	var data = graph1.getGraph(function(message) {
+		console.log(message);
+		res.send(message);
+	});
+});
+
+router.get('/getGraph2', function(req,res,next) {
+	var data = graph2.getGraph(function(message) {
+		console.log(message);
+		res.send(message);
+	});
+});
+
+router.post('/retrieveComparisonID', function(req,res,next) {
+	//TODO: real one
+	var id1 =req.body.id1;
+	var id2 =req.body.id2;
+	console.log(id1);
+	console.log(id2);
+	graph1.retrieveOldGraphID(id1, function(message) {
+		l1 = message.length;
+		graph2.retrieveOldGraphID(id2, function(message) {
+			l2 = message.length;
+			if (l1 * l2 == 0) {
+				res.send("not exists");
+			} else {
+				res.send("exists");
+			}
+		});
+	});
+})
 
 router.post('/retrieveOldGraphID', function(req,res,next) {
 	var id =req.body.id;

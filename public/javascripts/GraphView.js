@@ -12,7 +12,7 @@ function GraphView(el,w,h) {
                     "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
             }
         });
-
+        
     var svg = this.svg = d3.select(el).append("svg:svg")
         .attr("width", w)
         .attr("height", h)

@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='./stylesheets/definitionstyle.css')        
+  body
+    div#centeredContainer
+        div
+            Please Input two Graph ID
+        div(id="error")
+        div
+            input(type="text" id="graphID1")
+        div
+            input(type="text" id="graphID2")
+        div
+            button(onclick='checkID()') Next
+    block content
+    script(src='./javascripts/jquery.min.js')
+    script(src='//d3js.org/d3.v3.js')
+    script(src='./javascripts/ComparisonIDView.js')
