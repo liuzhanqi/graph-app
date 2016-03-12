@@ -36,8 +36,11 @@ function ReadOnlyGraphView(el,w,h,whichgraph) {
     svg.call(this.zoom).on("dblclick.zoom", null);
 
     this.force = d3.layout.force()
-        .charge(-120)
+        .charge(-400)
         .linkDistance(90)
+        .theta(1)
+        // .linkStrength(0.2)
+        // .friction(0.5)
         .size([w, h]);
 
     this.nodes = this.force.nodes();

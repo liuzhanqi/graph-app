@@ -142,7 +142,7 @@ def build_graph(data):
 
 if __name__ == "__main__":
     a = sys.argv[1]
-    b = sys.argv[1]
+    b = sys.argv[2]
     g1 = json.loads(a)
     g2 = json.loads(b)
     # g1 = {"nodes":[{"name":"peter","id":"GraphIDfriendVertex1","graphID":"friend"},{"name":"sam","id":"GraphIDfriendVertex3","graphID":"friend"},{"name":"betty","id":"GraphIDfriendVertex2","graphID":"friend"},{"name":"jason","id":"GraphIDfriendVertex5","graphID":"friend"},{"name":"ivy","id":"GraphIDfriendVertex4","graphID":"friend"}],"edges":[{"id":"GraphIDfriendEdge4","graphID":"friend","source":"GraphIDfriendVertex4","target":"GraphIDfriendVertex1","years":"3"},{"id":"GraphIDfriendEdge6","graphID":"friend","source":"GraphIDfriendVertex1","target":"GraphIDfriendVertex3","years":"2"},{"id":"GraphIDfriendEdge8","graphID":"friend","source":"GraphIDfriendVertex4","target":"GraphIDfriendVertex2","years":"5"},{"id":"GraphIDfriendEdge5","graphID":"friend","source":"GraphIDfriendVertex1","target":"GraphIDfriendVertex2","years":"2"},{"id":"GraphIDfriendEdge1","graphID":"friend","source":"GraphIDfriendVertex3","target":"GraphIDfriendVertex2","years":"3"},{"id":"GraphIDfriendEdge2","graphID":"friend","source":"GraphIDfriendVertex2","target":"GraphIDfriendVertex5","years":"2"},{"id":"GraphIDfriendEdge3","graphID":"friend","source":"GraphIDfriendVertex5","target":"GraphIDfriendVertex4","years":"6"}]}
@@ -155,8 +155,8 @@ if __name__ == "__main__":
     result["graph1"] = []
     result["graph2"] = []
     for pair in ans:
-        result["graph1"].append({"source":pair[0][0], "target":pair[0][1]})
-        result["graph2"].append({"source":pair[1][0], "target":pair[1][1]})
+        result["graph1"].append({"s":pair[0][0], "s":pair[0][1]})
+        result["graph2"].append({"t":pair[1][0], "t":pair[1][1]})
     print(result)
     # print(ans)
     # edge_product_graph = k.edge_product_graph(graph1, graph2)

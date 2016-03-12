@@ -47,9 +47,9 @@ var MCSHandler = function(event) {
             console.log(data);
             for (i=0; i<data.graph1.length; ++i) {
                 var e = data.graph1[i]
-                var selector = "circle[id='" + e.source + "']";
+                var selector = "circle[id='" + e.s + "']";
                 d3.select(selector).classed("MCS", true);
-                selector = "line[source='" + e.source + "']" + "[target='" + e.target + "']";
+                // selector = "line[source='" + e.s + "']" + "[target='" + e.t + "']";
                 // console.log(selector);
                 // console.log($("#left").find(selector));
                 // $("#left").find(selector).addClass("MCS");

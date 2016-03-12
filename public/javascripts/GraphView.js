@@ -38,7 +38,7 @@ function GraphView(el,w,h) {
     this.force = d3.layout.force()
         // .linkDistance(100)
         // .charge(-400)
-        .charge(-120)
+        .charge(-400)
         .linkDistance(90)
         .size([w, h]);
 
@@ -655,11 +655,37 @@ GraphView.prototype.update = function() {
         });
 
     this.force.on("tick", function() {
-        link.attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
-
+        link
+        .attr("x1", function(d) { 
+            diffX = d.source.x - d.target.x;
+            diffY = d.source.y - d.target.y;
+            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+            offsetX = (diffX * 15) / pathLength;
+            return (d.source.x - offsetX); 
+        })
+        .attr("y1", function(d) {
+            diffX = d.source.x - d.target.x;
+            diffY = d.source.y - d.target.y;
+            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+            offsetY = (diffY * 15) / pathLength;
+            return (d.source.y - offsetY); 
+        })
+        .attr("x2", function(d) {
+            //R = 20
+            diffX = d.target.x - d.source.x;
+            diffY = d.target.y - d.source.y;
+            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+            offsetX = (diffX * 20) / pathLength;
+            return (d.target.x - offsetX); 
+        })
+        .attr("y2", function(d) { 
+            //R = 20
+            diffX = d.target.x - d.source.x;
+            diffY = d.target.y - d.source.y;
+            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+            offsetY = (diffY * 20) / pathLength;
+            return (d.target.y - offsetY);
+        });
         node.attr("transform", function(d) { 
             return "translate(" + d.x + "," + d.y + ")"; 
         });
