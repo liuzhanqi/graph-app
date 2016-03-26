@@ -40,14 +40,11 @@ table td:last-child {
 }
 
 #toolbox, #console{
-    margin-bottom: 0.5em;
-    margin-left: 1em;
     border: 2px solid #CCC;
     border-radius: 5px;
-    padding: 1em;
+    padding: 1.5em;
     z-index: 5;
-    float: left;
-    clear:both;
+    height:100px;
 }
 
 #inputbox {
@@ -69,14 +66,11 @@ table td:last-child {
     display: table;
 }
 
-#console {
-    width: 700px;
-    height: 55.6px;
-}
 
 #toolbox input{
     width: 50px;
     opacity: 0.4;
+    margin: 2px;
 }
 #toolbox input:hover{
     opacity: 1;
@@ -172,4 +166,29 @@ div#expand-content1, div#expand-content2, div#expand-content3 {
     cursor:pointer;
     color:blue;
     text-decoration:underline;
+}
+
+
+
+#tool-box{
+    text-align: center;
+    height: 100px;
+}
+.row{
+    margin-left:0;
+    margin-right: 0;
+}
+#right-panel{
+    height: 100%;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    box-shadow: 1px 1px 5px 6px rgb(221, 221, 221);
+    position: fixed;
+    right: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#force, #hierarchy, #flow{
+    margin-bottom: 3px;
+    margin-top: 3px;
 }

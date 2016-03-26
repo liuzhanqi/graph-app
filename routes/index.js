@@ -28,7 +28,7 @@ router.get('/retrieveGraphID', function(req, res, next) {
 })
 
 router.get('/editor', function(req, res, next) {
-	res.render('index');
+	res.render('beautifulEditor');
 });
 
 router.get('/comparisonID', function(req, res, next) {

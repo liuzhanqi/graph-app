@@ -5,6 +5,9 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
     width = window.innerWidth || docEl.clientWidth || bodyEl.clientWidth;
     height =  window.innerHeight|| docEl.clientHeight|| bodyEl.clientHeight;
 
+    width = width * 0.75;
+    height = height * 0.85;
+
     graph = new GraphView("#graph",width,height);
 
     graph.svg.on("mousedown", function(d){
