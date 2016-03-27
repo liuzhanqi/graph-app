@@ -10,47 +10,48 @@ html
             div(id='graph-container', class='row')
                 div(id='graph', class='col-sm-12')
             div(id='console-container', class='row')
-                div(id='tool-box', class='col-sm-5')
-                    div(id="toolbox", class="row")
-                        input(
-                            type="image"
-                            title="create edge"
-                            id="create-edge-button"
-                            src='./images/edge_button.png'
-                            onclick="graph.toggle_draw_edge();"
-                        )
-                        input(
-                            type="image"
-                            title="eraser"
-                            id="eraser-button"
-                            src='./images/eraser_button.png'
-                            onclick="graph.toggle_eraser();"
-                        )
-                        input(
-                            type="image"
-                            title="save graph to datavase"
-                            id="save-button"
-                            src='./images/save_button.png'
-                            onclick="graph.save_graph();"
-                        )
-                        input(
-                            type="image"
-                            title="rectangular seelction"
-                            id="selection-button"
-                            src='./images/selection.png'
-                            onclick="graph.toggle_selection();"
-                        )
-                        input(
-                            type="image"
-                            title="extract a subgraph"
-                            id="extract-button"
-                            src='./images/extract.png'
-                            onclick="graph.extract_subgraph();"
-                        )
-                div(id='console', class='col-sm-7')
-                
-        div(id='right-panel', class='col-sm-3')
+                .input-group
+                    span#basic-addon1.input-group-addon Console
+                    div(id='console', class='col-sm-12')
 
+        div(id='right-panel', class='col-sm-3')
+            div(id='tool-box', class='col-sm-12')
+                div(id="toolbox", class="row")
+                    input(
+                        type="image"
+                        title="create edge"
+                        id="create-edge-button"
+                        src='./images/edge_button.png'
+                        onclick="graph.toggle_draw_edge();"
+                    )
+                    input(
+                        type="image"
+                        title="eraser"
+                        id="eraser-button"
+                        src='./images/eraser_button.png'
+                        onclick="graph.toggle_eraser();"
+                    )
+                    input(
+                        type="image"
+                        title="save graph to datavase"
+                        id="save-button"
+                        src='./images/save_button.png'
+                        onclick="graph.save_graph();"
+                    )
+                    input(
+                        type="image"
+                        title="rectangular seelction"
+                        id="selection-button"
+                        src='./images/selection.png'
+                        onclick="graph.toggle_selection();"
+                    )
+                    input(
+                        type="image"
+                        title="extract a subgraph"
+                        id="extract-button"
+                        src='./images/extract.png'
+                        onclick="graph.extract_subgraph();"
+                    )
             button(id='force', class='form-control btn btn-primary') Unconstraint Layout
             button(id='hierarchy', class='form-control btn btn-primary') Hierarchy Layout
             button(id='flow', class='form-control btn btn-primary') Flow Layout

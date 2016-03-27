@@ -6,7 +6,7 @@ document.onload = (function (d3, saveAs, Blob, undefined) {
     height =  window.innerHeight|| docEl.clientHeight|| bodyEl.clientHeight;
 
     width = width * 0.75;
-    height = height * 0.85;
+    height = height * 0.90;
 
     graph = new GraphView("#graph",width,height);
 
