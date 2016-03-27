@@ -87,6 +87,14 @@ router.post('/retrieveOldGraphID', function(req,res,next) {
 	});
 });
 
+router.post('/retrieveAllGraphID', function(req,res,next) {
+	graph.retrieveAllGraphID(function(message) {
+		res.send(message);
+		console.log("retrieveAllGraphID");
+		console.log(message);
+	});
+});
+
 router.post('/createGraphID', function(req,res,next) {
 	var id =req.body.id;
 	console.log(id);
@@ -101,7 +109,6 @@ router.post('/createGraphDefinition', function(req,res,next) {
 
 router.get('/getGraph', function(req,res,next) {
 	var data = graph.getGraph(function(message) {
-		console.log(message);
 		res.send(message);
 	});
 });

@@ -53,6 +53,24 @@ Graph.prototype.createNewGraphID = function(graphid, callback, optionalDefinitio
 	//TODO: how to return message
 }
 
+Graph.prototype.retrieveAllGraphID = function(callback) {
+	var that = this;
+	runCypherQuery(
+		'MATCH (n: GRAPHID) RETURN n.graphid', {}, 
+		function (err, resp) {
+			if (err) {
+	    		console.log(err);
+	    	} else {
+	    		var message = [];
+	    		for (var i= 0; i < resp.results[0].data.length; i++) {
+	    			message.push(resp.results[0].data[i].row[0]);
+	    		}
+	    		console.log(message);
+	    		callback(message);
+	    	}
+		});
+}
+
 
 Graph.prototype.retrieveOldGraphID = function(graphid, callback) {
 	this.savedToDB = true;

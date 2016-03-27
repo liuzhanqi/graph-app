@@ -61,3 +61,9 @@ select {
     width: 300px;
     height: 100px;
 }
+
+#graphidlist {
+	width: 20%;
+	margin: 0 auto;
+	margin-top: 150px;
+}
