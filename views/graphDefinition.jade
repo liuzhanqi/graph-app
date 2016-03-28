@@ -2,40 +2,41 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
     link(rel='stylesheet', href='./stylesheets/definitionstyle.css')
   body
     div
         div.container
-            form(id="graph-definition" method="post")
-            div.left#node-form
-                button#more-node-attributes More Node Attributes
-                button#less-node-attributes Less Node Attributes
-                table
-                    tr
-                        td Name:
-                        td 
-                            input(type="text", name="nodeName")
-                    tr#node-attribute1
-                        td Attribute:
-                        td
-                            input(type="text", name="node-attribute1")
-            div.right#edge-form
-                button#more-edge-attributes More Edge Attributes                
-                button#less-edge-attributes Less Edge Attributes
-                table
-                    tr
-                        td Name:
-                        td 
-                            input(type="text", name="edgeName")
-                    tr#edge-attribute1
-                        td Attribute:
-                        td
-                            input(type="text", name="edge-attribute1")
-            div.newline
-                input(type="checkbox" name="isDirected") 
-                label Directed Graph
-                br
-                input(id="submit" type="submit", name="submit")
+            form.form-horizontal(id="graph-definition" method="post")
+            button(type="button" class="btn btn-success")#more-node-attributes More Node Attributes
+            button(type="button" class="btn btn-danger")#less-node-attributes Less Node Attributes
+            .form-group
+                label.col-sm-4.control-label(for='nodeName') Node Label
+                .col-sm-8
+                  input#nodeName.form-control(type='text', name="nodeName")
+            .form-group.node-attribute-row
+                label.col-sm-4.control-label Node Attribute 1
+                .col-sm-8
+                  input#node-attribute1.form-control(type='text', name="node-attribute1")
+            button(type="button" class="btn btn-success")#more-edge-attributes More Edge Attributes                
+            button(type="button" class="btn btn-danger")#less-edge-attributes Less Edge Attributes
+            .form-group
+                label.col-sm-4.control-label(for='edgeName') Edge Label
+                .col-sm-8
+                  input#edgeName.form-control(type='text', name="edgeName")
+            .form-group.edge-attribute-row
+                label.col-sm-4.control-label Edge Attribute 1
+                .col-sm-8
+                  input#edge-attribute1.form-control(type='text', name="edge-attribute1")
+            .form-group
+                .col-sm-offset-4.col-sm-8
+                    .checkbox
+                        label
+                            input(type='checkbox' name='isDirected')
+                            |  Directed Graph
+            .form-group
+                .col-sm-offset-4.col-sm-8
+                    button.btn.btn-default(type='submit' id="submit" name="submit") Submit
     block content
     script(src='./javascripts/jquery.min.js')
     script(src='./javascripts/form-actor.js')

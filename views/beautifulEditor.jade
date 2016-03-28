@@ -13,137 +13,151 @@ html
                 .input-group
                     span#basic-addon1.input-group-addon Console
                     div(id='console', class='col-sm-12')
-
         div(id='right-panel', class='col-sm-3')
-            div(id='tool-box', class='col-sm-12')
-                div(id="toolbox", class="row")
-                    input(
-                        type="image"
-                        title="create edge"
-                        id="create-edge-button"
-                        src='./images/edge_button.png'
-                        onclick="graph.toggle_draw_edge();"
-                    )
-                    input(
-                        type="image"
-                        title="eraser"
-                        id="eraser-button"
-                        src='./images/eraser_button.png'
-                        onclick="graph.toggle_eraser();"
-                    )
-                    input(
-                        type="image"
-                        title="save graph to datavase"
-                        id="save-button"
-                        src='./images/save_button.png'
-                        onclick="graph.save_graph();"
-                    )
-                    input(
-                        type="image"
-                        title="rectangular seelction"
-                        id="selection-button"
-                        src='./images/selection.png'
-                        onclick="graph.toggle_selection();"
-                    )
-                    input(
-                        type="image"
-                        title="extract a subgraph"
-                        id="extract-button"
-                        src='./images/extract.png'
-                        onclick="graph.extract_subgraph();"
-                    )
-            button(id='force', class='form-control btn btn-primary') Unconstraint Layout
-            button(id='hierarchy', class='form-control btn btn-primary') Hierarchy Layout
-            button(id='flow', class='form-control btn btn-primary') Flow Layout
+            div(id='panel-group', class='col-sm-12' class="row")
+                #accordion.panel-group(role='tablist', aria-multiselectable='true')
+                    .panel.panel-default
+                        .panel-body
+                            div(id="toolbox" class="panel-body")
+                                input(
+                                    type="image"
+                                    title="create edge"
+                                    id="create-edge-button"
+                                    src='./images/edge_button.png'
+                                    onclick="graph.toggle_draw_edge();"
+                                )
+                                input(
+                                    type="image"
+                                    title="eraser"
+                                    id="eraser-button"
+                                    src='./images/eraser_button.png'
+                                    onclick="graph.toggle_eraser();"
+                                )
+                                input(
+                                    type="image"
+                                    title="save graph to datavase"
+                                    id="save-button"
+                                    src='./images/save_button.png'
+                                    onclick="graph.save_graph();"
+                                )
+                                input(
+                                    type="image"
+                                    title="rectangular seelction"
+                                    id="selection-button"
+                                    src='./images/selection.png'
+                                    onclick="graph.toggle_selection();"
+                                )
+                                input(
+                                    type="image"
+                                    title="extract a subgraph"
+                                    id="extract-button"
+                                    src='./images/extract.png'
+                                    onclick="graph.extract_subgraph();"
+                                )
+                                input(
+                                    type="image"
+                                    title="home"
+                                    id="home-button"
+                                    src='./images/home_button.png'
+                                    onclick="location.href='/';"
+                                )
 
-            #accordion.panel-group(role='tablist', aria-multiselectable='true')
+                    .panel.panel-default
+                        #headingOne.panel-heading(role='tab')
+                            h4.panel-title
+                                a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                                    | Node Attributes
+                        #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                            .panel-body
+                                span(id="node-name")
+                                form(id="add-node", name="add-node", method="post")
+                                  table
+                                    tr(id="node-attribute-row")
+                                      td(id="node-attribute-col")
+                                      td
+                                        input(type="text", name="type" id="node-attribute-input")
+                                div
+                                    button#addNodeButton Add Nodes
 
-                .panel.panel-default
-                    #headingOne.panel-heading(role='tab')
-                        h4.panel-title
-                            a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
-                                | Nodes Attributes
-                    #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
-                        .panel-body
-                            span(id="node-name")
-                            form(id="add-node", name="add-node", method="post")
-                              table
-                                tr(id="node-attribute-row")
-                                  td(id="node-attribute-col")
-                                  td
-                                    input(type="text", name="type" id="node-attribute-input")
-                            div
-                                button#addNodeButton Add Nodes
+                    .panel.panel-default
+                        #headingTwo.panel-heading(role='tab')
+                            h4.panel-title
+                                a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                                    | Edge Attributes
+                        #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+                            .panel-body
+                                span(id="edge-name")
+                                form(id="add-edge", name="add-edge", method="post")
+                                  table
+                                    tr(id="edge-attribute-row")
+                                      td(id="edge-attribute-col")
+                                      td
+                                        input(type="text", name="type" id="edge-attribute-input")
 
-                .panel.panel-default
-                    #headingTwo.panel-heading(role='tab')
-                        h4.panel-title
-                            a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
-                                | Edges Attributes
-                    #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
-                        .panel-body
-                            span(id="edge-name")
-                            form(id="add-edge", name="add-edge", method="post")
-                              table
-                                tr(id="edge-attribute-row")
-                                  td(id="edge-attribute-col")
-                                  td
-                                    input(type="text", name="type" id="edge-attribute-input")
-
-                .panel.panel-default
-                    #headingThree.panel-heading(role='tab')
-                        h4.panel-title
-                            a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
-                                | Extract By Center
-                    #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
-                        .panel-body
-                            form
-                                .form-group
-                                    label Center
-                                    input.form-control(type='text' id="extractcenterid" name="extractCenterByID")
-                                .form-group
-                                    label Hops
-                                    input.form-control(type='text' id="extractcenterhop" name="extractCenterByHop")
-                                .form-group
-                                    button(id="highlightbutton" class="btn btn-default") Highlight
-                                    button(id="extractbutton" class="btn btn-default") Extract
-                .panel.panel-default
-                    #headingFour.panel-heading(role='tab')
-                        h4.panel-title
-                            a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseFour', aria-expanded='false', aria-controls='collapseFour')
-                                | Extract By Attribute
-                    #collapseFour.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFour')
-                        .panel-body
-                            form
-                                .form-group
-                                    label Name
-                                    input.form-control(type='text' id="extractname" name="extractByName")
-                                .form-group
-                                    label Value
-                                    input.form-control(type='text' id="extractvalue" name="extractByValue")
-                                .form-group
-                                    label Hops
-                                    input.form-control(type='text' id="extracthop" name="extractByHop")
-                                .form-group
-                                    button(id="highlightbutton" class="btn btn-default") Highlight
-                                    button(id="extractbutton" class="btn btn-default") Extract
-                .panel.panel-default
-                    #headingFive.panel-heading(role='tab')
-                        h4.panel-title
-                            a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseFive', aria-expanded='false', aria-controls='collapseFive')
-                                | Color By Attribute
-                    #collapseFive.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFive')
-                        .panel-body
-                            form
-                                .form-group
-                                    label Name
-                                    input.form-control(type='text' id="colorname" name="colorByName")
-                                .form-group
-                                    label Value
-                                    input.form-control(type='text' id="colorvalue" name="colorByValue")
-                                .form-group
-                                    label Color
-                                    input.form-control(class='jscolor' id="colorcolor" name="colorByColor")
+                    .panel.panel-default
+                        #headingThree.panel-heading(role='tab')
+                            h4.panel-title
+                                a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+                                    | Extract By Center
+                        #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+                            .panel-body
+                                form
+                                    .form-group
+                                        label Center
+                                        input.form-control(type='text' id="extractcenterid" name="extractCenterByID")
+                                    .form-group
+                                        label Hops
+                                        input.form-control(type='text' id="extractcenterhop" name="extractCenterByHop")
+                                    .form-group
+                                        button(id="highlightbutton" class="btn btn-default") Highlight
+                                        button(id="extractbutton" class="btn btn-default") Extract
+                    .panel.panel-default
+                        #headingFour.panel-heading(role='tab')
+                            h4.panel-title
+                                a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseFour', aria-expanded='false', aria-controls='collapseFour')
+                                    | Extract By Attribute
+                        #collapseFour.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFour')
+                            .panel-body
+                                form
+                                    .form-group
+                                        label Name
+                                        input.form-control(type='text' id="extractname" name="extractByName")
+                                    .form-group
+                                        label Value
+                                        input.form-control(type='text' id="extractvalue" name="extractByValue")
+                                    .form-group
+                                        label Hops
+                                        input.form-control(type='text' id="extracthop" name="extractByHop")
+                                    .form-group
+                                        button(id="highlightbutton" class="btn btn-default") Highlight
+                                        button(id="extractbutton" class="btn btn-default") Extract
+                    .panel.panel-default
+                        #headingFive.panel-heading(role='tab')
+                            h4.panel-title
+                                a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseFive', aria-expanded='false', aria-controls='collapseFive')
+                                    | Color By Attribute
+                        #collapseFive.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFive')
+                            .panel-body
+                                form
+                                    .form-group
+                                        label Name
+                                        input.form-control(type='text' id="colorname" name="colorByName")
+                                    .form-group
+                                        label Value
+                                        input.form-control(type='text' id="colorvalue" name="colorByValue")
+                                    .form-group
+                                        label Color
+                                        input.form-control(class='jscolor' id="colorcolor" name="colorByColor")
+                    .panel.panel-default
+                        #headingSix.panel-heading(role='tab')
+                            h4.panel-title
+                                a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseSix', aria-expanded='false', aria-controls='collapseSix')
+                                    | Graph Layout
+                        #collapseSix.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingSix')
+                            .panel-body
+                                button(id='force', class='form-control btn btn-primary') Unconstraint Layout
+                                button(id='hierarchy', class='form-control btn btn-primary') Hierarchy Layout
+                                button(id='flow', class='form-control btn btn-primary') Flow Layout
                 
     script(src='//cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min.js')
     script(src='./javascripts/jquery.min.js')

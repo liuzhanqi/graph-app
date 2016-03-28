@@ -70,9 +70,9 @@ table td:last-child {
 }
 
 #toolbox input{
-    width: 50px;
+    width: 45px;
     opacity: 0.4;
-    margin: 2px;
+    margin: 1px;
 }
 #toolbox input:hover{
     opacity: 1;
@@ -170,11 +170,8 @@ div#expand-content1, div#expand-content2, div#expand-content3 {
     text-decoration:underline;
 }
 
-
-
 #tool-box{
     text-align: center;
-    height: 100px;
 }
 .row{
     margin-left:0;
@@ -193,4 +190,9 @@ div#expand-content1, div#expand-content2, div#expand-content3 {
 #force, #hierarchy, #flow{
     margin-bottom: 3px;
     margin-top: 3px;
+}
+
+.panel.panel-default {
+    margin-left: -35px;
+    margin-right: -35px;
 }
