@@ -28,3 +28,7 @@ circle.MCS{
 line.MCS{
     stroke:LightSkyBlue;
 }
+
+button {
+    margin: 2px;
+}

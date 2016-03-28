@@ -2,19 +2,20 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
     link(rel='stylesheet', href='./stylesheets/definitionstyle.css')        
   body
     div#centeredContainer
-        div
-            Please Input two Graph ID
-        div(id="error")
-        div
-            input(type="text" id="graphID1")
-        div
-            input(type="text" id="graphID2")
-        div
-            button(onclick='checkID()') Next
-    block content
+        form
+            .form-group
+                label Graph ID 1:
+                input.form-control(type='text' id="graphID1")
+            .form-group
+                label Graph ID 2:
+                input.form-control(type='text' id="graphID2")
+            div(id="error")
+            div
+                button(type="button", class="btn btn-primary" id="nextbutton") Next
     script(src='./javascripts/jquery.min.js')
     script(src='//d3js.org/d3.v3.js')
     script(src='./javascripts/ComparisonIDView.js')

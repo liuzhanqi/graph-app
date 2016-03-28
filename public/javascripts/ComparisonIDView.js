@@ -24,3 +24,5 @@ var checkID = function() {
     document.getElementById("error").innerHTML = errorMessage;
     console.log(errorMessage);
 }
+
+$("#nextbutton").click(checkID);

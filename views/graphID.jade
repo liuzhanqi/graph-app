@@ -6,12 +6,13 @@ html
     link(rel='stylesheet', href='./stylesheets/definitionstyle.css')        
   body
     div#centeredContainer
-        .form-group
-            label(for='graphID') Input a Graph ID:
-            input#graphID.form-control(type='text')
-        div(id="error")
-        div
-            button(type="button", class="btn btn-primary")(onclick='checkID()') Next
+        form
+            .form-group
+                label(for='graphID') Input a Graph ID:
+                input#graphID.form-control(type='text')
+            div(id="error")
+            div
+                button(type="button", class="btn btn-primary")(onclick='checkID()') Next
     block content
     script(src='./javascripts/jquery.min.js')
     script(src='//d3js.org/d3.v3.js')
