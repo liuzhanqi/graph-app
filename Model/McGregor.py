@@ -1,4 +1,6 @@
 from Graph import Graph
+import sys
+import json
 
 class McGregor():
     def __init__(self, g1, g2):
@@ -22,7 +24,7 @@ class McGregor():
         #     return
 
         if len(s) > self.mcssize:
-            self.mcslist = [s.map]  # save newest result as sole
+            self.mcslist = s.map  # save newest result as sole
             self.mcssize = len(s)
 
             if self.mcssize == len(self.g1.vertices()) or self.mcssize == len(self.g2.vertices()):
@@ -31,10 +33,10 @@ class McGregor():
             if self.verbose:
                 # print("optimal mcs size now", len(s))
                 print("optional mcs noe ", s, " len = ",  len(s))
-        elif len(s) == self.mcssize:
-            self.mcslist.append(s.map)
-            if self.verbose:
-                print("+ mcs")
+        # elif len(s) == self.mcssize:
+        #     self.mcslist.append(s.map)
+        #     if self.verbose:
+        #         print("+ mcs")
 
         if self.verbose:
             print("state", s)
@@ -129,12 +131,9 @@ class McGregor():
                 # print(self.g1.get_edge_attribute((n1,node)))
                 # print(n2, s.map[node])
                 # print(self.g2.get_edge_attribute((n2,s.map[node])))
-                if self.g1.get_edge_attribute((n1,node)) == self.g2.get_edge_attribute((n2,s.map[node])):
-                    # print("set at_least_one_edge_matched = Ture")
-                    at_least_one_edge_matched = True
-        if not at_least_one_edge_matched:
-            return False
-        return True
+                if self.g1.get_edge_attribute((n1,node)) != self.g2.get_edge_attribute((n2,s.map[node])):
+                    return False;
+        return True;
 
     def mcs(self):
         s = State()  # empty state
@@ -159,42 +158,66 @@ class State:
         s += " [" + ",".join([str(x) for x in self.rhsborder]) + "]"
         return s
 
+def build_graph(data):
+    g = Graph()
+    dict = {}
+    for v in data["nodes"]:
+        id = v["id"]
+        del v["graphID"], v["id"]
+        g.add_vertex(id)
+        g.set_node_attribute({id: v})
+        dict[id] = v
+    for e in data["edges"]:
+        source = e["source"]
+        target = e["target"]
+        del e["graphID"], e["id"], e["source"], e["target"]
+        g.add_edge((source,target))
+        g.set_edge_attribute({(source,target):e})
+    return g
+
 
 if __name__ == "__main__":
-    g_data1 = {"u1": ["u2", "u3"],
-               "u2": ["u4", "u1"],
-               "u3": ["u4", "u1"],
-               "u4": ["u2", "u3"]}
-    node_attr_1 = {"u1": {"label": "l"},
-                   "u3": {"label": "l"},
-                   "u2": {"label": "s"},
-                   "u4": {"label": "s"}}
-    edge_attr_1 = {("u1", "u2"): {"label": "d"},
-                   ("u1", "u3"): {"label": "d"},
-                   ("u2", "u4"): {"label": "s"},
-                   ("u3", "u4"): {"label": "x"}}
-    node_attr_2 = {"v1": {"label": "l"},
-                   "v3": {"label": "l"},
-                   "v2": {"label": "s"},
-                   "v4": {"label": "s"}}
-    edge_attr_2 = {("v1", "v2"): {"label": "s"},
-                   ("v1", "v3"): {"label": "x"},  # the difference
-                   ("v2", "v4"): {"label": "s"},
-                   ("v3", "v4"): {"label": "x"}}
-    g_data2 = {"v1": ["v2", "v3"],
-               "v2": ["v4", "v1"],
-               "v3": ["v4", "v1"],
-               "v4": ["v2", "v3"]}
-    graph1 = Graph(g_data1)
-    graph1.set_node_attribute(node_attr_1)
-    graph1.set_edge_attribute(edge_attr_1)
-    graph2 = Graph(g_data2)
-    graph2.set_node_attribute(node_attr_2)
-    graph2.set_edge_attribute(edge_attr_2)
-    # print(graph2.get_edge_attribute(("v1", "v2")))
-    # print(graph1.edges())
+    # g_data1 = {"u1": ["u2", "u3"],
+    #            "u2": ["u4", "u1"],
+    #            "u3": ["u4", "u1"],
+    #            "u4": ["u2", "u3"]}
+    # node_attr_1 = {"u1": {"label": "l"},
+    #                "u3": {"label": "l"},
+    #                "u2": {"label": "s"},
+    #                "u4": {"label": "s"}}
+    # edge_attr_1 = {("u1", "u2"): {"label": "d"},
+    #                ("u1", "u3"): {"label": "d"},
+    #                ("u2", "u4"): {"label": "s"},
+    #                ("u3", "u4"): {"label": "x"}}
+    # node_attr_2 = {"v1": {"label": "l"},
+    #                "v3": {"label": "l"},
+    #                "v2": {"label": "s"},
+    #                "v4": {"label": "s"}}
+    # edge_attr_2 = {("v1", "v2"): {"label": "s"},
+    #                ("v1", "v3"): {"label": "x"},  # the difference
+    #                ("v2", "v4"): {"label": "s"},
+    #                ("v3", "v4"): {"label": "x"}}
+    # g_data2 = {"v1": ["v2", "v3"],
+    #            "v2": ["v4", "v1"],
+    #            "v3": ["v4", "v1"],
+    #            "v4": ["v2", "v3"]}
+    a = sys.argv[1]
+    b = sys.argv[2]
+    g1 = json.loads(a)
+    g2 = json.loads(b)
+    # g1 = {"nodes":[{"name":"peter","id":"GraphIDfriendVertex1","graphID":"friend"},{"name":"sam","id":"GraphIDfriendVertex3","graphID":"friend"},{"name":"betty","id":"GraphIDfriendVertex2","graphID":"friend"},{"name":"jason","id":"GraphIDfriendVertex5","graphID":"friend"},{"name":"ivy","id":"GraphIDfriendVertex4","graphID":"friend"}],"edges":[{"id":"GraphIDfriendEdge4","graphID":"friend","source":"GraphIDfriendVertex4","target":"GraphIDfriendVertex1","years":"3"},{"id":"GraphIDfriendEdge6","graphID":"friend","source":"GraphIDfriendVertex1","target":"GraphIDfriendVertex3","years":"2"},{"id":"GraphIDfriendEdge8","graphID":"friend","source":"GraphIDfriendVertex4","target":"GraphIDfriendVertex2","years":"5"},{"id":"GraphIDfriendEdge5","graphID":"friend","source":"GraphIDfriendVertex1","target":"GraphIDfriendVertex2","years":"2"},{"id":"GraphIDfriendEdge1","graphID":"friend","source":"GraphIDfriendVertex3","target":"GraphIDfriendVertex2","years":"3"},{"id":"GraphIDfriendEdge2","graphID":"friend","source":"GraphIDfriendVertex2","target":"GraphIDfriendVertex5","years":"2"},{"id":"GraphIDfriendEdge3","graphID":"friend","source":"GraphIDfriendVertex5","target":"GraphIDfriendVertex4","years":"6"}]}
+    # g2 = {"nodes":[{"name":"peter","id":"GraphIDfriendVertex1","graphID":"friend"},{"name":"sam","id":"GraphIDfriendVertex3","graphID":"friend"},{"name":"betty","id":"GraphIDfriendVertex2","graphID":"friend"},{"name":"jason","id":"GraphIDfriendVertex5","graphID":"friend"},{"name":"ivy","id":"GraphIDfriendVertex4","graphID":"friend"}],"edges":[{"id":"GraphIDfriendEdge4","graphID":"friend","source":"GraphIDfriendVertex4","target":"GraphIDfriendVertex1","years":"3"},{"id":"GraphIDfriendEdge6","graphID":"friend","source":"GraphIDfriendVertex1","target":"GraphIDfriendVertex3","years":"2"},{"id":"GraphIDfriendEdge8","graphID":"friend","source":"GraphIDfriendVertex4","target":"GraphIDfriendVertex2","years":"5"},{"id":"GraphIDfriendEdge5","graphID":"friend","source":"GraphIDfriendVertex1","target":"GraphIDfriendVertex2","years":"2"},{"id":"GraphIDfriendEdge1","graphID":"friend","source":"GraphIDfriendVertex3","target":"GraphIDfriendVertex2","years":"3"},{"id":"GraphIDfriendEdge2","graphID":"friend","source":"GraphIDfriendVertex2","target":"GraphIDfriendVertex5","years":"2"},{"id":"GraphIDfriendEdge3","graphID":"friend","source":"GraphIDfriendVertex5","target":"GraphIDfriendVertex4","years":"6"}]}
+    graph1 = build_graph(g1)
+    graph2 = build_graph(g2)
     mcs = McGregor(graph1, graph2)
     mcs.verbose = False
     mcslist, mcssize = mcs.mcs()
     # print("maximum mcs", mcssize)
-    print(mcslist)
+    result = {}
+    result["graph1"] = []
+    result["graph2"] = []
+    for key in mcslist:
+        result["graph1"].append({"s": key})
+        result["graph2"].append({"t": mcslist[key]})
+    print(result)
+    sys.stdout.flush()

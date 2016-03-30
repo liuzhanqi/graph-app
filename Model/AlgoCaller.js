@@ -11,7 +11,10 @@ var AlgoCaller = function(g1, g2) {
 AlgoCaller.prototype.executePython = function(name, callback) {
 	console.log(name);
 	var spawn = require("child_process").spawn;
-	var path = this.basePath + "/Koch.py"
+	var path;
+	if (name == "koch")
+		path = this.basePath + "/Koch.py"
+	else path = this.basePath + "/McGregor.py"
 	var process = spawn('python3',[path, JSON.stringify(this.g1), JSON.stringify(this.g2)]);
 	var StringDecoder = require('string_decoder').StringDecoder;
 	var decoder = new StringDecoder('utf8');
