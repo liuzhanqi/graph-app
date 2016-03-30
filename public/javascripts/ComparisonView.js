@@ -37,6 +37,27 @@ var highlightHandler = function() {
     }
 }
 
+var updatePosition = function() {
+    d3.select("#left").selectAll(".MCS").each(function () {
+        console.log(this);
+        console.log(this.parentNode);
+        var currentx = d3.transform(d3.select(this.parentNode).attr("transform")).translate[0];
+        var currenty = d3.transform(d3.select(this.parentNode).attr("transform")).translate[1];
+        console.log(currentx);
+        console.log(currenty);
+        var classNames = d3.select(this).attr("class");
+        var node2 = d3.select("#right").select("." + classNames.replace(/\ /g, '.'));
+        console.log(node2);
+        var x = currentx;
+        var y = currenty;
+        console.log(x);
+        console.log(node2[0][0].parentNode);
+        console.log(d3.select(node2[0][0].parentNode).attr("transform"));
+        d3.select(node2[0][0].parentNode).transition().attr("transform", "translate(" + x + "," + y + ")");
+        console.log(d3.select(node2[0][0].parentNode).attr("transform"));
+    });
+};
+
 var MCSHandler = function(event) {
     console.log("MCSHandler");
     var name = event.target.id;
@@ -45,15 +66,20 @@ var MCSHandler = function(event) {
             var data = data.replace(/'/g, '"');
             data = JSON.parse(data);
             console.log(data);
-            for (i=0; i<data.graph1.length; ++i) {
-                var e = data.graph1[i]
-                var selector = "circle[id='" + e.s + "']";
-                d3.select(selector).classed("MCS", true);
-                // selector = "line[source='" + e.s + "']" + "[target='" + e.t + "']";
-                // console.log(selector);
-                // console.log($("#left").find(selector));
-                // $("#left").find(selector).addClass("MCS");
+            for (var i=0; i<data.graph1.length; ++i) {
+                var s = data.graph1[i].s;
+                var t = data.graph2[i].t;
+                var selector1 = "circle[id='" + s + "']";
+                var selector2 = "circle[id='" + t + "']";
+                var flag = false;
+                d3.select("#left").select(selector1).each(function() {
+                    if (d3.select(this).classed("MCS")) flag = true;
+                    else d3.select(this).classed("MCS MCSPair" + i, true);
+                });
+                if (!flag)
+                    d3.select("#right").select(selector2).classed("MCS MCSPair" + i, true);
             }
+            updatePosition();
             // for (i=0; i<data.graph2.length; ++i) {
             //     var e = data.graph2[i]
             //     var selector = "line[source='" + e.source + "']" + "[target='" + e.target + "']";

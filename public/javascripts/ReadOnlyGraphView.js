@@ -164,9 +164,6 @@ ReadOnlyGraphView.prototype.update = function() {
             graph.svg.call(graph.zoom).on("dblclick.zoom", null);
         });
 
-    console.log("drag");
-    console.log(drag);
-
     node.exit().remove();
 
     var nodeEnter = node.enter().append("g")
@@ -177,7 +174,7 @@ ReadOnlyGraphView.prototype.update = function() {
     nodeEnter.append("circle")
         .attr("class","circle")
         .attr("r", 15)
-        .attr("x", "-8px")
+        .attr("x", function(d) {return "-8px";})
         .attr("y", "-8px")
         .attr("id", function(d) {return d.id})
         .each(function(d) {
@@ -220,13 +217,23 @@ ReadOnlyGraphView.prototype.update = function() {
         });
 
     this.force.on("tick", function() {
+        node.attr("transform", function(d) { 
+            if ((graph.whichgraph == 2) && (d3.select(this).select("circle").classed("MCS"))) {
+                var classNames = d3.select(this).select("circle").attr("class");
+                var node1 = d3.select("#left").select("." + classNames.replace(/\ /g, '.'));
+                var x = d3.transform(d3.select(node1[0][0].parentNode).attr("transform")).translate[0];
+                var y = d3.transform(d3.select(node1[0][0].parentNode).attr("transform")).translate[1];
+                d.x = x;
+                d.y = y;
+                return "translate(" + x + "," + y + ")"; 
+            } else {
+                return "translate(" + d.x + "," + d.y + ")"; 
+            }
+        });
         link.attr("x1", function(d) { return d.source.x; })
             .attr("y1", function(d) { return d.source.y; })
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
-        node.attr("transform", function(d) { 
-            return "translate(" + d.x + "," + d.y + ")"; 
-        });
     });
 
     // Restart the force layout.
