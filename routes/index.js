@@ -211,4 +211,19 @@ router.post('/jsonUpload', function(req,res,next) {
 	})
 })
 
+router.get('/downloadjson', function(req, res){
+	graph.downloadJson(function() {
+		var file = './public/jsons/result.json';
+		console.log(file);
+		res.download(file);
+		// res.download(file, 'result.json', function(err){
+		// 	if (err) {
+		// 		console.log(err);
+		// 		// Handle error, but keep in mind the response may be partially-sent
+		// 		// so check res.headersSent
+		// 	} 
+		// });
+	});
+});
+
 module.exports = router;

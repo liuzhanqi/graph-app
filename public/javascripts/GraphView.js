@@ -477,6 +477,21 @@ GraphView.prototype.changeLayout = function(layoutName) {
     }
 }
 
+GraphView.prototype.downloadjson = function(callback) {
+    window.open("/downloadjson");
+    // $.get( "/downloadjson")
+    // .done(function(data) {
+    //     console.log("downloadjson done");
+    //     console.log(data);
+    // })
+    // .success(function(data, status, headers, config) {
+    //     window.open('/download'); //does the download
+    // })
+    // .error(function(data, status, headers, config) {
+    //     console.log('ERROR: could not download file');
+    // });
+}
+
 GraphView.prototype.update = function() {
     var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id", "source", "target"]; 
 

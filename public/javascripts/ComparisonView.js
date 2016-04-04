@@ -38,6 +38,9 @@ var highlightHandler = function() {
 }
 
 var MCSHandler = function(event) {
+    d3.select(".MCS").each(function() {
+        attr("class")
+    });
     console.log("MCSHandler");
     var name = event.target.id;
     $.post( "/getMCS", {name: name})

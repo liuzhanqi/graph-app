@@ -1,0 +1,35 @@
+{
+    "graphID": "DouJiang",
+    "definition": {
+        "nodeAttribute": [
+            "Name"
+        ],
+        "edgeAttribute": [
+            "Time"
+        ],
+        "nodeName": "Person",
+        "edgeName": "IsFriend",
+        "isDirected": false
+    },
+    "nodes": [
+        {
+            "id": "GraphIDDouJiangVertex1",
+            "graphID": "DouJiang",
+            "Name": "Jason"
+        },
+        {
+            "id": "GraphIDDouJiangVertex2",
+            "graphID": "DouJiang",
+            "Name": "Ivy"
+        }
+    ],
+    "links": [
+        {
+            "id": "GraphIDDouJiangEdge1",
+            "graphID": "DouJiang",
+            "source": "GraphIDDouJiangVertex1",
+            "target": "GraphIDDouJiangVertex2",
+            "Time": "5"
+        }
+    ]
+}

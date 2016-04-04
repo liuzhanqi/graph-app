@@ -15,6 +15,7 @@ var Graph = function() {
 	this.savedToDB = true;
 	this.isDirected = "off";
 	this.adjacencyList = [];
+	this.definition = {};
 }
 
 Graph.prototype.initialize = function() {
@@ -147,6 +148,7 @@ Graph.prototype.getGraphDefinition = function(callback) {
 	    		} else {
 	    			console.log("vertexIndexMax = " + vertexIndexMax);
 		    		console.log("edgeIndexMax = " + edgeIndexMax);
+		    		that.definition = JSON.parse(definition);
 		    		callback(definition, vertexIndexMax, edgeIndexMax);
 	    		}
 	    	}
@@ -569,6 +571,19 @@ Graph.prototype.createDirectedEdge = function(v1_id,v2_id) {
 	newEdge = new Edge(v1,v2);
 	edgeList.push(newEdge);
 	adjList[v1_id].push(v2_id);
+}
+
+Graph.prototype.downloadJson = function(callback) {
+	var fs = require("fs"); 
+	var data = {};
+	console.log(this.definition);
+	data["graphID"] = this.graphID;
+	data["definition"] = this.definition;
+	data["nodes"] = this.vertexList;
+	data["links"] = this.edgeList;
+	var strJson = JSON.stringify(data, null, 4); 
+	fs.writeFileSync('./public/jsons/result.json',strJson);
+	callback();
 }
 
 //Let’s define a function which fires the cypher query.
