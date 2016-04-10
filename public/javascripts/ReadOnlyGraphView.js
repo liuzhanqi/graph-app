@@ -102,6 +102,9 @@ ReadOnlyGraphView.prototype.findNodeIndex = function (id) {
     };
 }
 
+ReadOnlyGraphView.prototype.removeMCSMarker = function() {
+    d3.selectAll(".MCS").attr("class","circle");
+}
 
 ReadOnlyGraphView.prototype.update = function() {
     console.log("in update " + this.whichgraph);

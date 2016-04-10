@@ -38,6 +38,8 @@ var highlightHandler = function() {
 }
 
 var MCSHandler = function(event) {
+    graph1.removeMCSMarker();
+    graph2.removeMCSMarker();
     d3.select(".MCS").each(function() {
         attr("class")
     });
@@ -64,5 +66,13 @@ var MCSHandler = function(event) {
         });
 }
 
+var removeHandler = function() {
+    graph1.update();
+    graph1.removeMCSMarker();
+    graph2.update();
+    graph2.removeMCSMarker();
+}
+
 $('#koch').click(MCSHandler);
 $('#mc').click(MCSHandler);
+$('#remove').click(removeHandler);
