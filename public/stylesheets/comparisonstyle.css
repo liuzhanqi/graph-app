@@ -32,3 +32,14 @@ line.MCS{
 button {
     margin: 2px;
 }
+
+
+input{
+    width: 45px;
+    opacity: 0.4;
+    margin: 1px;
+}
+input:hover{
+    opacity: 1;
+    cursor: pointer;
+}
