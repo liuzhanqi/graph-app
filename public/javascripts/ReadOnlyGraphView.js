@@ -110,9 +110,9 @@ ReadOnlyGraphView.prototype.update = function() {
     var graph = this;
 
     var link = this.vis.selectAll("line.link")
-        .data(this.links, function(d) { return d.source.id + "-" + d.target.id; });
-
-    console.log(this.links);
+        .data(this.links, function(d) { 
+            return d.source.id + "-" + d.target.id; 
+        });
 
     link.exit().remove();
     link.enter().insert("line")

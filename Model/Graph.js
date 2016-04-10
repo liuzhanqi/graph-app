@@ -342,6 +342,7 @@ Graph.prototype.getGraph = function(callback) {
 		    		n = r1.results[0].data;
 		    		for (i=0; i<n.length; ++i) {
 		                if (n[i].row[0]) {
+		                	delete n[i].row[0].graphID;
 		                    that.vertexList.push(n[i].row[0]);
 		                }
 		            }
@@ -355,6 +356,7 @@ Graph.prototype.getGraph = function(callback) {
 		    				} else {
 		    					l = r2.results[0].data;
 		    					for (i=0; i<l.length; ++i) {
+		                			delete l[i].row[0].graphID;
 					                that.edgeList.push(l[i].row[0]);
 					            }
 		    					var data = {
@@ -379,6 +381,13 @@ Graph.prototype.createGraphFromJson = function(data, callback) {
 	//TODO implement this method
 	this.vertexList = data.nodes;
 	this.edgeList = data.links;
+	this.graphID = data.graphID;
+	for (var i = 0; i < this.edgeList.length; i++) {
+        this.edgeList[i]["graphID"] = this.graphID;
+    }
+	for (var i = 0; i < this.vertexList.length; i++) {
+        this.vertexList[i]["graphID"] = this.graphID;
+    }
 	
 	console.log(this.vertexList);
 	console.log(this.edgeList);
@@ -493,6 +502,13 @@ Graph.prototype.removeEdge = function(id) {
 //submit multiple queries at once
 Graph.prototype.saveGraphAtOnce = function(callback) {
 	var that = this;
+	console.log(that.graphID);
+	for (var i = 0; i < this.edgeList.length; i++) {
+        this.edgeList[i]["graphID"] = this.graphID;
+    }
+	for (var i = 0; i < this.vertexList.length; i++) {
+        this.vertexList[i]["graphID"] = this.graphID;
+    }
 	//TODO: unable to remove deleted nodes and edges
 	//TODO: edge attributes
 	runCypherQuery(
@@ -580,7 +596,14 @@ Graph.prototype.downloadJson = function(callback) {
 	data["graphID"] = this.graphID;
 	data["definition"] = this.definition;
 	data["nodes"] = this.vertexList;
+	//delete graphID from nodes and edges
+	for (var i=0; i<data["nodes"].length; i++) {
+        delete data["nodes"][i].graphID;
+    }
 	data["links"] = this.edgeList;
+	for (var i=0; i<data["links"].length; i++) {
+        delete data["links"][i].graphID;
+    }
 	var strJson = JSON.stringify(data, null, 4); 
 	fs.writeFileSync('./public/jsons/result.json',strJson);
 	callback();
