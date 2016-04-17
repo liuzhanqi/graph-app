@@ -12,6 +12,7 @@ Questions:
 2. save graph, different graph id, UX flow
 
 Deploy: https://infinite-refuge-28842.herokuapp.com/
+Dashboard: https://dashboard.heroku.com/apps
 
 Tutorial: https://devcenter.heroku.com/articles/deploying-nodejs#how-to-keep-build-artifacts-out-of-git
 
