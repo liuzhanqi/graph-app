@@ -1,7 +1,12 @@
 var Vertex = require("./Vertex");
 var Edge = require("./Edge");
 var request = require("request");
-var host = 'localhost', port = 7474;
+
+//change between deployment and local
+//var host = 'localhost', port = 7474;
+var host = 'grapher.sb02.stations.graphenedb.com';
+var port = 24789;
+
 var httpUrlForTransaction = 'http://' + host + ':' + port + '/db/data/transaction/commit';
 
 var Graph = function() {
