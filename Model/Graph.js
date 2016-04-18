@@ -3,9 +3,9 @@ var Edge = require("./Edge");
 var request = require("request");
 
 //change between deployment and local
-//var host = 'localhost', port = 7474;
-var host = 'grapher:DY7xKPaksbz2hwfahtPT@grapher.sb02.stations.graphenedb.com';
-var port = 24789;
+var host = 'localhost', port = 7474;
+//var host = 'grapher:DY7xKPaksbz2hwfahtPT@grapher.sb02.stations.graphenedb.com';
+//var port = 24789;
 
 var httpUrlForTransaction = 'http://' + host + ':' + port + '/db/data/transaction/commit';
 
@@ -617,7 +617,6 @@ Graph.prototype.downloadJson = function(callback) {
 //Let’s define a function which fires the cypher query.
 function runCypherQuery(query, params, callback) {
   request.post({
-  	  Authorization: "Basic bGl1emhhbnFpMDkwOUBnbWFpbC5jb206ZnN4aWFvbGl1MDkwOQ==",
       uri: httpUrlForTransaction,
       json: {statements: [{statement: query, parameters: params}]}
     },
