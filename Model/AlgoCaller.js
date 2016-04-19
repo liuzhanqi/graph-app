@@ -12,9 +12,16 @@ AlgoCaller.prototype.executePython = function(name, callback) {
 	console.log(name);
 	var spawn = require("child_process").spawn;
 	var path;
-	if (name == "koch")
+	if (name == "koch") {
+		console.log("Koch");
 		path = this.basePath + "/Koch.py"
-	else path = this.basePath + "/McGregor.py"
+	}
+	else {
+		console.log("McGregor");
+		path = this.basePath + "/McGregor.py"
+	}
+	console.log(JSON.stringify(this.g1));
+	console.log(JSON.stringify(this.g2));
 	var process = spawn('python3',[path, JSON.stringify(this.g1), JSON.stringify(this.g2)]);
 	var StringDecoder = require('string_decoder').StringDecoder;
 	var decoder = new StringDecoder('utf8');

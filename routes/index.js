@@ -56,7 +56,7 @@ router.get('/getGraph2', function(req,res,next) {
 router.post('/getMCS', function(req,res,next) {
 	var name = req.body.name;
 	var caller = new AlgoCaller(graph1, graph2);
-	caller.executePython("koch", function(data) {
+	caller.executePython(name, function(data) {
 		res.send(data);
 	});
 })

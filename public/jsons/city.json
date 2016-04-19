@@ -1,0 +1,3788 @@
+{
+    "definition": {
+        "edgeAttribute": [
+            "km"
+        ], 
+        "nodeAttribute": [
+            "cityname"
+        ], 
+        "edgeName": "distance", 
+        "nodeName": "City", 
+        "isDirected": true
+    }, 
+    "nodes": [
+        {
+            "name": "Abanda", 
+            "id": "GraphIDCityRingVertex1"
+        }, 
+        {
+            "name": "Abbeville", 
+            "id": "GraphIDCityRingVertex2"
+        }, 
+        {
+            "name": "Abbotsford", 
+            "id": "GraphIDCityRingVertex3"
+        }, 
+        {
+            "name": "Abbott", 
+            "id": "GraphIDCityRingVertex4"
+        }, 
+        {
+            "name": "Abbottstown", 
+            "id": "GraphIDCityRingVertex5"
+        }, 
+        {
+            "name": "Abbyville", 
+            "id": "GraphIDCityRingVertex6"
+        }, 
+        {
+            "name": "Abercrombie", 
+            "id": "GraphIDCityRingVertex7"
+        }, 
+        {
+            "name": "Aberdeen", 
+            "id": "GraphIDCityRingVertex8"
+        }, 
+        {
+            "name": "Aberdeen Gardens", 
+            "id": "GraphIDCityRingVertex9"
+        }, 
+        {
+            "name": "Abernathy", 
+            "id": "GraphIDCityRingVertex10"
+        }, 
+        {
+            "name": "Abeytas", 
+            "id": "GraphIDCityRingVertex11"
+        }, 
+        {
+            "name": "Abie", 
+            "id": "GraphIDCityRingVertex12"
+        }, 
+        {
+            "name": "Abilene", 
+            "id": "GraphIDCityRingVertex13"
+        }, 
+        {
+            "name": "Abingdon", 
+            "id": "GraphIDCityRingVertex14"
+        }, 
+        {
+            "name": "Abington", 
+            "id": "GraphIDCityRingVertex15"
+        }, 
+        {
+            "name": "Abiquiu", 
+            "id": "GraphIDCityRingVertex16"
+        }, 
+        {
+            "name": "Abita Springs", 
+            "id": "GraphIDCityRingVertex17"
+        }, 
+        {
+            "name": "Abram", 
+            "id": "GraphIDCityRingVertex18"
+        }, 
+        {
+            "name": "Abrams", 
+            "id": "GraphIDCityRingVertex19"
+        }, 
+        {
+            "name": "Absarokee", 
+            "id": "GraphIDCityRingVertex20"
+        }, 
+        {
+            "name": "Absecon", 
+            "id": "GraphIDCityRingVertex21"
+        }, 
+        {
+            "name": "Acacia Villas", 
+            "id": "GraphIDCityRingVertex22"
+        }, 
+        {
+            "name": "Acalanes Ridge", 
+            "id": "GraphIDCityRingVertex23"
+        }, 
+        {
+            "name": "Acampo", 
+            "id": "GraphIDCityRingVertex24"
+        }, 
+        {
+            "name": "Accident", 
+            "id": "GraphIDCityRingVertex25"
+        }, 
+        {
+            "name": "Accokeek", 
+            "id": "GraphIDCityRingVertex26"
+        }, 
+        {
+            "name": "Accomac", 
+            "id": "GraphIDCityRingVertex27"
+        }, 
+        {
+            "name": "Accord", 
+            "id": "GraphIDCityRingVertex28"
+        }, 
+        {
+            "name": "Accoville", 
+            "id": "GraphIDCityRingVertex29"
+        }, 
+        {
+            "name": "Aceitunas", 
+            "id": "GraphIDCityRingVertex30"
+        }, 
+        {
+            "name": "Acequia", 
+            "id": "GraphIDCityRingVertex31"
+        }, 
+        {
+            "name": "Achille", 
+            "id": "GraphIDCityRingVertex32"
+        }, 
+        {
+            "name": "Ackerly", 
+            "id": "GraphIDCityRingVertex33"
+        }, 
+        {
+            "name": "Ackerman", 
+            "id": "GraphIDCityRingVertex34"
+        }, 
+        {
+            "name": "Ackermanville", 
+            "id": "GraphIDCityRingVertex35"
+        }, 
+        {
+            "name": "Ackley", 
+            "id": "GraphIDCityRingVertex36"
+        }, 
+        {
+            "name": "Ackworth", 
+            "id": "GraphIDCityRingVertex37"
+        }, 
+        {
+            "name": "Acme", 
+            "id": "GraphIDCityRingVertex38"
+        }, 
+        {
+            "name": "Acomita Lake", 
+            "id": "GraphIDCityRingVertex39"
+        }, 
+        {
+            "name": "Acres Green", 
+            "id": "GraphIDCityRingVertex40"
+        }, 
+        {
+            "name": "Acton", 
+            "id": "GraphIDCityRingVertex41"
+        }, 
+        {
+            "name": "Acushnet Center", 
+            "id": "GraphIDCityRingVertex42"
+        }, 
+        {
+            "name": "Acworth", 
+            "id": "GraphIDCityRingVertex43"
+        }, 
+        {
+            "name": "Ada", 
+            "id": "GraphIDCityRingVertex44"
+        }, 
+        {
+            "name": "Adair", 
+            "id": "GraphIDCityRingVertex45"
+        }, 
+        {
+            "name": "Adair Village", 
+            "id": "GraphIDCityRingVertex46"
+        }, 
+        {
+            "name": "Adairsville", 
+            "id": "GraphIDCityRingVertex47"
+        }, 
+        {
+            "name": "Adairville", 
+            "id": "GraphIDCityRingVertex48"
+        }, 
+        {
+            "name": "Adak", 
+            "id": "GraphIDCityRingVertex49"
+        }, 
+        {
+            "name": "Adams", 
+            "id": "GraphIDCityRingVertex50"
+        }, 
+        {
+            "name": "Adams Center", 
+            "id": "GraphIDCityRingVertex51"
+        }, 
+        {
+            "name": "Adamsburg", 
+            "id": "GraphIDCityRingVertex52"
+        }, 
+        {
+            "name": "Adamstown", 
+            "id": "GraphIDCityRingVertex53"
+        }, 
+        {
+            "name": "Adamsville", 
+            "id": "GraphIDCityRingVertex54"
+        }, 
+        {
+            "name": "Addieville", 
+            "id": "GraphIDCityRingVertex55"
+        }, 
+        {
+            "name": "Addington", 
+            "id": "GraphIDCityRingVertex56"
+        }, 
+        {
+            "name": "Addis", 
+            "id": "GraphIDCityRingVertex57"
+        }, 
+        {
+            "name": "Addison", 
+            "id": "GraphIDCityRingVertex58"
+        }, 
+        {
+            "name": "Addy", 
+            "id": "GraphIDCityRingVertex59"
+        }, 
+        {
+            "name": "Addyston", 
+            "id": "GraphIDCityRingVertex60"
+        }, 
+        {
+            "name": "Adel", 
+            "id": "GraphIDCityRingVertex61"
+        }, 
+        {
+            "name": "Adelanto", 
+            "id": "GraphIDCityRingVertex62"
+        }, 
+        {
+            "name": "Adeline", 
+            "id": "GraphIDCityRingVertex63"
+        }, 
+        {
+            "name": "Adelino", 
+            "id": "GraphIDCityRingVertex64"
+        }, 
+        {
+            "name": "Adell", 
+            "id": "GraphIDCityRingVertex65"
+        }, 
+        {
+            "name": "Adelphi", 
+            "id": "GraphIDCityRingVertex66"
+        }, 
+        {
+            "name": "Adena", 
+            "id": "GraphIDCityRingVertex67"
+        }, 
+        {
+            "name": "Adin", 
+            "id": "GraphIDCityRingVertex68"
+        }, 
+        {
+            "name": "Adjuntas", 
+            "id": "GraphIDCityRingVertex69"
+        }, 
+        {
+            "name": "Admire", 
+            "id": "GraphIDCityRingVertex70"
+        }, 
+        {
+            "name": "Adona", 
+            "id": "GraphIDCityRingVertex71"
+        }, 
+        {
+            "name": "Adrian", 
+            "id": "GraphIDCityRingVertex72"
+        }, 
+        {
+            "name": "Advance", 
+            "id": "GraphIDCityRingVertex73"
+        }, 
+        {
+            "name": "Adwolf", 
+            "id": "GraphIDCityRingVertex74"
+        }, 
+        {
+            "name": "Aetna Estates", 
+            "id": "GraphIDCityRingVertex75"
+        }, 
+        {
+            "name": "Affton", 
+            "id": "GraphIDCityRingVertex76"
+        }, 
+        {
+            "name": "Afton", 
+            "id": "GraphIDCityRingVertex77"
+        }, 
+        {
+            "name": "Agar", 
+            "id": "GraphIDCityRingVertex78"
+        }, 
+        {
+            "name": "Agawam Town", 
+            "id": "GraphIDCityRingVertex79"
+        }, 
+        {
+            "name": "Agency", 
+            "id": "GraphIDCityRingVertex80"
+        }, 
+        {
+            "name": "Agency Village", 
+            "id": "GraphIDCityRingVertex81"
+        }, 
+        {
+            "name": "Agenda", 
+            "id": "GraphIDCityRingVertex82"
+        }, 
+        {
+            "name": "Agoura Hills", 
+            "id": "GraphIDCityRingVertex83"
+        }, 
+        {
+            "name": "Agra", 
+            "id": "GraphIDCityRingVertex84"
+        }, 
+        {
+            "name": "Agua Caliente", 
+            "id": "GraphIDCityRingVertex85"
+        }, 
+        {
+            "name": "Agua Dulce", 
+            "id": "GraphIDCityRingVertex86"
+        }, 
+        {
+            "name": "Agua Fria", 
+            "id": "GraphIDCityRingVertex87"
+        }, 
+        {
+            "name": "Aguada", 
+            "id": "GraphIDCityRingVertex88"
+        }, 
+        {
+            "name": "Aguadilla", 
+            "id": "GraphIDCityRingVertex89"
+        }, 
+        {
+            "name": "Aguanga", 
+            "id": "GraphIDCityRingVertex90"
+        }, 
+        {
+            "name": "Aguas Buenas", 
+            "id": "GraphIDCityRingVertex91"
+        }, 
+        {
+            "name": "Aguas Claras", 
+            "id": "GraphIDCityRingVertex92"
+        }, 
+        {
+            "name": "Aguila", 
+            "id": "GraphIDCityRingVertex93"
+        }, 
+        {
+            "name": "Aguilar", 
+            "id": "GraphIDCityRingVertex94"
+        }, 
+        {
+            "name": "Aguilares", 
+            "id": "GraphIDCityRingVertex95"
+        }, 
+        {
+            "name": "Aguilita", 
+            "id": "GraphIDCityRingVertex96"
+        }, 
+        {
+            "name": "Ahmeek", 
+            "id": "GraphIDCityRingVertex97"
+        }, 
+        {
+            "name": "Ahoskie", 
+            "id": "GraphIDCityRingVertex98"
+        }, 
+        {
+            "name": "Ahtanum", 
+            "id": "GraphIDCityRingVertex99"
+        }, 
+        {
+            "name": "Ahuimanu", 
+            "id": "GraphIDCityRingVertex100"
+        }, 
+        {
+            "name": "Ahwahnee", 
+            "id": "GraphIDCityRingVertex101"
+        }, 
+        {
+            "name": "Aibonito", 
+            "id": "GraphIDCityRingVertex102"
+        }, 
+        {
+            "name": "Aiea", 
+            "id": "GraphIDCityRingVertex103"
+        }, 
+        {
+            "name": "Aiken", 
+            "id": "GraphIDCityRingVertex104"
+        }, 
+        {
+            "name": "Ailey", 
+            "id": "GraphIDCityRingVertex105"
+        }, 
+        {
+            "name": "Ainaloa", 
+            "id": "GraphIDCityRingVertex106"
+        }, 
+        {
+            "name": "Ainsworth", 
+            "id": "GraphIDCityRingVertex107"
+        }, 
+        {
+            "name": "Air Force Academy", 
+            "id": "GraphIDCityRingVertex108"
+        }, 
+        {
+            "name": "Airmont", 
+            "id": "GraphIDCityRingVertex109"
+        }, 
+        {
+            "name": "Airport", 
+            "id": "GraphIDCityRingVertex110"
+        }, 
+        {
+            "name": "Airport Drive", 
+            "id": "GraphIDCityRingVertex111"
+        }, 
+        {
+            "name": "Airport Heights", 
+            "id": "GraphIDCityRingVertex112"
+        }, 
+        {
+            "name": "Airport Road Addition", 
+            "id": "GraphIDCityRingVertex113"
+        }, 
+        {
+            "name": "Airway Heights", 
+            "id": "GraphIDCityRingVertex114"
+        }, 
+        {
+            "name": "Aitkin", 
+            "id": "GraphIDCityRingVertex115"
+        }, 
+        {
+            "name": "Ajo", 
+            "id": "GraphIDCityRingVertex116"
+        }, 
+        {
+            "name": "Ak Chin", 
+            "id": "GraphIDCityRingVertex117"
+        }, 
+        {
+            "name": "Ak-Chin Village", 
+            "id": "GraphIDCityRingVertex118"
+        }, 
+        {
+            "name": "Akaska", 
+            "id": "GraphIDCityRingVertex119"
+        }, 
+        {
+            "name": "Akeley", 
+            "id": "GraphIDCityRingVertex120"
+        }, 
+        {
+            "name": "Akhiok", 
+            "id": "GraphIDCityRingVertex121"
+        }, 
+        {
+            "name": "Akiachak", 
+            "id": "GraphIDCityRingVertex122"
+        }, 
+        {
+            "name": "Akiak", 
+            "id": "GraphIDCityRingVertex123"
+        }, 
+        {
+            "name": "Akins", 
+            "id": "GraphIDCityRingVertex124"
+        }, 
+        {
+            "name": "Akron", 
+            "id": "GraphIDCityRingVertex125"
+        }, 
+        {
+            "name": "Akutan", 
+            "id": "GraphIDCityRingVertex126"
+        }, 
+        {
+            "name": "Alabaster", 
+            "id": "GraphIDCityRingVertex127"
+        }, 
+        {
+            "name": "Alachua", 
+            "id": "GraphIDCityRingVertex128"
+        }, 
+        {
+            "name": "Alafaya", 
+            "id": "GraphIDCityRingVertex129"
+        }, 
+        {
+            "name": "Alakanuk", 
+            "id": "GraphIDCityRingVertex130"
+        }, 
+        {
+            "name": "Alamance", 
+            "id": "GraphIDCityRingVertex131"
+        }, 
+        {
+            "name": "Alameda", 
+            "id": "GraphIDCityRingVertex132"
+        }, 
+        {
+            "name": "Alamillo", 
+            "id": "GraphIDCityRingVertex133"
+        }, 
+        {
+            "name": "Alamo", 
+            "id": "GraphIDCityRingVertex134"
+        }, 
+        {
+            "name": "Alamo Heights", 
+            "id": "GraphIDCityRingVertex135"
+        }, 
+        {
+            "name": "Alamo Lake", 
+            "id": "GraphIDCityRingVertex136"
+        }, 
+        {
+            "name": "Alamogordo", 
+            "id": "GraphIDCityRingVertex137"
+        }, 
+        {
+            "name": "Alamosa", 
+            "id": "GraphIDCityRingVertex138"
+        }, 
+        {
+            "name": "Alamosa East", 
+            "id": "GraphIDCityRingVertex139"
+        }, 
+        {
+            "name": "Alanson", 
+            "id": "GraphIDCityRingVertex140"
+        }, 
+        {
+            "name": "Alapaha", 
+            "id": "GraphIDCityRingVertex141"
+        }, 
+        {
+            "name": "Alatna", 
+            "id": "GraphIDCityRingVertex142"
+        }, 
+        {
+            "name": "Alba", 
+            "id": "GraphIDCityRingVertex143"
+        }, 
+        {
+            "name": "Albany", 
+            "id": "GraphIDCityRingVertex144"
+        }, 
+        {
+            "name": "Albee", 
+            "id": "GraphIDCityRingVertex145"
+        }, 
+        {
+            "name": "Albemarle", 
+            "id": "GraphIDCityRingVertex146"
+        }, 
+        {
+            "name": "Albers", 
+            "id": "GraphIDCityRingVertex147"
+        }, 
+        {
+            "name": "Albert", 
+            "id": "GraphIDCityRingVertex148"
+        }, 
+        {
+            "name": "Albert City", 
+            "id": "GraphIDCityRingVertex149"
+        }, 
+        {
+            "name": "Albert Lea", 
+            "id": "GraphIDCityRingVertex150"
+        }, 
+        {
+            "name": "Alberta", 
+            "id": "GraphIDCityRingVertex151"
+        }, 
+        {
+            "name": "Alberton", 
+            "id": "GraphIDCityRingVertex152"
+        }, 
+        {
+            "name": "Albertson", 
+            "id": "GraphIDCityRingVertex153"
+        }, 
+        {
+            "name": "Albertville", 
+            "id": "GraphIDCityRingVertex154"
+        }, 
+        {
+            "name": "Albia", 
+            "id": "GraphIDCityRingVertex155"
+        }, 
+        {
+            "name": "Albin", 
+            "id": "GraphIDCityRingVertex156"
+        }, 
+        {
+            "name": "Albion", 
+            "id": "GraphIDCityRingVertex157"
+        }, 
+        {
+            "name": "Albright", 
+            "id": "GraphIDCityRingVertex158"
+        }, 
+        {
+            "name": "Albrightsville", 
+            "id": "GraphIDCityRingVertex159"
+        }, 
+        {
+            "name": "Albuquerque", 
+            "id": "GraphIDCityRingVertex160"
+        }, 
+        {
+            "name": "Alburg", 
+            "id": "GraphIDCityRingVertex161"
+        }, 
+        {
+            "name": "Alburnett", 
+            "id": "GraphIDCityRingVertex162"
+        }, 
+        {
+            "name": "Alburtis", 
+            "id": "GraphIDCityRingVertex163"
+        }, 
+        {
+            "name": "Alcalde", 
+            "id": "GraphIDCityRingVertex164"
+        }, 
+        {
+            "name": "Alcan Border", 
+            "id": "GraphIDCityRingVertex165"
+        }, 
+        {
+            "name": "Alcester", 
+            "id": "GraphIDCityRingVertex166"
+        }, 
+        {
+            "name": "Alcoa", 
+            "id": "GraphIDCityRingVertex167"
+        }, 
+        {
+            "name": "Alcolu", 
+            "id": "GraphIDCityRingVertex168"
+        }, 
+        {
+            "name": "Alcova", 
+            "id": "GraphIDCityRingVertex169"
+        }, 
+        {
+            "name": "Alda", 
+            "id": "GraphIDCityRingVertex170"
+        }, 
+        {
+            "name": "Aldan", 
+            "id": "GraphIDCityRingVertex171"
+        }, 
+        {
+            "name": "Alden", 
+            "id": "GraphIDCityRingVertex172"
+        }, 
+        {
+            "name": "Alder", 
+            "id": "GraphIDCityRingVertex173"
+        }, 
+        {
+            "name": "Alderpoint", 
+            "id": "GraphIDCityRingVertex174"
+        }, 
+        {
+            "name": "Alderson", 
+            "id": "GraphIDCityRingVertex175"
+        }, 
+        {
+            "name": "Alderton", 
+            "id": "GraphIDCityRingVertex176"
+        }, 
+        {
+            "name": "Alderwood", 
+            "id": "GraphIDCityRingVertex177"
+        }, 
+        {
+            "name": "Alderwood Manor", 
+            "id": "GraphIDCityRingVertex178"
+        }, 
+        {
+            "name": "Aldine", 
+            "id": "GraphIDCityRingVertex179"
+        }, 
+        {
+            "name": "Aldora", 
+            "id": "GraphIDCityRingVertex180"
+        }, 
+        {
+            "name": "Aldrich", 
+            "id": "GraphIDCityRingVertex181"
+        }, 
+        {
+            "name": "Aledo", 
+            "id": "GraphIDCityRingVertex182"
+        }, 
+        {
+            "name": "Aleknagik", 
+            "id": "GraphIDCityRingVertex183"
+        }, 
+        {
+            "name": "Aleneva", 
+            "id": "GraphIDCityRingVertex184"
+        }, 
+        {
+            "name": "Alex", 
+            "id": "GraphIDCityRingVertex185"
+        }, 
+        {
+            "name": "Alexander", 
+            "id": "GraphIDCityRingVertex186"
+        }, 
+        {
+            "name": "Alexander City", 
+            "id": "GraphIDCityRingVertex187"
+        }, 
+        {
+            "name": "Alexandria", 
+            "id": "GraphIDCityRingVertex188"
+        }, 
+        {
+            "name": "Alexandria Bay", 
+            "id": "GraphIDCityRingVertex189"
+        }, 
+        {
+            "name": "Alexis", 
+            "id": "GraphIDCityRingVertex190"
+        }, 
+        {
+            "name": "Alfarata", 
+            "id": "GraphIDCityRingVertex191"
+        }, 
+        {
+            "name": "Alford", 
+            "id": "GraphIDCityRingVertex192"
+        }, 
+        {
+            "name": "Alfordsville", 
+            "id": "GraphIDCityRingVertex193"
+        }, 
+        {
+            "name": "Alfred", 
+            "id": "GraphIDCityRingVertex194"
+        }, 
+        {
+            "name": "Alger", 
+            "id": "GraphIDCityRingVertex195"
+        }, 
+        {
+            "name": "Algodones", 
+            "id": "GraphIDCityRingVertex196"
+        }, 
+        {
+            "name": "Algoma", 
+            "id": "GraphIDCityRingVertex197"
+        }, 
+        {
+            "name": "Algona", 
+            "id": "GraphIDCityRingVertex198"
+        }, 
+        {
+            "name": "Algonac", 
+            "id": "GraphIDCityRingVertex199"
+        }, 
+        {
+            "name": "Algonquin", 
+            "id": "GraphIDCityRingVertex200"
+        }, 
+        {
+            "name": "Algood", 
+            "id": "GraphIDCityRingVertex201"
+        }, 
+        {
+            "name": "Alhambra", 
+            "id": "GraphIDCityRingVertex202"
+        }, 
+        {
+            "name": "Alhambra Valley", 
+            "id": "GraphIDCityRingVertex203"
+        }, 
+        {
+            "name": "Ali Chuk", 
+            "id": "GraphIDCityRingVertex204"
+        }, 
+        {
+            "name": "Ali Chukson", 
+            "id": "GraphIDCityRingVertex205"
+        }, 
+        {
+            "name": "Ali Molina", 
+            "id": "GraphIDCityRingVertex206"
+        }, 
+        {
+            "name": "Alianza", 
+            "id": "GraphIDCityRingVertex207"
+        }, 
+        {
+            "name": "Alice", 
+            "id": "GraphIDCityRingVertex208"
+        }, 
+        {
+            "name": "Alice Acres", 
+            "id": "GraphIDCityRingVertex209"
+        }, 
+        {
+            "name": "Aliceville", 
+            "id": "GraphIDCityRingVertex210"
+        }, 
+        {
+            "name": "Alicia", 
+            "id": "GraphIDCityRingVertex211"
+        }, 
+        {
+            "name": "Aline", 
+            "id": "GraphIDCityRingVertex212"
+        }, 
+        {
+            "name": "Aliquippa", 
+            "id": "GraphIDCityRingVertex213"
+        }, 
+        {
+            "name": "Aliso Viejo", 
+            "id": "GraphIDCityRingVertex214"
+        }, 
+        {
+            "name": "Allakaket", 
+            "id": "GraphIDCityRingVertex215"
+        }, 
+        {
+            "name": "Allamuchy", 
+            "id": "GraphIDCityRingVertex216"
+        }, 
+        {
+            "name": "Allardt", 
+            "id": "GraphIDCityRingVertex217"
+        }, 
+        {
+            "name": "Allegan", 
+            "id": "GraphIDCityRingVertex218"
+        }, 
+        {
+            "name": "Allegany", 
+            "id": "GraphIDCityRingVertex219"
+        }, 
+        {
+            "name": "Alleghany", 
+            "id": "GraphIDCityRingVertex220"
+        }, 
+        {
+            "name": "Alleghenyville", 
+            "id": "GraphIDCityRingVertex221"
+        }, 
+        {
+            "name": "Alleman", 
+            "id": "GraphIDCityRingVertex222"
+        }, 
+        {
+            "name": "Allen", 
+            "id": "GraphIDCityRingVertex223"
+        }, 
+        {
+            "name": "Allen Park", 
+            "id": "GraphIDCityRingVertex224"
+        }, 
+        {
+            "name": "Allendale", 
+            "id": "GraphIDCityRingVertex225"
+        }, 
+        {
+            "name": "Allenhurst", 
+            "id": "GraphIDCityRingVertex226"
+        }, 
+        {
+            "name": "Allenport", 
+            "id": "GraphIDCityRingVertex227"
+        }, 
+        {
+            "name": "Allenspark", 
+            "id": "GraphIDCityRingVertex228"
+        }, 
+        {
+            "name": "Allensville", 
+            "id": "GraphIDCityRingVertex229"
+        }, 
+        {
+            "name": "Allensworth", 
+            "id": "GraphIDCityRingVertex230"
+        }, 
+        {
+            "name": "Allenton", 
+            "id": "GraphIDCityRingVertex231"
+        }, 
+        {
+            "name": "Allentown", 
+            "id": "GraphIDCityRingVertex232"
+        }, 
+        {
+            "name": "Allenville", 
+            "id": "GraphIDCityRingVertex233"
+        }, 
+        {
+            "name": "Allenwood", 
+            "id": "GraphIDCityRingVertex234"
+        }, 
+        {
+            "name": "Allerton", 
+            "id": "GraphIDCityRingVertex235"
+        }, 
+        {
+            "name": "Allgood", 
+            "id": "GraphIDCityRingVertex236"
+        }, 
+        {
+            "name": "Alliance", 
+            "id": "GraphIDCityRingVertex237"
+        }, 
+        {
+            "name": "Alligator", 
+            "id": "GraphIDCityRingVertex238"
+        }, 
+        {
+            "name": "Allison", 
+            "id": "GraphIDCityRingVertex239"
+        }, 
+        {
+            "name": "Allison Park", 
+            "id": "GraphIDCityRingVertex240"
+        }, 
+        {
+            "name": "Allisonia", 
+            "id": "GraphIDCityRingVertex241"
+        }, 
+        {
+            "name": "Allouez", 
+            "id": "GraphIDCityRingVertex242"
+        }, 
+        {
+            "name": "Alloway", 
+            "id": "GraphIDCityRingVertex243"
+        }, 
+        {
+            "name": "Allport", 
+            "id": "GraphIDCityRingVertex244"
+        }, 
+        {
+            "name": "Allyn", 
+            "id": "GraphIDCityRingVertex245"
+        }, 
+        {
+            "name": "Alma", 
+            "id": "GraphIDCityRingVertex246"
+        }, 
+        {
+            "name": "Alma Center", 
+            "id": "GraphIDCityRingVertex247"
+        }, 
+        {
+            "name": "Almanor", 
+            "id": "GraphIDCityRingVertex248"
+        }, 
+        {
+            "name": "Almedia", 
+            "id": "GraphIDCityRingVertex249"
+        }, 
+        {
+            "name": "Almena", 
+            "id": "GraphIDCityRingVertex250"
+        }, 
+        {
+            "name": "Almira", 
+            "id": "GraphIDCityRingVertex251"
+        }, 
+        {
+            "name": "Almond", 
+            "id": "GraphIDCityRingVertex252"
+        }, 
+        {
+            "name": "Almont", 
+            "id": "GraphIDCityRingVertex253"
+        }, 
+        {
+            "name": "Almyra", 
+            "id": "GraphIDCityRingVertex254"
+        }, 
+        {
+            "name": "Aloha", 
+            "id": "GraphIDCityRingVertex255"
+        }, 
+        {
+            "name": "Alondra Park", 
+            "id": "GraphIDCityRingVertex256"
+        }, 
+        {
+            "name": "Alorton", 
+            "id": "GraphIDCityRingVertex257"
+        }, 
+        {
+            "name": "Alpaugh", 
+            "id": "GraphIDCityRingVertex258"
+        }, 
+        {
+            "name": "Alpena", 
+            "id": "GraphIDCityRingVertex259"
+        }, 
+        {
+            "name": "Alpha", 
+            "id": "GraphIDCityRingVertex260"
+        }, 
+        {
+            "name": "Alpharetta", 
+            "id": "GraphIDCityRingVertex261"
+        }, 
+        {
+            "name": "Alpine", 
+            "id": "GraphIDCityRingVertex262"
+        }, 
+        {
+            "name": "Alpine Northeast", 
+            "id": "GraphIDCityRingVertex263"
+        }, 
+        {
+            "name": "Alpine Northwest", 
+            "id": "GraphIDCityRingVertex264"
+        }, 
+        {
+            "name": "Alpine Village", 
+            "id": "GraphIDCityRingVertex265"
+        }, 
+        {
+            "name": "Alsace Manor", 
+            "id": "GraphIDCityRingVertex266"
+        }, 
+        {
+            "name": "Alsea", 
+            "id": "GraphIDCityRingVertex267"
+        }, 
+        {
+            "name": "Alsen", 
+            "id": "GraphIDCityRingVertex268"
+        }, 
+        {
+            "name": "Alsey", 
+            "id": "GraphIDCityRingVertex269"
+        }, 
+        {
+            "name": "Alsip", 
+            "id": "GraphIDCityRingVertex270"
+        }, 
+        {
+            "name": "Alston", 
+            "id": "GraphIDCityRingVertex271"
+        }, 
+        {
+            "name": "Alta", 
+            "id": "GraphIDCityRingVertex272"
+        }, 
+        {
+            "name": "Alta Sierra", 
+            "id": "GraphIDCityRingVertex273"
+        }, 
+        {
+            "name": "Alta Vista", 
+            "id": "GraphIDCityRingVertex274"
+        }, 
+        {
+            "name": "Altadena", 
+            "id": "GraphIDCityRingVertex275"
+        }, 
+        {
+            "name": "Altamahaw", 
+            "id": "GraphIDCityRingVertex276"
+        }, 
+        {
+            "name": "Altamont", 
+            "id": "GraphIDCityRingVertex277"
+        }, 
+        {
+            "name": "Altamonte Springs", 
+            "id": "GraphIDCityRingVertex278"
+        }, 
+        {
+            "name": "Altavista", 
+            "id": "GraphIDCityRingVertex279"
+        }, 
+        {
+            "name": "Altenburg", 
+            "id": "GraphIDCityRingVertex280"
+        }, 
+        {
+            "name": "Altha", 
+            "id": "GraphIDCityRingVertex281"
+        }, 
+        {
+            "name": "Altheimer", 
+            "id": "GraphIDCityRingVertex282"
+        }, 
+        {
+            "name": "Altmar", 
+            "id": "GraphIDCityRingVertex283"
+        }, 
+        {
+            "name": "Alto", 
+            "id": "GraphIDCityRingVertex284"
+        }, 
+        {
+            "name": "Alto Bonito Heights", 
+            "id": "GraphIDCityRingVertex285"
+        }, 
+        {
+            "name": "Alto Pass", 
+            "id": "GraphIDCityRingVertex286"
+        }, 
+        {
+            "name": "Alton", 
+            "id": "GraphIDCityRingVertex287"
+        }, 
+        {
+            "name": "Altona", 
+            "id": "GraphIDCityRingVertex288"
+        }, 
+        {
+            "name": "Altoona", 
+            "id": "GraphIDCityRingVertex289"
+        }, 
+        {
+            "name": "Altura", 
+            "id": "GraphIDCityRingVertex290"
+        }, 
+        {
+            "name": "Alturas", 
+            "id": "GraphIDCityRingVertex291"
+        }, 
+        {
+            "name": "Altus", 
+            "id": "GraphIDCityRingVertex292"
+        }, 
+        {
+            "name": "Alum Creek", 
+            "id": "GraphIDCityRingVertex293"
+        }, 
+        {
+            "name": "Alum Rock", 
+            "id": "GraphIDCityRingVertex294"
+        }, 
+        {
+            "name": "Alva", 
+            "id": "GraphIDCityRingVertex295"
+        }, 
+        {
+            "name": "Alvan", 
+            "id": "GraphIDCityRingVertex296"
+        }, 
+        {
+            "name": "Alvarado", 
+            "id": "GraphIDCityRingVertex297"
+        }, 
+        {
+            "name": "Alvin", 
+            "id": "GraphIDCityRingVertex298"
+        }, 
+        {
+            "name": "Alvo", 
+            "id": "GraphIDCityRingVertex299"
+        }, 
+        {
+            "name": "Alvord", 
+            "id": "GraphIDCityRingVertex300"
+        }, 
+        {
+            "name": "Alvordton", 
+            "id": "GraphIDCityRingVertex301"
+        }, 
+        {
+            "name": "Alzada", 
+            "id": "GraphIDCityRingVertex302"
+        }, 
+        {
+            "name": "Ama", 
+            "id": "GraphIDCityRingVertex303"
+        }, 
+        {
+            "name": "Amada Acres", 
+            "id": "GraphIDCityRingVertex304"
+        }, 
+        {
+            "name": "Amado", 
+            "id": "GraphIDCityRingVertex305"
+        }, 
+        {
+            "name": "Amador City", 
+            "id": "GraphIDCityRingVertex306"
+        }, 
+        {
+            "name": "Amagansett", 
+            "id": "GraphIDCityRingVertex307"
+        }, 
+        {
+            "name": "Amagon", 
+            "id": "GraphIDCityRingVertex308"
+        }, 
+        {
+            "name": "Amalga", 
+            "id": "GraphIDCityRingVertex309"
+        }, 
+        {
+            "name": "Amana", 
+            "id": "GraphIDCityRingVertex310"
+        }, 
+        {
+            "name": "Amanda", 
+            "id": "GraphIDCityRingVertex311"
+        }, 
+        {
+            "name": "Amanda Park", 
+            "id": "GraphIDCityRingVertex312"
+        }, 
+        {
+            "name": "Amargosa", 
+            "id": "GraphIDCityRingVertex313"
+        }, 
+        {
+            "name": "Amarillo", 
+            "id": "GraphIDCityRingVertex314"
+        }, 
+        {
+            "name": "Amasa", 
+            "id": "GraphIDCityRingVertex315"
+        }, 
+        {
+            "name": "Amaya", 
+            "id": "GraphIDCityRingVertex316"
+        }, 
+        {
+            "name": "Amazonia", 
+            "id": "GraphIDCityRingVertex317"
+        }, 
+        {
+            "name": "Amber", 
+            "id": "GraphIDCityRingVertex318"
+        }, 
+        {
+            "name": "Amberg", 
+            "id": "GraphIDCityRingVertex319"
+        }, 
+        {
+            "name": "Amberley", 
+            "id": "GraphIDCityRingVertex320"
+        }, 
+        {
+            "name": "Ambia", 
+            "id": "GraphIDCityRingVertex321"
+        }, 
+        {
+            "name": "Ambler", 
+            "id": "GraphIDCityRingVertex322"
+        }, 
+        {
+            "name": "Amboy", 
+            "id": "GraphIDCityRingVertex323"
+        }, 
+        {
+            "name": "Ambridge", 
+            "id": "GraphIDCityRingVertex324"
+        }, 
+        {
+            "name": "Ambrose", 
+            "id": "GraphIDCityRingVertex325"
+        }, 
+        {
+            "name": "Amelia", 
+            "id": "GraphIDCityRingVertex326"
+        }, 
+        {
+            "name": "Amenia", 
+            "id": "GraphIDCityRingVertex327"
+        }, 
+        {
+            "name": "American Canyon", 
+            "id": "GraphIDCityRingVertex328"
+        }, 
+        {
+            "name": "American Falls", 
+            "id": "GraphIDCityRingVertex329"
+        }, 
+        {
+            "name": "American Fork", 
+            "id": "GraphIDCityRingVertex330"
+        }, 
+        {
+            "name": "Americus", 
+            "id": "GraphIDCityRingVertex331"
+        }, 
+        {
+            "name": "Amery", 
+            "id": "GraphIDCityRingVertex332"
+        }, 
+        {
+            "name": "Ames", 
+            "id": "GraphIDCityRingVertex333"
+        }, 
+        {
+            "name": "Ames Lake", 
+            "id": "GraphIDCityRingVertex334"
+        }, 
+        {
+            "name": "Amesbury Town", 
+            "id": "GraphIDCityRingVertex335"
+        }, 
+        {
+            "name": "Amesti", 
+            "id": "GraphIDCityRingVertex336"
+        }, 
+        {
+            "name": "Amesville", 
+            "id": "GraphIDCityRingVertex337"
+        }, 
+        {
+            "name": "Amherst", 
+            "id": "GraphIDCityRingVertex338"
+        }, 
+        {
+            "name": "Amherst Center", 
+            "id": "GraphIDCityRingVertex339"
+        }, 
+        {
+            "name": "Amherst Junction", 
+            "id": "GraphIDCityRingVertex340"
+        }, 
+        {
+            "name": "Amherstdale", 
+            "id": "GraphIDCityRingVertex341"
+        }, 
+        {
+            "name": "Amidon", 
+            "id": "GraphIDCityRingVertex342"
+        }, 
+        {
+            "name": "Amistad", 
+            "id": "GraphIDCityRingVertex343"
+        }, 
+        {
+            "name": "Amite City", 
+            "id": "GraphIDCityRingVertex344"
+        }, 
+        {
+            "name": "Amity", 
+            "id": "GraphIDCityRingVertex345"
+        }, 
+        {
+            "name": "Amity Gardens", 
+            "id": "GraphIDCityRingVertex346"
+        }, 
+        {
+            "name": "Amityville", 
+            "id": "GraphIDCityRingVertex347"
+        }, 
+        {
+            "name": "Ammon", 
+            "id": "GraphIDCityRingVertex348"
+        }, 
+        {
+            "name": "Amo", 
+            "id": "GraphIDCityRingVertex349"
+        }, 
+        {
+            "name": "Amoret", 
+            "id": "GraphIDCityRingVertex350"
+        }, 
+        {
+            "name": "Amorita", 
+            "id": "GraphIDCityRingVertex351"
+        }, 
+        {
+            "name": "Amory", 
+            "id": "GraphIDCityRingVertex352"
+        }, 
+        {
+            "name": "Amsterdam", 
+            "id": "GraphIDCityRingVertex353"
+        }, 
+        {
+            "name": "Anacoco", 
+            "id": "GraphIDCityRingVertex354"
+        }, 
+        {
+            "name": "Anaconda", 
+            "id": "GraphIDCityRingVertex355"
+        }, 
+        {
+            "name": "Anacortes", 
+            "id": "GraphIDCityRingVertex356"
+        }, 
+        {
+            "name": "Anacua", 
+            "id": "GraphIDCityRingVertex357"
+        }, 
+        {
+            "name": "Anadarko", 
+            "id": "GraphIDCityRingVertex358"
+        }, 
+        {
+            "name": "Anaheim", 
+            "id": "GraphIDCityRingVertex359"
+        }, 
+        {
+            "name": "Anahola", 
+            "id": "GraphIDCityRingVertex360"
+        }, 
+        {
+            "name": "Anahuac", 
+            "id": "GraphIDCityRingVertex361"
+        }, 
+        {
+            "name": "Anaktuvuk Pass", 
+            "id": "GraphIDCityRingVertex362"
+        }, 
+        {
+            "name": "Anamoose", 
+            "id": "GraphIDCityRingVertex363"
+        }, 
+        {
+            "name": "Anamosa", 
+            "id": "GraphIDCityRingVertex364"
+        }, 
+        {
+            "name": "Anawalt", 
+            "id": "GraphIDCityRingVertex365"
+        }, 
+        {
+            "name": "Anchor", 
+            "id": "GraphIDCityRingVertex366"
+        }, 
+        {
+            "name": "Anchor Bay", 
+            "id": "GraphIDCityRingVertex367"
+        }, 
+        {
+            "name": "Anchor Point", 
+            "id": "GraphIDCityRingVertex368"
+        }, 
+        {
+            "name": "Anchorage", 
+            "id": "GraphIDCityRingVertex369"
+        }, 
+        {
+            "name": "Ancient Oaks", 
+            "id": "GraphIDCityRingVertex370"
+        }, 
+        {
+            "name": "Andale", 
+            "id": "GraphIDCityRingVertex371"
+        }, 
+        {
+            "name": "Andalusia", 
+            "id": "GraphIDCityRingVertex372"
+        }, 
+        {
+            "name": "Anderson", 
+            "id": "GraphIDCityRingVertex373"
+        }, 
+        {
+            "name": "Anderson Island", 
+            "id": "GraphIDCityRingVertex374"
+        }, 
+        {
+            "name": "Andersonville", 
+            "id": "GraphIDCityRingVertex375"
+        }, 
+        {
+            "name": "Andes", 
+            "id": "GraphIDCityRingVertex376"
+        }, 
+        {
+            "name": "Andover", 
+            "id": "GraphIDCityRingVertex377"
+        }
+    ], 
+    "graphID": "CityRing", 
+    "links": [
+        {
+            "source": "GraphIDCityRingVertex1", 
+            "years": 5, 
+            "id": "GraphIDCityRingEdge1", 
+            "target": "GraphIDCityRingVertex2"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex2", 
+            "years": 58, 
+            "id": "GraphIDCityRingEdge2", 
+            "target": "GraphIDCityRingVertex3"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex3", 
+            "years": 59, 
+            "id": "GraphIDCityRingEdge3", 
+            "target": "GraphIDCityRingVertex4"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex4", 
+            "years": 11, 
+            "id": "GraphIDCityRingEdge4", 
+            "target": "GraphIDCityRingVertex5"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex5", 
+            "years": 96, 
+            "id": "GraphIDCityRingEdge5", 
+            "target": "GraphIDCityRingVertex6"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex6", 
+            "years": 2, 
+            "id": "GraphIDCityRingEdge6", 
+            "target": "GraphIDCityRingVertex7"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex7", 
+            "years": 9, 
+            "id": "GraphIDCityRingEdge7", 
+            "target": "GraphIDCityRingVertex8"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex8", 
+            "years": 59, 
+            "id": "GraphIDCityRingEdge8", 
+            "target": "GraphIDCityRingVertex9"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex9", 
+            "years": 84, 
+            "id": "GraphIDCityRingEdge9", 
+            "target": "GraphIDCityRingVertex10"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex10", 
+            "years": 8, 
+            "id": "GraphIDCityRingEdge10", 
+            "target": "GraphIDCityRingVertex11"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex11", 
+            "years": 31, 
+            "id": "GraphIDCityRingEdge11", 
+            "target": "GraphIDCityRingVertex12"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex12", 
+            "years": 50, 
+            "id": "GraphIDCityRingEdge12", 
+            "target": "GraphIDCityRingVertex13"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex13", 
+            "years": 76, 
+            "id": "GraphIDCityRingEdge13", 
+            "target": "GraphIDCityRingVertex14"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex14", 
+            "years": 11, 
+            "id": "GraphIDCityRingEdge14", 
+            "target": "GraphIDCityRingVertex15"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex15", 
+            "years": 52, 
+            "id": "GraphIDCityRingEdge15", 
+            "target": "GraphIDCityRingVertex16"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex16", 
+            "years": 9, 
+            "id": "GraphIDCityRingEdge16", 
+            "target": "GraphIDCityRingVertex17"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex17", 
+            "years": 87, 
+            "id": "GraphIDCityRingEdge17", 
+            "target": "GraphIDCityRingVertex18"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex18", 
+            "years": 91, 
+            "id": "GraphIDCityRingEdge18", 
+            "target": "GraphIDCityRingVertex19"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex19", 
+            "years": 93, 
+            "id": "GraphIDCityRingEdge19", 
+            "target": "GraphIDCityRingVertex20"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex20", 
+            "years": 12, 
+            "id": "GraphIDCityRingEdge20", 
+            "target": "GraphIDCityRingVertex21"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex21", 
+            "years": 22, 
+            "id": "GraphIDCityRingEdge21", 
+            "target": "GraphIDCityRingVertex22"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex22", 
+            "years": 78, 
+            "id": "GraphIDCityRingEdge22", 
+            "target": "GraphIDCityRingVertex23"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex23", 
+            "years": 2, 
+            "id": "GraphIDCityRingEdge23", 
+            "target": "GraphIDCityRingVertex24"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex24", 
+            "years": 12, 
+            "id": "GraphIDCityRingEdge24", 
+            "target": "GraphIDCityRingVertex25"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex25", 
+            "years": 37, 
+            "id": "GraphIDCityRingEdge25", 
+            "target": "GraphIDCityRingVertex26"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex26", 
+            "years": 53, 
+            "id": "GraphIDCityRingEdge26", 
+            "target": "GraphIDCityRingVertex27"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex27", 
+            "years": 41, 
+            "id": "GraphIDCityRingEdge27", 
+            "target": "GraphIDCityRingVertex28"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex28", 
+            "years": 88, 
+            "id": "GraphIDCityRingEdge28", 
+            "target": "GraphIDCityRingVertex29"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex29", 
+            "years": 40, 
+            "id": "GraphIDCityRingEdge29", 
+            "target": "GraphIDCityRingVertex30"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex30", 
+            "years": 85, 
+            "id": "GraphIDCityRingEdge30", 
+            "target": "GraphIDCityRingVertex31"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex31", 
+            "years": 23, 
+            "id": "GraphIDCityRingEdge31", 
+            "target": "GraphIDCityRingVertex32"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex32", 
+            "years": 55, 
+            "id": "GraphIDCityRingEdge32", 
+            "target": "GraphIDCityRingVertex33"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex33", 
+            "years": 47, 
+            "id": "GraphIDCityRingEdge33", 
+            "target": "GraphIDCityRingVertex34"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex34", 
+            "years": 39, 
+            "id": "GraphIDCityRingEdge34", 
+            "target": "GraphIDCityRingVertex35"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex35", 
+            "years": 58, 
+            "id": "GraphIDCityRingEdge35", 
+            "target": "GraphIDCityRingVertex36"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex36", 
+            "years": 58, 
+            "id": "GraphIDCityRingEdge36", 
+            "target": "GraphIDCityRingVertex37"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex37", 
+            "years": 88, 
+            "id": "GraphIDCityRingEdge37", 
+            "target": "GraphIDCityRingVertex38"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex38", 
+            "years": 3, 
+            "id": "GraphIDCityRingEdge38", 
+            "target": "GraphIDCityRingVertex39"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex39", 
+            "years": 53, 
+            "id": "GraphIDCityRingEdge39", 
+            "target": "GraphIDCityRingVertex40"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex40", 
+            "years": 87, 
+            "id": "GraphIDCityRingEdge40", 
+            "target": "GraphIDCityRingVertex41"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex41", 
+            "years": 47, 
+            "id": "GraphIDCityRingEdge41", 
+            "target": "GraphIDCityRingVertex42"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex42", 
+            "years": 95, 
+            "id": "GraphIDCityRingEdge42", 
+            "target": "GraphIDCityRingVertex43"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex43", 
+            "years": 29, 
+            "id": "GraphIDCityRingEdge43", 
+            "target": "GraphIDCityRingVertex44"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex44", 
+            "years": 99, 
+            "id": "GraphIDCityRingEdge44", 
+            "target": "GraphIDCityRingVertex45"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex45", 
+            "years": 43, 
+            "id": "GraphIDCityRingEdge45", 
+            "target": "GraphIDCityRingVertex46"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex46", 
+            "years": 53, 
+            "id": "GraphIDCityRingEdge46", 
+            "target": "GraphIDCityRingVertex47"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex47", 
+            "years": 36, 
+            "id": "GraphIDCityRingEdge47", 
+            "target": "GraphIDCityRingVertex48"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex48", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge48", 
+            "target": "GraphIDCityRingVertex49"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex49", 
+            "years": 28, 
+            "id": "GraphIDCityRingEdge49", 
+            "target": "GraphIDCityRingVertex50"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex50", 
+            "years": 52, 
+            "id": "GraphIDCityRingEdge50", 
+            "target": "GraphIDCityRingVertex51"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex51", 
+            "years": 70, 
+            "id": "GraphIDCityRingEdge51", 
+            "target": "GraphIDCityRingVertex52"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex52", 
+            "years": 3, 
+            "id": "GraphIDCityRingEdge52", 
+            "target": "GraphIDCityRingVertex53"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex53", 
+            "years": 24, 
+            "id": "GraphIDCityRingEdge53", 
+            "target": "GraphIDCityRingVertex54"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex54", 
+            "years": 1, 
+            "id": "GraphIDCityRingEdge54", 
+            "target": "GraphIDCityRingVertex55"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex55", 
+            "years": 60, 
+            "id": "GraphIDCityRingEdge55", 
+            "target": "GraphIDCityRingVertex56"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex56", 
+            "years": 62, 
+            "id": "GraphIDCityRingEdge56", 
+            "target": "GraphIDCityRingVertex57"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex57", 
+            "years": 58, 
+            "id": "GraphIDCityRingEdge57", 
+            "target": "GraphIDCityRingVertex58"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex58", 
+            "years": 93, 
+            "id": "GraphIDCityRingEdge58", 
+            "target": "GraphIDCityRingVertex59"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex59", 
+            "years": 88, 
+            "id": "GraphIDCityRingEdge59", 
+            "target": "GraphIDCityRingVertex60"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex60", 
+            "years": 53, 
+            "id": "GraphIDCityRingEdge60", 
+            "target": "GraphIDCityRingVertex61"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex61", 
+            "years": 11, 
+            "id": "GraphIDCityRingEdge61", 
+            "target": "GraphIDCityRingVertex62"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex62", 
+            "years": 21, 
+            "id": "GraphIDCityRingEdge62", 
+            "target": "GraphIDCityRingVertex63"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex63", 
+            "years": 4, 
+            "id": "GraphIDCityRingEdge63", 
+            "target": "GraphIDCityRingVertex64"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex64", 
+            "years": 90, 
+            "id": "GraphIDCityRingEdge64", 
+            "target": "GraphIDCityRingVertex65"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex65", 
+            "years": 66, 
+            "id": "GraphIDCityRingEdge65", 
+            "target": "GraphIDCityRingVertex66"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex66", 
+            "years": 92, 
+            "id": "GraphIDCityRingEdge66", 
+            "target": "GraphIDCityRingVertex67"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex67", 
+            "years": 21, 
+            "id": "GraphIDCityRingEdge67", 
+            "target": "GraphIDCityRingVertex68"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex68", 
+            "years": 64, 
+            "id": "GraphIDCityRingEdge68", 
+            "target": "GraphIDCityRingVertex69"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex69", 
+            "years": 75, 
+            "id": "GraphIDCityRingEdge69", 
+            "target": "GraphIDCityRingVertex70"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex70", 
+            "years": 40, 
+            "id": "GraphIDCityRingEdge70", 
+            "target": "GraphIDCityRingVertex71"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex71", 
+            "years": 74, 
+            "id": "GraphIDCityRingEdge71", 
+            "target": "GraphIDCityRingVertex72"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex72", 
+            "years": 33, 
+            "id": "GraphIDCityRingEdge72", 
+            "target": "GraphIDCityRingVertex73"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex73", 
+            "years": 77, 
+            "id": "GraphIDCityRingEdge73", 
+            "target": "GraphIDCityRingVertex74"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex74", 
+            "years": 7, 
+            "id": "GraphIDCityRingEdge74", 
+            "target": "GraphIDCityRingVertex75"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex75", 
+            "years": 80, 
+            "id": "GraphIDCityRingEdge75", 
+            "target": "GraphIDCityRingVertex76"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex76", 
+            "years": 73, 
+            "id": "GraphIDCityRingEdge76", 
+            "target": "GraphIDCityRingVertex77"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex77", 
+            "years": 71, 
+            "id": "GraphIDCityRingEdge77", 
+            "target": "GraphIDCityRingVertex78"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex78", 
+            "years": 41, 
+            "id": "GraphIDCityRingEdge78", 
+            "target": "GraphIDCityRingVertex79"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex79", 
+            "years": 51, 
+            "id": "GraphIDCityRingEdge79", 
+            "target": "GraphIDCityRingVertex80"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex80", 
+            "years": 83, 
+            "id": "GraphIDCityRingEdge80", 
+            "target": "GraphIDCityRingVertex81"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex81", 
+            "years": 36, 
+            "id": "GraphIDCityRingEdge81", 
+            "target": "GraphIDCityRingVertex82"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex82", 
+            "years": 83, 
+            "id": "GraphIDCityRingEdge82", 
+            "target": "GraphIDCityRingVertex83"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex83", 
+            "years": 8, 
+            "id": "GraphIDCityRingEdge83", 
+            "target": "GraphIDCityRingVertex84"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex84", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge84", 
+            "target": "GraphIDCityRingVertex85"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex85", 
+            "years": 5, 
+            "id": "GraphIDCityRingEdge85", 
+            "target": "GraphIDCityRingVertex86"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex86", 
+            "years": 26, 
+            "id": "GraphIDCityRingEdge86", 
+            "target": "GraphIDCityRingVertex87"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex87", 
+            "years": 94, 
+            "id": "GraphIDCityRingEdge87", 
+            "target": "GraphIDCityRingVertex88"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex88", 
+            "years": 86, 
+            "id": "GraphIDCityRingEdge88", 
+            "target": "GraphIDCityRingVertex89"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex89", 
+            "years": 60, 
+            "id": "GraphIDCityRingEdge89", 
+            "target": "GraphIDCityRingVertex90"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex90", 
+            "years": 79, 
+            "id": "GraphIDCityRingEdge90", 
+            "target": "GraphIDCityRingVertex91"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex91", 
+            "years": 54, 
+            "id": "GraphIDCityRingEdge91", 
+            "target": "GraphIDCityRingVertex92"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex92", 
+            "years": 98, 
+            "id": "GraphIDCityRingEdge92", 
+            "target": "GraphIDCityRingVertex93"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex93", 
+            "years": 78, 
+            "id": "GraphIDCityRingEdge93", 
+            "target": "GraphIDCityRingVertex94"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex94", 
+            "years": 65, 
+            "id": "GraphIDCityRingEdge94", 
+            "target": "GraphIDCityRingVertex95"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex95", 
+            "years": 57, 
+            "id": "GraphIDCityRingEdge95", 
+            "target": "GraphIDCityRingVertex96"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex96", 
+            "years": 92, 
+            "id": "GraphIDCityRingEdge96", 
+            "target": "GraphIDCityRingVertex97"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex97", 
+            "years": 27, 
+            "id": "GraphIDCityRingEdge97", 
+            "target": "GraphIDCityRingVertex98"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex98", 
+            "years": 36, 
+            "id": "GraphIDCityRingEdge98", 
+            "target": "GraphIDCityRingVertex99"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex99", 
+            "years": 78, 
+            "id": "GraphIDCityRingEdge99", 
+            "target": "GraphIDCityRingVertex100"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex100", 
+            "years": 68, 
+            "id": "GraphIDCityRingEdge100", 
+            "target": "GraphIDCityRingVertex101"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex101", 
+            "years": 44, 
+            "id": "GraphIDCityRingEdge101", 
+            "target": "GraphIDCityRingVertex102"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex102", 
+            "years": 28, 
+            "id": "GraphIDCityRingEdge102", 
+            "target": "GraphIDCityRingVertex103"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex103", 
+            "years": 69, 
+            "id": "GraphIDCityRingEdge103", 
+            "target": "GraphIDCityRingVertex104"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex104", 
+            "years": 40, 
+            "id": "GraphIDCityRingEdge104", 
+            "target": "GraphIDCityRingVertex105"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex105", 
+            "years": 66, 
+            "id": "GraphIDCityRingEdge105", 
+            "target": "GraphIDCityRingVertex106"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex106", 
+            "years": 35, 
+            "id": "GraphIDCityRingEdge106", 
+            "target": "GraphIDCityRingVertex107"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex107", 
+            "years": 80, 
+            "id": "GraphIDCityRingEdge107", 
+            "target": "GraphIDCityRingVertex108"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex108", 
+            "years": 88, 
+            "id": "GraphIDCityRingEdge108", 
+            "target": "GraphIDCityRingVertex109"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex109", 
+            "years": 38, 
+            "id": "GraphIDCityRingEdge109", 
+            "target": "GraphIDCityRingVertex110"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex110", 
+            "years": 45, 
+            "id": "GraphIDCityRingEdge110", 
+            "target": "GraphIDCityRingVertex111"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex111", 
+            "years": 83, 
+            "id": "GraphIDCityRingEdge111", 
+            "target": "GraphIDCityRingVertex112"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex112", 
+            "years": 79, 
+            "id": "GraphIDCityRingEdge112", 
+            "target": "GraphIDCityRingVertex113"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex113", 
+            "years": 19, 
+            "id": "GraphIDCityRingEdge113", 
+            "target": "GraphIDCityRingVertex114"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex114", 
+            "years": 80, 
+            "id": "GraphIDCityRingEdge114", 
+            "target": "GraphIDCityRingVertex115"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex115", 
+            "years": 98, 
+            "id": "GraphIDCityRingEdge115", 
+            "target": "GraphIDCityRingVertex116"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex116", 
+            "years": 12, 
+            "id": "GraphIDCityRingEdge116", 
+            "target": "GraphIDCityRingVertex117"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex117", 
+            "years": 2, 
+            "id": "GraphIDCityRingEdge117", 
+            "target": "GraphIDCityRingVertex118"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex118", 
+            "years": 85, 
+            "id": "GraphIDCityRingEdge118", 
+            "target": "GraphIDCityRingVertex119"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex119", 
+            "years": 38, 
+            "id": "GraphIDCityRingEdge119", 
+            "target": "GraphIDCityRingVertex120"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex120", 
+            "years": 1, 
+            "id": "GraphIDCityRingEdge120", 
+            "target": "GraphIDCityRingVertex121"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex121", 
+            "years": 61, 
+            "id": "GraphIDCityRingEdge121", 
+            "target": "GraphIDCityRingVertex122"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex122", 
+            "years": 91, 
+            "id": "GraphIDCityRingEdge122", 
+            "target": "GraphIDCityRingVertex123"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex123", 
+            "years": 15, 
+            "id": "GraphIDCityRingEdge123", 
+            "target": "GraphIDCityRingVertex124"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex124", 
+            "years": 71, 
+            "id": "GraphIDCityRingEdge124", 
+            "target": "GraphIDCityRingVertex125"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex125", 
+            "years": 40, 
+            "id": "GraphIDCityRingEdge125", 
+            "target": "GraphIDCityRingVertex126"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex126", 
+            "years": 98, 
+            "id": "GraphIDCityRingEdge126", 
+            "target": "GraphIDCityRingVertex127"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex127", 
+            "years": 1, 
+            "id": "GraphIDCityRingEdge127", 
+            "target": "GraphIDCityRingVertex128"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex128", 
+            "years": 40, 
+            "id": "GraphIDCityRingEdge128", 
+            "target": "GraphIDCityRingVertex129"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex129", 
+            "years": 34, 
+            "id": "GraphIDCityRingEdge129", 
+            "target": "GraphIDCityRingVertex130"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex130", 
+            "years": 85, 
+            "id": "GraphIDCityRingEdge130", 
+            "target": "GraphIDCityRingVertex131"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex131", 
+            "years": 67, 
+            "id": "GraphIDCityRingEdge131", 
+            "target": "GraphIDCityRingVertex132"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex132", 
+            "years": 24, 
+            "id": "GraphIDCityRingEdge132", 
+            "target": "GraphIDCityRingVertex133"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex133", 
+            "years": 38, 
+            "id": "GraphIDCityRingEdge133", 
+            "target": "GraphIDCityRingVertex134"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex134", 
+            "years": 69, 
+            "id": "GraphIDCityRingEdge134", 
+            "target": "GraphIDCityRingVertex135"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex135", 
+            "years": 63, 
+            "id": "GraphIDCityRingEdge135", 
+            "target": "GraphIDCityRingVertex136"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex136", 
+            "years": 99, 
+            "id": "GraphIDCityRingEdge136", 
+            "target": "GraphIDCityRingVertex137"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex137", 
+            "years": 67, 
+            "id": "GraphIDCityRingEdge137", 
+            "target": "GraphIDCityRingVertex138"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex138", 
+            "years": 36, 
+            "id": "GraphIDCityRingEdge138", 
+            "target": "GraphIDCityRingVertex139"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex139", 
+            "years": 50, 
+            "id": "GraphIDCityRingEdge139", 
+            "target": "GraphIDCityRingVertex140"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex140", 
+            "years": 75, 
+            "id": "GraphIDCityRingEdge140", 
+            "target": "GraphIDCityRingVertex141"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex141", 
+            "years": 18, 
+            "id": "GraphIDCityRingEdge141", 
+            "target": "GraphIDCityRingVertex142"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex142", 
+            "years": 44, 
+            "id": "GraphIDCityRingEdge142", 
+            "target": "GraphIDCityRingVertex143"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex143", 
+            "years": 68, 
+            "id": "GraphIDCityRingEdge143", 
+            "target": "GraphIDCityRingVertex144"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex144", 
+            "years": 85, 
+            "id": "GraphIDCityRingEdge144", 
+            "target": "GraphIDCityRingVertex145"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex145", 
+            "years": 68, 
+            "id": "GraphIDCityRingEdge145", 
+            "target": "GraphIDCityRingVertex146"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex146", 
+            "years": 68, 
+            "id": "GraphIDCityRingEdge146", 
+            "target": "GraphIDCityRingVertex147"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex147", 
+            "years": 56, 
+            "id": "GraphIDCityRingEdge147", 
+            "target": "GraphIDCityRingVertex148"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex148", 
+            "years": 56, 
+            "id": "GraphIDCityRingEdge148", 
+            "target": "GraphIDCityRingVertex149"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex149", 
+            "years": 90, 
+            "id": "GraphIDCityRingEdge149", 
+            "target": "GraphIDCityRingVertex150"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex150", 
+            "years": 6, 
+            "id": "GraphIDCityRingEdge150", 
+            "target": "GraphIDCityRingVertex151"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex151", 
+            "years": 74, 
+            "id": "GraphIDCityRingEdge151", 
+            "target": "GraphIDCityRingVertex152"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex152", 
+            "years": 42, 
+            "id": "GraphIDCityRingEdge152", 
+            "target": "GraphIDCityRingVertex153"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex153", 
+            "years": 85, 
+            "id": "GraphIDCityRingEdge153", 
+            "target": "GraphIDCityRingVertex154"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex154", 
+            "years": 92, 
+            "id": "GraphIDCityRingEdge154", 
+            "target": "GraphIDCityRingVertex155"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex155", 
+            "years": 63, 
+            "id": "GraphIDCityRingEdge155", 
+            "target": "GraphIDCityRingVertex156"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex156", 
+            "years": 88, 
+            "id": "GraphIDCityRingEdge156", 
+            "target": "GraphIDCityRingVertex157"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex157", 
+            "years": 3, 
+            "id": "GraphIDCityRingEdge157", 
+            "target": "GraphIDCityRingVertex158"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex158", 
+            "years": 44, 
+            "id": "GraphIDCityRingEdge158", 
+            "target": "GraphIDCityRingVertex159"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex159", 
+            "years": 6, 
+            "id": "GraphIDCityRingEdge159", 
+            "target": "GraphIDCityRingVertex160"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex160", 
+            "years": 20, 
+            "id": "GraphIDCityRingEdge160", 
+            "target": "GraphIDCityRingVertex161"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex161", 
+            "years": 99, 
+            "id": "GraphIDCityRingEdge161", 
+            "target": "GraphIDCityRingVertex162"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex162", 
+            "years": 74, 
+            "id": "GraphIDCityRingEdge162", 
+            "target": "GraphIDCityRingVertex163"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex163", 
+            "years": 47, 
+            "id": "GraphIDCityRingEdge163", 
+            "target": "GraphIDCityRingVertex164"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex164", 
+            "years": 7, 
+            "id": "GraphIDCityRingEdge164", 
+            "target": "GraphIDCityRingVertex165"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex165", 
+            "years": 87, 
+            "id": "GraphIDCityRingEdge165", 
+            "target": "GraphIDCityRingVertex166"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex166", 
+            "years": 24, 
+            "id": "GraphIDCityRingEdge166", 
+            "target": "GraphIDCityRingVertex167"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex167", 
+            "years": 8, 
+            "id": "GraphIDCityRingEdge167", 
+            "target": "GraphIDCityRingVertex168"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex168", 
+            "years": 91, 
+            "id": "GraphIDCityRingEdge168", 
+            "target": "GraphIDCityRingVertex169"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex169", 
+            "years": 63, 
+            "id": "GraphIDCityRingEdge169", 
+            "target": "GraphIDCityRingVertex170"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex170", 
+            "years": 75, 
+            "id": "GraphIDCityRingEdge170", 
+            "target": "GraphIDCityRingVertex171"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex171", 
+            "years": 97, 
+            "id": "GraphIDCityRingEdge171", 
+            "target": "GraphIDCityRingVertex172"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex172", 
+            "years": 13, 
+            "id": "GraphIDCityRingEdge172", 
+            "target": "GraphIDCityRingVertex173"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex173", 
+            "years": 35, 
+            "id": "GraphIDCityRingEdge173", 
+            "target": "GraphIDCityRingVertex174"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex174", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge174", 
+            "target": "GraphIDCityRingVertex175"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex175", 
+            "years": 97, 
+            "id": "GraphIDCityRingEdge175", 
+            "target": "GraphIDCityRingVertex176"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex176", 
+            "years": 59, 
+            "id": "GraphIDCityRingEdge176", 
+            "target": "GraphIDCityRingVertex177"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex177", 
+            "years": 88, 
+            "id": "GraphIDCityRingEdge177", 
+            "target": "GraphIDCityRingVertex178"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex178", 
+            "years": 75, 
+            "id": "GraphIDCityRingEdge178", 
+            "target": "GraphIDCityRingVertex179"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex179", 
+            "years": 39, 
+            "id": "GraphIDCityRingEdge179", 
+            "target": "GraphIDCityRingVertex180"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex180", 
+            "years": 99, 
+            "id": "GraphIDCityRingEdge180", 
+            "target": "GraphIDCityRingVertex181"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex181", 
+            "years": 47, 
+            "id": "GraphIDCityRingEdge181", 
+            "target": "GraphIDCityRingVertex182"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex182", 
+            "years": 61, 
+            "id": "GraphIDCityRingEdge182", 
+            "target": "GraphIDCityRingVertex183"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex183", 
+            "years": 68, 
+            "id": "GraphIDCityRingEdge183", 
+            "target": "GraphIDCityRingVertex184"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex184", 
+            "years": 5, 
+            "id": "GraphIDCityRingEdge184", 
+            "target": "GraphIDCityRingVertex185"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex185", 
+            "years": 14, 
+            "id": "GraphIDCityRingEdge185", 
+            "target": "GraphIDCityRingVertex186"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex186", 
+            "years": 61, 
+            "id": "GraphIDCityRingEdge186", 
+            "target": "GraphIDCityRingVertex187"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex187", 
+            "years": 23, 
+            "id": "GraphIDCityRingEdge187", 
+            "target": "GraphIDCityRingVertex188"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex188", 
+            "years": 54, 
+            "id": "GraphIDCityRingEdge188", 
+            "target": "GraphIDCityRingVertex189"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex189", 
+            "years": 58, 
+            "id": "GraphIDCityRingEdge189", 
+            "target": "GraphIDCityRingVertex190"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex190", 
+            "years": 50, 
+            "id": "GraphIDCityRingEdge190", 
+            "target": "GraphIDCityRingVertex191"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex191", 
+            "years": 11, 
+            "id": "GraphIDCityRingEdge191", 
+            "target": "GraphIDCityRingVertex192"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex192", 
+            "years": 9, 
+            "id": "GraphIDCityRingEdge192", 
+            "target": "GraphIDCityRingVertex193"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex193", 
+            "years": 80, 
+            "id": "GraphIDCityRingEdge193", 
+            "target": "GraphIDCityRingVertex194"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex194", 
+            "years": 24, 
+            "id": "GraphIDCityRingEdge194", 
+            "target": "GraphIDCityRingVertex195"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex195", 
+            "years": 70, 
+            "id": "GraphIDCityRingEdge195", 
+            "target": "GraphIDCityRingVertex196"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex196", 
+            "years": 66, 
+            "id": "GraphIDCityRingEdge196", 
+            "target": "GraphIDCityRingVertex197"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex197", 
+            "years": 42, 
+            "id": "GraphIDCityRingEdge197", 
+            "target": "GraphIDCityRingVertex198"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex198", 
+            "years": 80, 
+            "id": "GraphIDCityRingEdge198", 
+            "target": "GraphIDCityRingVertex199"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex199", 
+            "years": 58, 
+            "id": "GraphIDCityRingEdge199", 
+            "target": "GraphIDCityRingVertex200"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex200", 
+            "years": 84, 
+            "id": "GraphIDCityRingEdge200", 
+            "target": "GraphIDCityRingVertex201"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex201", 
+            "years": 72, 
+            "id": "GraphIDCityRingEdge201", 
+            "target": "GraphIDCityRingVertex202"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex202", 
+            "years": 1, 
+            "id": "GraphIDCityRingEdge202", 
+            "target": "GraphIDCityRingVertex203"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex203", 
+            "years": 40, 
+            "id": "GraphIDCityRingEdge203", 
+            "target": "GraphIDCityRingVertex204"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex204", 
+            "years": 31, 
+            "id": "GraphIDCityRingEdge204", 
+            "target": "GraphIDCityRingVertex205"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex205", 
+            "years": 20, 
+            "id": "GraphIDCityRingEdge205", 
+            "target": "GraphIDCityRingVertex206"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex206", 
+            "years": 94, 
+            "id": "GraphIDCityRingEdge206", 
+            "target": "GraphIDCityRingVertex207"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex207", 
+            "years": 75, 
+            "id": "GraphIDCityRingEdge207", 
+            "target": "GraphIDCityRingVertex208"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex208", 
+            "years": 17, 
+            "id": "GraphIDCityRingEdge208", 
+            "target": "GraphIDCityRingVertex209"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex209", 
+            "years": 25, 
+            "id": "GraphIDCityRingEdge209", 
+            "target": "GraphIDCityRingVertex210"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex210", 
+            "years": 49, 
+            "id": "GraphIDCityRingEdge210", 
+            "target": "GraphIDCityRingVertex211"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex211", 
+            "years": 65, 
+            "id": "GraphIDCityRingEdge211", 
+            "target": "GraphIDCityRingVertex212"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex212", 
+            "years": 39, 
+            "id": "GraphIDCityRingEdge212", 
+            "target": "GraphIDCityRingVertex213"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex213", 
+            "years": 9, 
+            "id": "GraphIDCityRingEdge213", 
+            "target": "GraphIDCityRingVertex214"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex214", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge214", 
+            "target": "GraphIDCityRingVertex215"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex215", 
+            "years": 81, 
+            "id": "GraphIDCityRingEdge215", 
+            "target": "GraphIDCityRingVertex216"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex216", 
+            "years": 22, 
+            "id": "GraphIDCityRingEdge216", 
+            "target": "GraphIDCityRingVertex217"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex217", 
+            "years": 94, 
+            "id": "GraphIDCityRingEdge217", 
+            "target": "GraphIDCityRingVertex218"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex218", 
+            "years": 3, 
+            "id": "GraphIDCityRingEdge218", 
+            "target": "GraphIDCityRingVertex219"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex219", 
+            "years": 13, 
+            "id": "GraphIDCityRingEdge219", 
+            "target": "GraphIDCityRingVertex220"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex220", 
+            "years": 22, 
+            "id": "GraphIDCityRingEdge220", 
+            "target": "GraphIDCityRingVertex221"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex221", 
+            "years": 56, 
+            "id": "GraphIDCityRingEdge221", 
+            "target": "GraphIDCityRingVertex222"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex222", 
+            "years": 86, 
+            "id": "GraphIDCityRingEdge222", 
+            "target": "GraphIDCityRingVertex223"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex223", 
+            "years": 42, 
+            "id": "GraphIDCityRingEdge223", 
+            "target": "GraphIDCityRingVertex224"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex224", 
+            "years": 40, 
+            "id": "GraphIDCityRingEdge224", 
+            "target": "GraphIDCityRingVertex225"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex225", 
+            "years": 52, 
+            "id": "GraphIDCityRingEdge225", 
+            "target": "GraphIDCityRingVertex226"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex226", 
+            "years": 30, 
+            "id": "GraphIDCityRingEdge226", 
+            "target": "GraphIDCityRingVertex227"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex227", 
+            "years": 42, 
+            "id": "GraphIDCityRingEdge227", 
+            "target": "GraphIDCityRingVertex228"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex228", 
+            "years": 85, 
+            "id": "GraphIDCityRingEdge228", 
+            "target": "GraphIDCityRingVertex229"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex229", 
+            "years": 46, 
+            "id": "GraphIDCityRingEdge229", 
+            "target": "GraphIDCityRingVertex230"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex230", 
+            "years": 77, 
+            "id": "GraphIDCityRingEdge230", 
+            "target": "GraphIDCityRingVertex231"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex231", 
+            "years": 6, 
+            "id": "GraphIDCityRingEdge231", 
+            "target": "GraphIDCityRingVertex232"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex232", 
+            "years": 73, 
+            "id": "GraphIDCityRingEdge232", 
+            "target": "GraphIDCityRingVertex233"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex233", 
+            "years": 61, 
+            "id": "GraphIDCityRingEdge233", 
+            "target": "GraphIDCityRingVertex234"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex234", 
+            "years": 39, 
+            "id": "GraphIDCityRingEdge234", 
+            "target": "GraphIDCityRingVertex235"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex235", 
+            "years": 100, 
+            "id": "GraphIDCityRingEdge235", 
+            "target": "GraphIDCityRingVertex236"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex236", 
+            "years": 56, 
+            "id": "GraphIDCityRingEdge236", 
+            "target": "GraphIDCityRingVertex237"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex237", 
+            "years": 20, 
+            "id": "GraphIDCityRingEdge237", 
+            "target": "GraphIDCityRingVertex238"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex238", 
+            "years": 35, 
+            "id": "GraphIDCityRingEdge238", 
+            "target": "GraphIDCityRingVertex239"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex239", 
+            "years": 5, 
+            "id": "GraphIDCityRingEdge239", 
+            "target": "GraphIDCityRingVertex240"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex240", 
+            "years": 8, 
+            "id": "GraphIDCityRingEdge240", 
+            "target": "GraphIDCityRingVertex241"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex241", 
+            "years": 97, 
+            "id": "GraphIDCityRingEdge241", 
+            "target": "GraphIDCityRingVertex242"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex242", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge242", 
+            "target": "GraphIDCityRingVertex243"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex243", 
+            "years": 70, 
+            "id": "GraphIDCityRingEdge243", 
+            "target": "GraphIDCityRingVertex244"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex244", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge244", 
+            "target": "GraphIDCityRingVertex245"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex245", 
+            "years": 44, 
+            "id": "GraphIDCityRingEdge245", 
+            "target": "GraphIDCityRingVertex246"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex246", 
+            "years": 78, 
+            "id": "GraphIDCityRingEdge246", 
+            "target": "GraphIDCityRingVertex247"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex247", 
+            "years": 38, 
+            "id": "GraphIDCityRingEdge247", 
+            "target": "GraphIDCityRingVertex248"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex248", 
+            "years": 16, 
+            "id": "GraphIDCityRingEdge248", 
+            "target": "GraphIDCityRingVertex249"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex249", 
+            "years": 31, 
+            "id": "GraphIDCityRingEdge249", 
+            "target": "GraphIDCityRingVertex250"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex250", 
+            "years": 22, 
+            "id": "GraphIDCityRingEdge250", 
+            "target": "GraphIDCityRingVertex251"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex251", 
+            "years": 92, 
+            "id": "GraphIDCityRingEdge251", 
+            "target": "GraphIDCityRingVertex252"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex252", 
+            "years": 9, 
+            "id": "GraphIDCityRingEdge252", 
+            "target": "GraphIDCityRingVertex253"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex253", 
+            "years": 52, 
+            "id": "GraphIDCityRingEdge253", 
+            "target": "GraphIDCityRingVertex254"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex254", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge254", 
+            "target": "GraphIDCityRingVertex255"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex255", 
+            "years": 75, 
+            "id": "GraphIDCityRingEdge255", 
+            "target": "GraphIDCityRingVertex256"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex256", 
+            "years": 63, 
+            "id": "GraphIDCityRingEdge256", 
+            "target": "GraphIDCityRingVertex257"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex257", 
+            "years": 80, 
+            "id": "GraphIDCityRingEdge257", 
+            "target": "GraphIDCityRingVertex258"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex258", 
+            "years": 87, 
+            "id": "GraphIDCityRingEdge258", 
+            "target": "GraphIDCityRingVertex259"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex259", 
+            "years": 41, 
+            "id": "GraphIDCityRingEdge259", 
+            "target": "GraphIDCityRingVertex260"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex260", 
+            "years": 69, 
+            "id": "GraphIDCityRingEdge260", 
+            "target": "GraphIDCityRingVertex261"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex261", 
+            "years": 46, 
+            "id": "GraphIDCityRingEdge261", 
+            "target": "GraphIDCityRingVertex262"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex262", 
+            "years": 90, 
+            "id": "GraphIDCityRingEdge262", 
+            "target": "GraphIDCityRingVertex263"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex263", 
+            "years": 50, 
+            "id": "GraphIDCityRingEdge263", 
+            "target": "GraphIDCityRingVertex264"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex264", 
+            "years": 90, 
+            "id": "GraphIDCityRingEdge264", 
+            "target": "GraphIDCityRingVertex265"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex265", 
+            "years": 78, 
+            "id": "GraphIDCityRingEdge265", 
+            "target": "GraphIDCityRingVertex266"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex266", 
+            "years": 90, 
+            "id": "GraphIDCityRingEdge266", 
+            "target": "GraphIDCityRingVertex267"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex267", 
+            "years": 40, 
+            "id": "GraphIDCityRingEdge267", 
+            "target": "GraphIDCityRingVertex268"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex268", 
+            "years": 81, 
+            "id": "GraphIDCityRingEdge268", 
+            "target": "GraphIDCityRingVertex269"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex269", 
+            "years": 81, 
+            "id": "GraphIDCityRingEdge269", 
+            "target": "GraphIDCityRingVertex270"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex270", 
+            "years": 85, 
+            "id": "GraphIDCityRingEdge270", 
+            "target": "GraphIDCityRingVertex271"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex271", 
+            "years": 4, 
+            "id": "GraphIDCityRingEdge271", 
+            "target": "GraphIDCityRingVertex272"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex272", 
+            "years": 49, 
+            "id": "GraphIDCityRingEdge272", 
+            "target": "GraphIDCityRingVertex273"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex273", 
+            "years": 23, 
+            "id": "GraphIDCityRingEdge273", 
+            "target": "GraphIDCityRingVertex274"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex274", 
+            "years": 7, 
+            "id": "GraphIDCityRingEdge274", 
+            "target": "GraphIDCityRingVertex275"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex275", 
+            "years": 79, 
+            "id": "GraphIDCityRingEdge275", 
+            "target": "GraphIDCityRingVertex276"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex276", 
+            "years": 29, 
+            "id": "GraphIDCityRingEdge276", 
+            "target": "GraphIDCityRingVertex277"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex277", 
+            "years": 100, 
+            "id": "GraphIDCityRingEdge277", 
+            "target": "GraphIDCityRingVertex278"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex278", 
+            "years": 27, 
+            "id": "GraphIDCityRingEdge278", 
+            "target": "GraphIDCityRingVertex279"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex279", 
+            "years": 30, 
+            "id": "GraphIDCityRingEdge279", 
+            "target": "GraphIDCityRingVertex280"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex280", 
+            "years": 42, 
+            "id": "GraphIDCityRingEdge280", 
+            "target": "GraphIDCityRingVertex281"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex281", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge281", 
+            "target": "GraphIDCityRingVertex282"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex282", 
+            "years": 55, 
+            "id": "GraphIDCityRingEdge282", 
+            "target": "GraphIDCityRingVertex283"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex283", 
+            "years": 77, 
+            "id": "GraphIDCityRingEdge283", 
+            "target": "GraphIDCityRingVertex284"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex284", 
+            "years": 17, 
+            "id": "GraphIDCityRingEdge284", 
+            "target": "GraphIDCityRingVertex285"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex285", 
+            "years": 9, 
+            "id": "GraphIDCityRingEdge285", 
+            "target": "GraphIDCityRingVertex286"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex286", 
+            "years": 46, 
+            "id": "GraphIDCityRingEdge286", 
+            "target": "GraphIDCityRingVertex287"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex287", 
+            "years": 30, 
+            "id": "GraphIDCityRingEdge287", 
+            "target": "GraphIDCityRingVertex288"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex288", 
+            "years": 61, 
+            "id": "GraphIDCityRingEdge288", 
+            "target": "GraphIDCityRingVertex289"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex289", 
+            "years": 74, 
+            "id": "GraphIDCityRingEdge289", 
+            "target": "GraphIDCityRingVertex290"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex290", 
+            "years": 15, 
+            "id": "GraphIDCityRingEdge290", 
+            "target": "GraphIDCityRingVertex291"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex291", 
+            "years": 64, 
+            "id": "GraphIDCityRingEdge291", 
+            "target": "GraphIDCityRingVertex292"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex292", 
+            "years": 54, 
+            "id": "GraphIDCityRingEdge292", 
+            "target": "GraphIDCityRingVertex293"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex293", 
+            "years": 55, 
+            "id": "GraphIDCityRingEdge293", 
+            "target": "GraphIDCityRingVertex294"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex294", 
+            "years": 67, 
+            "id": "GraphIDCityRingEdge294", 
+            "target": "GraphIDCityRingVertex295"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex295", 
+            "years": 8, 
+            "id": "GraphIDCityRingEdge295", 
+            "target": "GraphIDCityRingVertex296"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex296", 
+            "years": 1, 
+            "id": "GraphIDCityRingEdge296", 
+            "target": "GraphIDCityRingVertex297"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex297", 
+            "years": 48, 
+            "id": "GraphIDCityRingEdge297", 
+            "target": "GraphIDCityRingVertex298"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex298", 
+            "years": 21, 
+            "id": "GraphIDCityRingEdge298", 
+            "target": "GraphIDCityRingVertex299"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex299", 
+            "years": 3, 
+            "id": "GraphIDCityRingEdge299", 
+            "target": "GraphIDCityRingVertex300"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex300", 
+            "years": 93, 
+            "id": "GraphIDCityRingEdge300", 
+            "target": "GraphIDCityRingVertex301"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex301", 
+            "years": 19, 
+            "id": "GraphIDCityRingEdge301", 
+            "target": "GraphIDCityRingVertex302"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex302", 
+            "years": 51, 
+            "id": "GraphIDCityRingEdge302", 
+            "target": "GraphIDCityRingVertex303"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex303", 
+            "years": 17, 
+            "id": "GraphIDCityRingEdge303", 
+            "target": "GraphIDCityRingVertex304"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex304", 
+            "years": 31, 
+            "id": "GraphIDCityRingEdge304", 
+            "target": "GraphIDCityRingVertex305"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex305", 
+            "years": 82, 
+            "id": "GraphIDCityRingEdge305", 
+            "target": "GraphIDCityRingVertex306"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex306", 
+            "years": 83, 
+            "id": "GraphIDCityRingEdge306", 
+            "target": "GraphIDCityRingVertex307"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex307", 
+            "years": 33, 
+            "id": "GraphIDCityRingEdge307", 
+            "target": "GraphIDCityRingVertex308"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex308", 
+            "years": 29, 
+            "id": "GraphIDCityRingEdge308", 
+            "target": "GraphIDCityRingVertex309"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex309", 
+            "years": 79, 
+            "id": "GraphIDCityRingEdge309", 
+            "target": "GraphIDCityRingVertex310"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex310", 
+            "years": 13, 
+            "id": "GraphIDCityRingEdge310", 
+            "target": "GraphIDCityRingVertex311"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex311", 
+            "years": 92, 
+            "id": "GraphIDCityRingEdge311", 
+            "target": "GraphIDCityRingVertex312"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex312", 
+            "years": 69, 
+            "id": "GraphIDCityRingEdge312", 
+            "target": "GraphIDCityRingVertex313"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex313", 
+            "years": 5, 
+            "id": "GraphIDCityRingEdge313", 
+            "target": "GraphIDCityRingVertex314"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex314", 
+            "years": 62, 
+            "id": "GraphIDCityRingEdge314", 
+            "target": "GraphIDCityRingVertex315"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex315", 
+            "years": 65, 
+            "id": "GraphIDCityRingEdge315", 
+            "target": "GraphIDCityRingVertex316"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex316", 
+            "years": 16, 
+            "id": "GraphIDCityRingEdge316", 
+            "target": "GraphIDCityRingVertex317"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex317", 
+            "years": 33, 
+            "id": "GraphIDCityRingEdge317", 
+            "target": "GraphIDCityRingVertex318"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex318", 
+            "years": 26, 
+            "id": "GraphIDCityRingEdge318", 
+            "target": "GraphIDCityRingVertex319"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex319", 
+            "years": 98, 
+            "id": "GraphIDCityRingEdge319", 
+            "target": "GraphIDCityRingVertex320"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex320", 
+            "years": 100, 
+            "id": "GraphIDCityRingEdge320", 
+            "target": "GraphIDCityRingVertex321"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex321", 
+            "years": 6, 
+            "id": "GraphIDCityRingEdge321", 
+            "target": "GraphIDCityRingVertex322"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex322", 
+            "years": 81, 
+            "id": "GraphIDCityRingEdge322", 
+            "target": "GraphIDCityRingVertex323"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex323", 
+            "years": 79, 
+            "id": "GraphIDCityRingEdge323", 
+            "target": "GraphIDCityRingVertex324"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex324", 
+            "years": 54, 
+            "id": "GraphIDCityRingEdge324", 
+            "target": "GraphIDCityRingVertex325"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex325", 
+            "years": 36, 
+            "id": "GraphIDCityRingEdge325", 
+            "target": "GraphIDCityRingVertex326"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex326", 
+            "years": 47, 
+            "id": "GraphIDCityRingEdge326", 
+            "target": "GraphIDCityRingVertex327"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex327", 
+            "years": 91, 
+            "id": "GraphIDCityRingEdge327", 
+            "target": "GraphIDCityRingVertex328"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex328", 
+            "years": 31, 
+            "id": "GraphIDCityRingEdge328", 
+            "target": "GraphIDCityRingVertex329"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex329", 
+            "years": 65, 
+            "id": "GraphIDCityRingEdge329", 
+            "target": "GraphIDCityRingVertex330"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex330", 
+            "years": 59, 
+            "id": "GraphIDCityRingEdge330", 
+            "target": "GraphIDCityRingVertex331"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex331", 
+            "years": 24, 
+            "id": "GraphIDCityRingEdge331", 
+            "target": "GraphIDCityRingVertex332"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex332", 
+            "years": 60, 
+            "id": "GraphIDCityRingEdge332", 
+            "target": "GraphIDCityRingVertex333"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex333", 
+            "years": 100, 
+            "id": "GraphIDCityRingEdge333", 
+            "target": "GraphIDCityRingVertex334"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex334", 
+            "years": 63, 
+            "id": "GraphIDCityRingEdge334", 
+            "target": "GraphIDCityRingVertex335"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex335", 
+            "years": 44, 
+            "id": "GraphIDCityRingEdge335", 
+            "target": "GraphIDCityRingVertex336"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex336", 
+            "years": 95, 
+            "id": "GraphIDCityRingEdge336", 
+            "target": "GraphIDCityRingVertex337"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex337", 
+            "years": 52, 
+            "id": "GraphIDCityRingEdge337", 
+            "target": "GraphIDCityRingVertex338"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex338", 
+            "years": 8, 
+            "id": "GraphIDCityRingEdge338", 
+            "target": "GraphIDCityRingVertex339"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex339", 
+            "years": 97, 
+            "id": "GraphIDCityRingEdge339", 
+            "target": "GraphIDCityRingVertex340"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex340", 
+            "years": 16, 
+            "id": "GraphIDCityRingEdge340", 
+            "target": "GraphIDCityRingVertex341"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex341", 
+            "years": 82, 
+            "id": "GraphIDCityRingEdge341", 
+            "target": "GraphIDCityRingVertex342"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex342", 
+            "years": 83, 
+            "id": "GraphIDCityRingEdge342", 
+            "target": "GraphIDCityRingVertex343"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex343", 
+            "years": 82, 
+            "id": "GraphIDCityRingEdge343", 
+            "target": "GraphIDCityRingVertex344"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex344", 
+            "years": 82, 
+            "id": "GraphIDCityRingEdge344", 
+            "target": "GraphIDCityRingVertex345"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex345", 
+            "years": 10, 
+            "id": "GraphIDCityRingEdge345", 
+            "target": "GraphIDCityRingVertex346"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex346", 
+            "years": 63, 
+            "id": "GraphIDCityRingEdge346", 
+            "target": "GraphIDCityRingVertex347"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex347", 
+            "years": 85, 
+            "id": "GraphIDCityRingEdge347", 
+            "target": "GraphIDCityRingVertex348"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex348", 
+            "years": 96, 
+            "id": "GraphIDCityRingEdge348", 
+            "target": "GraphIDCityRingVertex349"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex349", 
+            "years": 47, 
+            "id": "GraphIDCityRingEdge349", 
+            "target": "GraphIDCityRingVertex350"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex350", 
+            "years": 83, 
+            "id": "GraphIDCityRingEdge350", 
+            "target": "GraphIDCityRingVertex351"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex351", 
+            "years": 45, 
+            "id": "GraphIDCityRingEdge351", 
+            "target": "GraphIDCityRingVertex352"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex352", 
+            "years": 39, 
+            "id": "GraphIDCityRingEdge352", 
+            "target": "GraphIDCityRingVertex353"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex353", 
+            "years": 71, 
+            "id": "GraphIDCityRingEdge353", 
+            "target": "GraphIDCityRingVertex354"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex354", 
+            "years": 84, 
+            "id": "GraphIDCityRingEdge354", 
+            "target": "GraphIDCityRingVertex355"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex355", 
+            "years": 93, 
+            "id": "GraphIDCityRingEdge355", 
+            "target": "GraphIDCityRingVertex356"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex356", 
+            "years": 34, 
+            "id": "GraphIDCityRingEdge356", 
+            "target": "GraphIDCityRingVertex357"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex357", 
+            "years": 3, 
+            "id": "GraphIDCityRingEdge357", 
+            "target": "GraphIDCityRingVertex358"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex358", 
+            "years": 86, 
+            "id": "GraphIDCityRingEdge358", 
+            "target": "GraphIDCityRingVertex359"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex359", 
+            "years": 73, 
+            "id": "GraphIDCityRingEdge359", 
+            "target": "GraphIDCityRingVertex360"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex360", 
+            "years": 14, 
+            "id": "GraphIDCityRingEdge360", 
+            "target": "GraphIDCityRingVertex361"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex361", 
+            "years": 77, 
+            "id": "GraphIDCityRingEdge361", 
+            "target": "GraphIDCityRingVertex362"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex362", 
+            "years": 72, 
+            "id": "GraphIDCityRingEdge362", 
+            "target": "GraphIDCityRingVertex363"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex363", 
+            "years": 75, 
+            "id": "GraphIDCityRingEdge363", 
+            "target": "GraphIDCityRingVertex364"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex364", 
+            "years": 43, 
+            "id": "GraphIDCityRingEdge364", 
+            "target": "GraphIDCityRingVertex365"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex365", 
+            "years": 17, 
+            "id": "GraphIDCityRingEdge365", 
+            "target": "GraphIDCityRingVertex366"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex366", 
+            "years": 89, 
+            "id": "GraphIDCityRingEdge366", 
+            "target": "GraphIDCityRingVertex367"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex367", 
+            "years": 11, 
+            "id": "GraphIDCityRingEdge367", 
+            "target": "GraphIDCityRingVertex368"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex368", 
+            "years": 41, 
+            "id": "GraphIDCityRingEdge368", 
+            "target": "GraphIDCityRingVertex369"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex369", 
+            "years": 81, 
+            "id": "GraphIDCityRingEdge369", 
+            "target": "GraphIDCityRingVertex370"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex370", 
+            "years": 8, 
+            "id": "GraphIDCityRingEdge370", 
+            "target": "GraphIDCityRingVertex371"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex371", 
+            "years": 45, 
+            "id": "GraphIDCityRingEdge371", 
+            "target": "GraphIDCityRingVertex372"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex372", 
+            "years": 14, 
+            "id": "GraphIDCityRingEdge372", 
+            "target": "GraphIDCityRingVertex373"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex373", 
+            "years": 23, 
+            "id": "GraphIDCityRingEdge373", 
+            "target": "GraphIDCityRingVertex374"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex374", 
+            "years": 35, 
+            "id": "GraphIDCityRingEdge374", 
+            "target": "GraphIDCityRingVertex375"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex375", 
+            "years": 77, 
+            "id": "GraphIDCityRingEdge375", 
+            "target": "GraphIDCityRingVertex376"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex376", 
+            "years": 33, 
+            "id": "GraphIDCityRingEdge376", 
+            "target": "GraphIDCityRingVertex377"
+        }, 
+        {
+            "source": "GraphIDCityRingVertex377", 
+            "years": 38, 
+            "id": "GraphIDCityRingEdge377", 
+            "target": "GraphIDCityRingVertex1"
+        }
+    ]
+}

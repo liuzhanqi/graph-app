@@ -45,6 +45,7 @@ var MCSHandler = function(event) {
     });
     console.log("MCSHandler");
     var name = event.target.id;
+    console.log(name);
     $.post( "/getMCS", {name: name})
         .done(function( data ) {
             var data = data.replace(/'/g, '"');

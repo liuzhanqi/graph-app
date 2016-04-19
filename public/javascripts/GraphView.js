@@ -5,7 +5,7 @@ function GraphView(el,w,h) {
     this.h = h;
 
     this.zoom = d3.behavior.zoom()
-        .scaleExtent([1, 10])
+        .scaleExtent([0.1, 10])
         .on("zoom", function() {
             if (!that.state.usingSelection) {
                 vis.attr("transform", 
@@ -493,7 +493,7 @@ GraphView.prototype.downloadjson = function(callback) {
 }
 
 GraphView.prototype.update = function() {
-    var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id", "source", "target"]; 
+    var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id", "source", "target", "variable", "bounds"]; 
 
     var graph = this;
 

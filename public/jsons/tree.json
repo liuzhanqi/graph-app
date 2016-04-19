@@ -1,0 +1,832 @@
+{
+    "definition": {
+        "edgeAttribute": [
+            "likes"
+        ], 
+        "nodeAttribute": [
+            "name"
+        ], 
+        "edgeName": "Relationship", 
+        "nodeName": "Fruits", 
+        "isDirected": true
+    }, 
+    "nodes": [
+        {
+            "name": "Apple", 
+            "id": "GraphIDTreeVertex1"
+        }, 
+        {
+            "name": "Apricot", 
+            "id": "GraphIDTreeVertex2"
+        }, 
+        {
+            "name": "Avocado", 
+            "id": "GraphIDTreeVertex3"
+        }, 
+        {
+            "name": "Banana", 
+            "id": "GraphIDTreeVertex4"
+        }, 
+        {
+            "name": "Bilberry", 
+            "id": "GraphIDTreeVertex5"
+        }, 
+        {
+            "name": "Blackberry", 
+            "id": "GraphIDTreeVertex6"
+        }, 
+        {
+            "name": "Blackcurrant", 
+            "id": "GraphIDTreeVertex7"
+        }, 
+        {
+            "name": "Blueberry", 
+            "id": "GraphIDTreeVertex8"
+        }, 
+        {
+            "name": "Boysenberry", 
+            "id": "GraphIDTreeVertex9"
+        }, 
+        {
+            "name": "Cantaloupe", 
+            "id": "GraphIDTreeVertex10"
+        }, 
+        {
+            "name": "Currant", 
+            "id": "GraphIDTreeVertex11"
+        }, 
+        {
+            "name": "Cherry", 
+            "id": "GraphIDTreeVertex12"
+        }, 
+        {
+            "name": "Cherimoya", 
+            "id": "GraphIDTreeVertex13"
+        }, 
+        {
+            "name": "Cloudberry", 
+            "id": "GraphIDTreeVertex14"
+        }, 
+        {
+            "name": "Coconut", 
+            "id": "GraphIDTreeVertex15"
+        }, 
+        {
+            "name": "Cranberry", 
+            "id": "GraphIDTreeVertex16"
+        }, 
+        {
+            "name": "Damson", 
+            "id": "GraphIDTreeVertex17"
+        }, 
+        {
+            "name": "Date", 
+            "id": "GraphIDTreeVertex18"
+        }, 
+        {
+            "name": "Dragonfruit", 
+            "id": "GraphIDTreeVertex19"
+        }, 
+        {
+            "name": "Durian", 
+            "id": "GraphIDTreeVertex20"
+        }, 
+        {
+            "name": "Elderberry", 
+            "id": "GraphIDTreeVertex21"
+        }, 
+        {
+            "name": "Feijoa", 
+            "id": "GraphIDTreeVertex22"
+        }, 
+        {
+            "name": "Fig", 
+            "id": "GraphIDTreeVertex23"
+        }, 
+        {
+            "name": "Goji berry", 
+            "id": "GraphIDTreeVertex24"
+        }, 
+        {
+            "name": "Gooseberry", 
+            "id": "GraphIDTreeVertex25"
+        }, 
+        {
+            "name": "Grape", 
+            "id": "GraphIDTreeVertex26"
+        }, 
+        {
+            "name": "Raisin", 
+            "id": "GraphIDTreeVertex27"
+        }, 
+        {
+            "name": "Grapefruit", 
+            "id": "GraphIDTreeVertex28"
+        }, 
+        {
+            "name": "Guava", 
+            "id": "GraphIDTreeVertex29"
+        }, 
+        {
+            "name": "Huckleberry", 
+            "id": "GraphIDTreeVertex30"
+        }, 
+        {
+            "name": "Jabuticaba", 
+            "id": "GraphIDTreeVertex31"
+        }, 
+        {
+            "name": "Jackfruit", 
+            "id": "GraphIDTreeVertex32"
+        }, 
+        {
+            "name": "Jambul", 
+            "id": "GraphIDTreeVertex33"
+        }, 
+        {
+            "name": "Jujube", 
+            "id": "GraphIDTreeVertex34"
+        }, 
+        {
+            "name": "Juniper berry", 
+            "id": "GraphIDTreeVertex35"
+        }, 
+        {
+            "name": "Kiwifruit", 
+            "id": "GraphIDTreeVertex36"
+        }, 
+        {
+            "name": "Kumquat", 
+            "id": "GraphIDTreeVertex37"
+        }, 
+        {
+            "name": "Lemon", 
+            "id": "GraphIDTreeVertex38"
+        }, 
+        {
+            "name": "Lime", 
+            "id": "GraphIDTreeVertex39"
+        }, 
+        {
+            "name": "Loquat", 
+            "id": "GraphIDTreeVertex40"
+        }, 
+        {
+            "name": "Lychee", 
+            "id": "GraphIDTreeVertex41"
+        }, 
+        {
+            "name": "Mango", 
+            "id": "GraphIDTreeVertex42"
+        }, 
+        {
+            "name": "Marionberry", 
+            "id": "GraphIDTreeVertex43"
+        }, 
+        {
+            "name": "Melon", 
+            "id": "GraphIDTreeVertex44"
+        }, 
+        {
+            "name": "Cantaloupe", 
+            "id": "GraphIDTreeVertex45"
+        }, 
+        {
+            "name": "Honeydew", 
+            "id": "GraphIDTreeVertex46"
+        }, 
+        {
+            "name": "Watermelon", 
+            "id": "GraphIDTreeVertex47"
+        }, 
+        {
+            "name": "Miracle fruit", 
+            "id": "GraphIDTreeVertex48"
+        }, 
+        {
+            "name": "Mulberry", 
+            "id": "GraphIDTreeVertex49"
+        }, 
+        {
+            "name": "Nectarine", 
+            "id": "GraphIDTreeVertex50"
+        }, 
+        {
+            "name": "Nance", 
+            "id": "GraphIDTreeVertex51"
+        }, 
+        {
+            "name": "Olive", 
+            "id": "GraphIDTreeVertex52"
+        }, 
+        {
+            "name": "Orange", 
+            "id": "GraphIDTreeVertex53"
+        }, 
+        {
+            "name": "Blood orange", 
+            "id": "GraphIDTreeVertex54"
+        }, 
+        {
+            "name": "Clementine", 
+            "id": "GraphIDTreeVertex55"
+        }, 
+        {
+            "name": "Mandarine", 
+            "id": "GraphIDTreeVertex56"
+        }, 
+        {
+            "name": "Tangerine", 
+            "id": "GraphIDTreeVertex57"
+        }, 
+        {
+            "name": "Papaya", 
+            "id": "GraphIDTreeVertex58"
+        }, 
+        {
+            "name": "Passionfruit", 
+            "id": "GraphIDTreeVertex59"
+        }, 
+        {
+            "name": "Peach", 
+            "id": "GraphIDTreeVertex60"
+        }, 
+        {
+            "name": "Pear", 
+            "id": "GraphIDTreeVertex61"
+        }, 
+        {
+            "name": "Persimmon", 
+            "id": "GraphIDTreeVertex62"
+        }, 
+        {
+            "name": "Physalis", 
+            "id": "GraphIDTreeVertex63"
+        }, 
+        {
+            "name": "Plantain", 
+            "id": "GraphIDTreeVertex64"
+        }, 
+        {
+            "name": "Plum/prune (dried plum)", 
+            "id": "GraphIDTreeVertex65"
+        }, 
+        {
+            "name": "Pineapple", 
+            "id": "GraphIDTreeVertex66"
+        }, 
+        {
+            "name": "Pomegranate", 
+            "id": "GraphIDTreeVertex67"
+        }, 
+        {
+            "name": "Pomelo", 
+            "id": "GraphIDTreeVertex68"
+        }, 
+        {
+            "name": "Purple mangosteen", 
+            "id": "GraphIDTreeVertex69"
+        }, 
+        {
+            "name": "Quince", 
+            "id": "GraphIDTreeVertex70"
+        }, 
+        {
+            "name": "Raspberry", 
+            "id": "GraphIDTreeVertex71"
+        }, 
+        {
+            "name": "Salmonberry", 
+            "id": "GraphIDTreeVertex72"
+        }, 
+        {
+            "name": "Rambutan", 
+            "id": "GraphIDTreeVertex73"
+        }, 
+        {
+            "name": "Redcurrant", 
+            "id": "GraphIDTreeVertex74"
+        }, 
+        {
+            "name": "Salal berry", 
+            "id": "GraphIDTreeVertex75"
+        }, 
+        {
+            "name": "Salak", 
+            "id": "GraphIDTreeVertex76"
+        }, 
+        {
+            "name": "Satsuma", 
+            "id": "GraphIDTreeVertex77"
+        }, 
+        {
+            "name": "Star fruit", 
+            "id": "GraphIDTreeVertex78"
+        }, 
+        {
+            "name": "Strawberry", 
+            "id": "GraphIDTreeVertex79"
+        }, 
+        {
+            "name": "Tamarillo", 
+            "id": "GraphIDTreeVertex80"
+        }, 
+        {
+            "name": "Tamarind", 
+            "id": "GraphIDTreeVertex81"
+        }, 
+        {
+            "name": "Ugli fruit", 
+            "id": "GraphIDTreeVertex82"
+        }
+    ], 
+    "graphID": "Tree", 
+    "links": [
+        {
+            "source": "GraphIDTreeVertex1", 
+            "years": 24, 
+            "id": "GraphIDTreeEdge1", 
+            "target": "GraphIDTreeVertex2"
+        }, 
+        {
+            "source": "GraphIDTreeVertex1", 
+            "years": 13, 
+            "id": "GraphIDTreeEdge2", 
+            "target": "GraphIDTreeVertex3"
+        }, 
+        {
+            "source": "GraphIDTreeVertex2", 
+            "years": 81, 
+            "id": "GraphIDTreeEdge3", 
+            "target": "GraphIDTreeVertex4"
+        }, 
+        {
+            "source": "GraphIDTreeVertex2", 
+            "years": 11, 
+            "id": "GraphIDTreeEdge4", 
+            "target": "GraphIDTreeVertex5"
+        }, 
+        {
+            "source": "GraphIDTreeVertex3", 
+            "years": 93, 
+            "id": "GraphIDTreeEdge5", 
+            "target": "GraphIDTreeVertex6"
+        }, 
+        {
+            "source": "GraphIDTreeVertex3", 
+            "years": 72, 
+            "id": "GraphIDTreeEdge6", 
+            "target": "GraphIDTreeVertex7"
+        }, 
+        {
+            "source": "GraphIDTreeVertex4", 
+            "years": 79, 
+            "id": "GraphIDTreeEdge7", 
+            "target": "GraphIDTreeVertex8"
+        }, 
+        {
+            "source": "GraphIDTreeVertex4", 
+            "years": 67, 
+            "id": "GraphIDTreeEdge8", 
+            "target": "GraphIDTreeVertex9"
+        }, 
+        {
+            "source": "GraphIDTreeVertex5", 
+            "years": 90, 
+            "id": "GraphIDTreeEdge9", 
+            "target": "GraphIDTreeVertex10"
+        }, 
+        {
+            "source": "GraphIDTreeVertex5", 
+            "years": 45, 
+            "id": "GraphIDTreeEdge10", 
+            "target": "GraphIDTreeVertex11"
+        }, 
+        {
+            "source": "GraphIDTreeVertex6", 
+            "years": 9, 
+            "id": "GraphIDTreeEdge11", 
+            "target": "GraphIDTreeVertex12"
+        }, 
+        {
+            "source": "GraphIDTreeVertex6", 
+            "years": 99, 
+            "id": "GraphIDTreeEdge12", 
+            "target": "GraphIDTreeVertex13"
+        }, 
+        {
+            "source": "GraphIDTreeVertex7", 
+            "years": 2, 
+            "id": "GraphIDTreeEdge13", 
+            "target": "GraphIDTreeVertex14"
+        }, 
+        {
+            "source": "GraphIDTreeVertex7", 
+            "years": 95, 
+            "id": "GraphIDTreeEdge14", 
+            "target": "GraphIDTreeVertex15"
+        }, 
+        {
+            "source": "GraphIDTreeVertex8", 
+            "years": 54, 
+            "id": "GraphIDTreeEdge15", 
+            "target": "GraphIDTreeVertex16"
+        }, 
+        {
+            "source": "GraphIDTreeVertex8", 
+            "years": 47, 
+            "id": "GraphIDTreeEdge16", 
+            "target": "GraphIDTreeVertex17"
+        }, 
+        {
+            "source": "GraphIDTreeVertex9", 
+            "years": 4, 
+            "id": "GraphIDTreeEdge17", 
+            "target": "GraphIDTreeVertex18"
+        }, 
+        {
+            "source": "GraphIDTreeVertex9", 
+            "years": 2, 
+            "id": "GraphIDTreeEdge18", 
+            "target": "GraphIDTreeVertex19"
+        }, 
+        {
+            "source": "GraphIDTreeVertex10", 
+            "years": 46, 
+            "id": "GraphIDTreeEdge19", 
+            "target": "GraphIDTreeVertex20"
+        }, 
+        {
+            "source": "GraphIDTreeVertex10", 
+            "years": 96, 
+            "id": "GraphIDTreeEdge20", 
+            "target": "GraphIDTreeVertex21"
+        }, 
+        {
+            "source": "GraphIDTreeVertex11", 
+            "years": 35, 
+            "id": "GraphIDTreeEdge21", 
+            "target": "GraphIDTreeVertex22"
+        }, 
+        {
+            "source": "GraphIDTreeVertex11", 
+            "years": 51, 
+            "id": "GraphIDTreeEdge22", 
+            "target": "GraphIDTreeVertex23"
+        }, 
+        {
+            "source": "GraphIDTreeVertex12", 
+            "years": 93, 
+            "id": "GraphIDTreeEdge23", 
+            "target": "GraphIDTreeVertex24"
+        }, 
+        {
+            "source": "GraphIDTreeVertex12", 
+            "years": 50, 
+            "id": "GraphIDTreeEdge24", 
+            "target": "GraphIDTreeVertex25"
+        }, 
+        {
+            "source": "GraphIDTreeVertex13", 
+            "years": 94, 
+            "id": "GraphIDTreeEdge25", 
+            "target": "GraphIDTreeVertex26"
+        }, 
+        {
+            "source": "GraphIDTreeVertex13", 
+            "years": 57, 
+            "id": "GraphIDTreeEdge26", 
+            "target": "GraphIDTreeVertex27"
+        }, 
+        {
+            "source": "GraphIDTreeVertex14", 
+            "years": 84, 
+            "id": "GraphIDTreeEdge27", 
+            "target": "GraphIDTreeVertex28"
+        }, 
+        {
+            "source": "GraphIDTreeVertex14", 
+            "years": 86, 
+            "id": "GraphIDTreeEdge28", 
+            "target": "GraphIDTreeVertex29"
+        }, 
+        {
+            "source": "GraphIDTreeVertex15", 
+            "years": 59, 
+            "id": "GraphIDTreeEdge29", 
+            "target": "GraphIDTreeVertex30"
+        }, 
+        {
+            "source": "GraphIDTreeVertex15", 
+            "years": 77, 
+            "id": "GraphIDTreeEdge30", 
+            "target": "GraphIDTreeVertex31"
+        }, 
+        {
+            "source": "GraphIDTreeVertex16", 
+            "years": 44, 
+            "id": "GraphIDTreeEdge31", 
+            "target": "GraphIDTreeVertex32"
+        }, 
+        {
+            "source": "GraphIDTreeVertex16", 
+            "years": 9, 
+            "id": "GraphIDTreeEdge32", 
+            "target": "GraphIDTreeVertex33"
+        }, 
+        {
+            "source": "GraphIDTreeVertex17", 
+            "years": 44, 
+            "id": "GraphIDTreeEdge33", 
+            "target": "GraphIDTreeVertex34"
+        }, 
+        {
+            "source": "GraphIDTreeVertex17", 
+            "years": 77, 
+            "id": "GraphIDTreeEdge34", 
+            "target": "GraphIDTreeVertex35"
+        }, 
+        {
+            "source": "GraphIDTreeVertex18", 
+            "years": 33, 
+            "id": "GraphIDTreeEdge35", 
+            "target": "GraphIDTreeVertex36"
+        }, 
+        {
+            "source": "GraphIDTreeVertex18", 
+            "years": 99, 
+            "id": "GraphIDTreeEdge36", 
+            "target": "GraphIDTreeVertex37"
+        }, 
+        {
+            "source": "GraphIDTreeVertex19", 
+            "years": 85, 
+            "id": "GraphIDTreeEdge37", 
+            "target": "GraphIDTreeVertex38"
+        }, 
+        {
+            "source": "GraphIDTreeVertex19", 
+            "years": 29, 
+            "id": "GraphIDTreeEdge38", 
+            "target": "GraphIDTreeVertex39"
+        }, 
+        {
+            "source": "GraphIDTreeVertex20", 
+            "years": 80, 
+            "id": "GraphIDTreeEdge39", 
+            "target": "GraphIDTreeVertex40"
+        }, 
+        {
+            "source": "GraphIDTreeVertex20", 
+            "years": 25, 
+            "id": "GraphIDTreeEdge40", 
+            "target": "GraphIDTreeVertex41"
+        }, 
+        {
+            "source": "GraphIDTreeVertex21", 
+            "years": 15, 
+            "id": "GraphIDTreeEdge41", 
+            "target": "GraphIDTreeVertex42"
+        }, 
+        {
+            "source": "GraphIDTreeVertex21", 
+            "years": 90, 
+            "id": "GraphIDTreeEdge42", 
+            "target": "GraphIDTreeVertex43"
+        }, 
+        {
+            "source": "GraphIDTreeVertex22", 
+            "years": 18, 
+            "id": "GraphIDTreeEdge43", 
+            "target": "GraphIDTreeVertex44"
+        }, 
+        {
+            "source": "GraphIDTreeVertex22", 
+            "years": 38, 
+            "id": "GraphIDTreeEdge44", 
+            "target": "GraphIDTreeVertex45"
+        }, 
+        {
+            "source": "GraphIDTreeVertex23", 
+            "years": 20, 
+            "id": "GraphIDTreeEdge45", 
+            "target": "GraphIDTreeVertex46"
+        }, 
+        {
+            "source": "GraphIDTreeVertex23", 
+            "years": 70, 
+            "id": "GraphIDTreeEdge46", 
+            "target": "GraphIDTreeVertex47"
+        }, 
+        {
+            "source": "GraphIDTreeVertex24", 
+            "years": 47, 
+            "id": "GraphIDTreeEdge47", 
+            "target": "GraphIDTreeVertex48"
+        }, 
+        {
+            "source": "GraphIDTreeVertex24", 
+            "years": 95, 
+            "id": "GraphIDTreeEdge48", 
+            "target": "GraphIDTreeVertex49"
+        }, 
+        {
+            "source": "GraphIDTreeVertex25", 
+            "years": 18, 
+            "id": "GraphIDTreeEdge49", 
+            "target": "GraphIDTreeVertex50"
+        }, 
+        {
+            "source": "GraphIDTreeVertex25", 
+            "years": 67, 
+            "id": "GraphIDTreeEdge50", 
+            "target": "GraphIDTreeVertex51"
+        }, 
+        {
+            "source": "GraphIDTreeVertex26", 
+            "years": 58, 
+            "id": "GraphIDTreeEdge51", 
+            "target": "GraphIDTreeVertex52"
+        }, 
+        {
+            "source": "GraphIDTreeVertex26", 
+            "years": 16, 
+            "id": "GraphIDTreeEdge52", 
+            "target": "GraphIDTreeVertex53"
+        }, 
+        {
+            "source": "GraphIDTreeVertex27", 
+            "years": 100, 
+            "id": "GraphIDTreeEdge53", 
+            "target": "GraphIDTreeVertex54"
+        }, 
+        {
+            "source": "GraphIDTreeVertex27", 
+            "years": 62, 
+            "id": "GraphIDTreeEdge54", 
+            "target": "GraphIDTreeVertex55"
+        }, 
+        {
+            "source": "GraphIDTreeVertex28", 
+            "years": 35, 
+            "id": "GraphIDTreeEdge55", 
+            "target": "GraphIDTreeVertex56"
+        }, 
+        {
+            "source": "GraphIDTreeVertex28", 
+            "years": 92, 
+            "id": "GraphIDTreeEdge56", 
+            "target": "GraphIDTreeVertex57"
+        }, 
+        {
+            "source": "GraphIDTreeVertex29", 
+            "years": 80, 
+            "id": "GraphIDTreeEdge57", 
+            "target": "GraphIDTreeVertex58"
+        }, 
+        {
+            "source": "GraphIDTreeVertex29", 
+            "years": 42, 
+            "id": "GraphIDTreeEdge58", 
+            "target": "GraphIDTreeVertex59"
+        }, 
+        {
+            "source": "GraphIDTreeVertex30", 
+            "years": 86, 
+            "id": "GraphIDTreeEdge59", 
+            "target": "GraphIDTreeVertex60"
+        }, 
+        {
+            "source": "GraphIDTreeVertex30", 
+            "years": 30, 
+            "id": "GraphIDTreeEdge60", 
+            "target": "GraphIDTreeVertex61"
+        }, 
+        {
+            "source": "GraphIDTreeVertex31", 
+            "years": 20, 
+            "id": "GraphIDTreeEdge61", 
+            "target": "GraphIDTreeVertex62"
+        }, 
+        {
+            "source": "GraphIDTreeVertex31", 
+            "years": 92, 
+            "id": "GraphIDTreeEdge62", 
+            "target": "GraphIDTreeVertex63"
+        }, 
+        {
+            "source": "GraphIDTreeVertex32", 
+            "years": 57, 
+            "id": "GraphIDTreeEdge63", 
+            "target": "GraphIDTreeVertex64"
+        }, 
+        {
+            "source": "GraphIDTreeVertex32", 
+            "years": 58, 
+            "id": "GraphIDTreeEdge64", 
+            "target": "GraphIDTreeVertex65"
+        }, 
+        {
+            "source": "GraphIDTreeVertex33", 
+            "years": 50, 
+            "id": "GraphIDTreeEdge65", 
+            "target": "GraphIDTreeVertex66"
+        }, 
+        {
+            "source": "GraphIDTreeVertex33", 
+            "years": 99, 
+            "id": "GraphIDTreeEdge66", 
+            "target": "GraphIDTreeVertex67"
+        }, 
+        {
+            "source": "GraphIDTreeVertex34", 
+            "years": 80, 
+            "id": "GraphIDTreeEdge67", 
+            "target": "GraphIDTreeVertex68"
+        }, 
+        {
+            "source": "GraphIDTreeVertex34", 
+            "years": 76, 
+            "id": "GraphIDTreeEdge68", 
+            "target": "GraphIDTreeVertex69"
+        }, 
+        {
+            "source": "GraphIDTreeVertex35", 
+            "years": 11, 
+            "id": "GraphIDTreeEdge69", 
+            "target": "GraphIDTreeVertex70"
+        }, 
+        {
+            "source": "GraphIDTreeVertex35", 
+            "years": 44, 
+            "id": "GraphIDTreeEdge70", 
+            "target": "GraphIDTreeVertex71"
+        }, 
+        {
+            "source": "GraphIDTreeVertex36", 
+            "years": 75, 
+            "id": "GraphIDTreeEdge71", 
+            "target": "GraphIDTreeVertex72"
+        }, 
+        {
+            "source": "GraphIDTreeVertex36", 
+            "years": 7, 
+            "id": "GraphIDTreeEdge72", 
+            "target": "GraphIDTreeVertex73"
+        }, 
+        {
+            "source": "GraphIDTreeVertex37", 
+            "years": 74, 
+            "id": "GraphIDTreeEdge73", 
+            "target": "GraphIDTreeVertex74"
+        }, 
+        {
+            "source": "GraphIDTreeVertex37", 
+            "years": 99, 
+            "id": "GraphIDTreeEdge74", 
+            "target": "GraphIDTreeVertex75"
+        }, 
+        {
+            "source": "GraphIDTreeVertex38", 
+            "years": 50, 
+            "id": "GraphIDTreeEdge75", 
+            "target": "GraphIDTreeVertex76"
+        }, 
+        {
+            "source": "GraphIDTreeVertex38", 
+            "years": 98, 
+            "id": "GraphIDTreeEdge76", 
+            "target": "GraphIDTreeVertex77"
+        }, 
+        {
+            "source": "GraphIDTreeVertex39", 
+            "years": 1, 
+            "id": "GraphIDTreeEdge77", 
+            "target": "GraphIDTreeVertex78"
+        }, 
+        {
+            "source": "GraphIDTreeVertex39", 
+            "years": 23, 
+            "id": "GraphIDTreeEdge78", 
+            "target": "GraphIDTreeVertex79"
+        }, 
+        {
+            "source": "GraphIDTreeVertex40", 
+            "years": 31, 
+            "id": "GraphIDTreeEdge79", 
+            "target": "GraphIDTreeVertex80"
+        }, 
+        {
+            "source": "GraphIDTreeVertex40", 
+            "years": 66, 
+            "id": "GraphIDTreeEdge80", 
+            "target": "GraphIDTreeVertex81"
+        }, 
+        {
+            "source": "GraphIDTreeVertex41", 
+            "years": 34, 
+            "id": "GraphIDTreeEdge81", 
+            "target": "GraphIDTreeVertex82"
+        }
+    ]
+}

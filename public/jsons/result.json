@@ -13,6 +13,10 @@
     },
     "nodes": [
         {
+            "name": "ivy",
+            "id": "GraphIDfriendVertex4"
+        },
+        {
             "name": "ray",
             "id": "GraphIDfriendVertex14"
         },
@@ -33,10 +37,6 @@
             "id": "GraphIDfriendVertex26"
         },
         {
-            "name": "ivy",
-            "id": "GraphIDfriendVertex4"
-        },
-        {
             "name": "peter",
             "id": "GraphIDfriendVertex1"
         },
@@ -45,20 +45,24 @@
             "id": "GraphIDfriendVertex18"
         },
         {
-            "name": "jimmy",
-            "id": "GraphIDfriendVertex20"
+            "name": "sam",
+            "id": "GraphIDfriendVertex3"
         },
         {
             "name": "eric",
             "id": "GraphIDfriendVertex19"
         },
         {
-            "name": "sam",
-            "id": "GraphIDfriendVertex3"
+            "name": "jimmy",
+            "id": "GraphIDfriendVertex20"
         },
         {
             "name": "betty",
             "id": "GraphIDfriendVertex2"
+        },
+        {
+            "name": "kate",
+            "id": "GraphIDfriendVertex6"
         },
         {
             "name": "zillion",
@@ -75,10 +79,6 @@
         {
             "name": "jason",
             "id": "GraphIDfriendVertex5"
-        },
-        {
-            "name": "kate",
-            "id": "GraphIDfriendVertex6"
         },
         {
             "name": "jen",
@@ -109,10 +109,6 @@
             "id": "GraphIDfriendVertex12"
         },
         {
-            "name": "kenneth",
-            "id": "GraphIDfriendVertex15"
-        },
-        {
             "name": "david",
             "id": "GraphIDfriendVertex22"
         }
@@ -123,12 +119,6 @@
             "source": "GraphIDfriendVertex4",
             "target": "GraphIDfriendVertex14",
             "years": "3"
-        },
-        {
-            "id": "GraphIDfriendEdge20",
-            "source": "GraphIDfriendVertex15",
-            "target": "GraphIDfriendVertex14",
-            "years": "4"
         },
         {
             "id": "GraphIDfriendEdge18",
@@ -173,18 +163,6 @@
             "years": "4"
         },
         {
-            "id": "GraphIDfriendEdge23",
-            "source": "GraphIDfriendVertex19",
-            "target": "GraphIDfriendVertex20",
-            "years": "5"
-        },
-        {
-            "id": "GraphIDfriendEdge35",
-            "source": "GraphIDfriendVertex18",
-            "target": "GraphIDfriendVertex20",
-            "years": ""
-        },
-        {
             "id": "GraphIDfriendEdge24",
             "source": "GraphIDfriendVertex20",
             "target": "GraphIDfriendVertex3",
@@ -197,10 +175,28 @@
             "years": "2"
         },
         {
+            "id": "GraphIDfriendEdge23",
+            "source": "GraphIDfriendVertex19",
+            "target": "GraphIDfriendVertex20",
+            "years": "5"
+        },
+        {
+            "id": "GraphIDfriendEdge35",
+            "source": "GraphIDfriendVertex18",
+            "target": "GraphIDfriendVertex20",
+            "years": ""
+        },
+        {
             "id": "GraphIDfriendEdge5",
             "source": "GraphIDfriendVertex1",
             "target": "GraphIDfriendVertex2",
             "years": "2"
+        },
+        {
+            "id": "GraphIDfriendEdge9",
+            "source": "GraphIDfriendVertex5",
+            "target": "GraphIDfriendVertex6",
+            "years": "4"
         },
         {
             "id": "GraphIDfriendEdge27",
@@ -231,12 +227,6 @@
             "source": "GraphIDfriendVertex2",
             "target": "GraphIDfriendVertex5",
             "years": "2"
-        },
-        {
-            "id": "GraphIDfriendEdge9",
-            "source": "GraphIDfriendVertex5",
-            "target": "GraphIDfriendVertex6",
-            "years": "4"
         },
         {
             "id": "GraphIDfriendEdge10",
@@ -279,12 +269,6 @@
             "source": "GraphIDfriendVertex11",
             "target": "GraphIDfriendVertex12",
             "years": "1"
-        },
-        {
-            "id": "GraphIDfriendEdge19",
-            "source": "GraphIDfriendVertex16",
-            "target": "GraphIDfriendVertex15",
-            "years": ""
         },
         {
             "id": "GraphIDfriendEdge31",
