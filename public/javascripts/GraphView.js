@@ -171,26 +171,30 @@ GraphView.prototype.addNode = function (attributeDict) {
 };
 
 GraphView.prototype.removeNode = function (id) {
-    console.log("removeNode" + id);
+    console.log("removeNode " + id);
     var i = 0;
     var n = this.findNode(id);
     console.log(n);
+    console.log("before deleting, links = ");
     console.log(this.links);
     while (i < this.links.length) {
-        if ((this.links[i]['source'] === n)||(this.links[i]['target'] == n)) {
+        if ((this.links[i]['source'] === n)||(this.links[i]['target'] === n)) {
             this.links.splice(i,1);
         }
         else {
             i++;
         }
     }
+    console.log("after deleting, links = ");
     console.log(this.links);
+    console.log("before deleting, nodes = ");
     console.log(this.nodes);
     var index = this.findNodeIndex(id);
     if(index !== undefined) {
         this.nodes.splice(index, 1);
         $.post( "/removeNode", {id: id});
     }
+    console.log("after deleting, nodes = ");
     console.log(this.nodes);
     this.update();
 };
@@ -479,23 +483,168 @@ GraphView.prototype.changeLayout = function(layoutName) {
 
 GraphView.prototype.downloadjson = function(callback) {
     window.open("/downloadjson");
-    // $.get( "/downloadjson")
-    // .done(function(data) {
-    //     console.log("downloadjson done");
-    //     console.log(data);
-    // })
-    // .success(function(data, status, headers, config) {
-    //     window.open('/download'); //does the download
-    // })
-    // .error(function(data, status, headers, config) {
-    //     console.log('ERROR: could not download file');
-    // });
 }
 
 GraphView.prototype.update = function() {
     var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id", "source", "target", "variable", "bounds"]; 
 
     var graph = this;
+
+    console.log("update");
+    console.log(this.nodes);
+
+    var node = this.vis.selectAll("g.node").data(this.nodes, function(d){return d.id});
+
+    var drag = this.force.drag() 
+        .on('dragstart', function disableZooming() {
+            console.log("dragstart");
+            if (graph.state.usingEraser) {
+                console.log("setting drag to null");
+                drag.on("drag", null);
+            }
+            var fake = d3.behavior.zoom();
+            graph.svg.call(fake);
+        })
+        .on('dragend', function enableZooming() {
+            graph.svg.call(graph.zoom).on("dblclick.zoom", null);
+        });
+
+    var nodeEnter = node.enter().append("g")
+        .attr("class", "node")
+        .call(drag);
+
+    // var c20c = d3.scale.category20c().domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    // console.log(c20c(5)); 
+
+    //BUG: update issue, redo: delete a random node
+    nodeEnter.append("circle")
+        .attr("class","circle")
+        .attr("r", 15)
+        .attr("x", "-8px")
+        .attr("y", "-8px")
+        .attr("id", function(d) {
+            console.log(d.id);
+            return d.id;
+        })
+        // .attr("fill", function(d) {
+        //     console.log(c20c(5));
+        //     return c20c(5);
+        // })
+        .each(function(d) {
+            console.log(d);
+            var header = d3.select(this);
+            // loop through the keys - this assumes no extra data
+            d3.keys(d).forEach(function(key) {
+                if (key != "id")
+                    header.attr(key, d[key]);
+            });
+        })
+        .on("mouseover", function(d){
+            d3.select(this).classed("selecting", true);
+            var that = this;
+            // show label in the console
+            d3.select("#console").text(function() {
+                    var header = d3.select(that);
+                    var label = "";
+                    // loop through the keys - this assumes no extra data
+                    d3.keys(d).forEach(function(key) {
+                        if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
+                            label+=key+": "+d[key]+"; ";
+                    });
+                    return label;
+                });
+        })
+        .on("mouseout", function(){
+            d3.select(this).classed("selecting", false);
+            d3.select("#console").text("");
+            //d3.select(this.parentNode).select('text.info').remove();
+        })
+        .on("click", function(e) {
+            nodeID = d3.select(this).attr("id");
+            if (graph.state.usingEraser) {
+                console.log("deleting nodeID" + nodeID);
+                graph.removeNode(nodeID);
+                if (graph.state.selectedNode == nodeID) graph.state.selectedNode=null;
+                // if (d3.select(this).classed( "selected")) {
+                //     console.log("selected true in node click event");
+                //     d3.select(this).classed("selected", true);
+                // }
+            }
+            if (graph.state.creatingEdge) {
+                oldnodeID = graph.state.selectedNode;
+                if (oldnodeID!=null && oldnodeID!=nodeID ) {
+                    console.log("creating edge between "+oldnodeID+" and " + nodeID);
+                    //get the current edge attribute in the form
+                    var $inputs = $('#add-edge :input');
+                    var values = {};
+                    $inputs.each(function() {
+                        values[this.name] = $(this).val();
+                        $(this).val("");
+                    });
+                    console.log(values);
+                    graph.addLink(oldnodeID,nodeID,values);
+                }
+            }
+            if (!graph.state.usingEraser) {
+                graph.toggleSelectNode(nodeID);
+            }
+        }); 
+
+    nodeEnter.append("text")
+        .attr("class", "nodetext")
+        .attr("dx", 22)
+        .attr("dy", ".35em")
+        .text(function(d) { 
+            var label = "";
+            d3.keys(d).forEach(function(key) {
+                if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
+                    label+=key+": "+d[key]+"; ";
+            });
+            return label;
+        });
+
+    node.exit().remove();
+
+    console.log(node);
+
+    this.force.on("tick", function() {
+        link
+        .attr("x1", function(d) { 
+            diffX = d.source.x - d.target.x;
+            diffY = d.source.y - d.target.y;
+            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+            offsetX = (diffX * 15) / pathLength;
+            return (d.source.x - offsetX); 
+        })
+        .attr("y1", function(d) {
+            diffX = d.source.x - d.target.x;
+            diffY = d.source.y - d.target.y;
+            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+            offsetY = (diffY * 15) / pathLength;
+            return (d.source.y - offsetY); 
+        })
+        .attr("x2", function(d) {
+            //R = 20
+            diffX = d.target.x - d.source.x;
+            diffY = d.target.y - d.source.y;
+            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+            offsetX = (diffX * 20) / pathLength;
+            return (d.target.x - offsetX); 
+        })
+        .attr("y2", function(d) { 
+            //R = 20
+            diffX = d.target.x - d.source.x;
+            diffY = d.target.y - d.source.y;
+            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+            offsetY = (diffY * 20) / pathLength;
+            return (d.target.y - offsetY);
+        });
+        node.attr("transform", function(d) { 
+            return "translate(" + d.x + "," + d.y + ")"; 
+        });
+    });
+
+
 
     var link = this.vis.selectAll("line.link")
         .data(this.links, function(d) { return d.source.id + "-" + d.target.id; });
@@ -507,8 +656,6 @@ GraphView.prototype.update = function() {
         .attr("target", function(d) {return d.target.id;})
         .attr("id", function(d) {return d.id;})
         .attr("marker-end", function(d) {
-            console.log("market-end");
-            console.log(graph.state.isDirected);
             if (graph.state.isDirected)
                 return "url(#arrow)";
             else return "";
@@ -553,158 +700,6 @@ GraphView.prototype.update = function() {
             }
 
         }); 
-
-    var node = this.vis.selectAll("g.node").data(this.nodes);
-
-    var drag = this.force.drag() 
-        .on('dragstart', function disableZooming() {
-            console.log("dragstart");
-            if (graph.state.usingEraser) {
-                console.log("setting drag to null");
-                drag.on("drag", null);
-            }
-            var fake = d3.behavior.zoom();
-            graph.svg.call(fake);
-        })
-        .on('dragend', function enableZooming() {
-            graph.svg.call(graph.zoom).on("dblclick.zoom", null);
-        });
-
-    node.exit().remove();
-
-    var nodeEnter = node.enter().append("g")
-        .attr("class", "node")
-        .call(drag);
-
-    //BUG: update issue, redo: delete a random node
-    nodeEnter.append("circle")
-        .attr("class","circle")
-        .attr("r", 15)
-        .attr("x", "-8px")
-        .attr("y", "-8px")
-        .attr("id", function(d) {return d.id})
-        .each(function(d) {
-            var header = d3.select(this);
-            // loop through the keys - this assumes no extra data
-            d3.keys(d).forEach(function(key) {
-                if (key != "id")
-                    header.attr(key, d[key]);
-            });
-        })
-        .on("mouseover", function(d){
-            d3.select(this).classed("selecting", true);
-            var that = this;
-            // show label in the console
-            d3.select("#console").text(function() {
-                    var header = d3.select(that);
-                    var label = "";
-                    // loop through the keys - this assumes no extra data
-                    d3.keys(d).forEach(function(key) {
-                        if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
-                            label+=key+": "+d[key]+"; ";
-                    });
-                    return label;
-                });
-            // show label near the circle
-            // d3.select(this.parentNode).append("text")
-            //     .classed("info", true)
-            //     .attr("dx", 0)
-            //     .attr("dy", -20)
-            //     .text(function(d) {
-            //         var header = d3.select(this);
-            //         var label = "";
-            //         // loop through the keys - this assumes no extra data
-            //         d3.keys(d).forEach(function(key) {
-            //             if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
-            //                 label+=key+": "+d[key]+"; ";
-            //         });
-            //         return label;
-            //     });
-        })
-        .on("mouseout", function(){
-            d3.select(this).classed("selecting", false);
-            d3.select("#console").text("");
-            //d3.select(this.parentNode).select('text.info').remove();
-        })
-        .on("click", function(e) {
-            nodeID = d3.select(this).attr("id");
-            if (graph.state.usingEraser) {
-                graph.removeNode(nodeID);
-                if (graph.state.selectedNode == nodeID) graph.state.selectedNode=null;
-                // if (d3.select(this).classed( "selected")) {
-                //     console.log("selected true in node click event");
-                //     d3.select(this).classed("selected", true);
-                // }
-            }
-            if (graph.state.creatingEdge) {
-                oldnodeID = graph.state.selectedNode;
-                if (oldnodeID!=null && oldnodeID!=nodeID ) {
-                    console.log("creating edge between "+oldnodeID+" and " + nodeID);
-                    //get the current edge attribute in the form
-                    var $inputs = $('#add-edge :input');
-                    var values = {};
-                    $inputs.each(function() {
-                        values[this.name] = $(this).val();
-                        $(this).val("");
-                    });
-                    console.log(values);
-                    graph.addLink(oldnodeID,nodeID,values);
-                }
-            }
-            if (!graph.state.usingEraser) {
-                graph.toggleSelectNode(nodeID);
-            }
-        }); 
-
-    nodeEnter.append("text")
-        .attr("class", "nodetext")
-        .attr("dx", 22)
-        .attr("dy", ".35em")
-        .text(function(d) { 
-            var label = "";
-            d3.keys(d).forEach(function(key) {
-                if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
-                    label+=key+": "+d[key]+"; ";
-            });
-            return label;
-        });
-
-    this.force.on("tick", function() {
-        link
-        .attr("x1", function(d) { 
-            diffX = d.source.x - d.target.x;
-            diffY = d.source.y - d.target.y;
-            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
-            offsetX = (diffX * 15) / pathLength;
-            return (d.source.x - offsetX); 
-        })
-        .attr("y1", function(d) {
-            diffX = d.source.x - d.target.x;
-            diffY = d.source.y - d.target.y;
-            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
-            offsetY = (diffY * 15) / pathLength;
-            return (d.source.y - offsetY); 
-        })
-        .attr("x2", function(d) {
-            //R = 20
-            diffX = d.target.x - d.source.x;
-            diffY = d.target.y - d.source.y;
-            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
-            offsetX = (diffX * 20) / pathLength;
-            return (d.target.x - offsetX); 
-        })
-        .attr("y2", function(d) { 
-            //R = 20
-            diffX = d.target.x - d.source.x;
-            diffY = d.target.y - d.source.y;
-            pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
-            offsetY = (diffY * 20) / pathLength;
-            return (d.target.y - offsetY);
-        });
-        node.attr("transform", function(d) { 
-            return "translate(" + d.x + "," + d.y + ")"; 
-        });
-    });
 
     // Restart the force layout.
     this.force.start();
