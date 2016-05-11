@@ -234,7 +234,7 @@ var layoutHandler = function(event) {
 $('#colorname').change(colorHandler);
 $('#colorvalue').change(colorHandler);
 $('#colorcolor').change(colorHandler);
-$('#highlightbutton').click(highlightHandler);
+// $('#highlightbutton').click(highlightHandler);
 $('#extractbutton').click(extractHandler);
 $('#extractcenterbutton').click(extractCenterHandler);
 

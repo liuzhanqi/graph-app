@@ -42,10 +42,6 @@ function GraphView(el,w,h) {
         .linkDistance(90)
         .size([w, h]);
 
-    // this.force = cola.d3adaptor()
-    //     .linkDistance(100)
-    //     .size([w, h]);
-
     this.nodes = this.force.nodes();
     this.links = this.force.links();
 
@@ -59,8 +55,6 @@ function GraphView(el,w,h) {
     };
 
     var graph = this;
-
-    // TODO: bulk adding and bulk removal
     this.showInputBox(this.showGraph);
     // Make it all go
 }
@@ -150,7 +144,6 @@ GraphView.prototype.addNode = function () {
     $.post( "/createNode")
         .done(function( data ) {
             data = JSON.parse(data);
-            //TODO 为什么在这里明明push的只是id，但是nodes里面有x，y，px，py？
             nodes.push({"id":data.id});
             console.log("nodes in addnode");
             console.log(nodes);
@@ -171,12 +164,12 @@ GraphView.prototype.addNode = function (attributeDict) {
 };
 
 GraphView.prototype.removeNode = function (id) {
-    console.log("removeNode " + id);
+    // console.log("removeNode " + id);
     var i = 0;
     var n = this.findNode(id);
-    console.log(n);
-    console.log("before deleting, links = ");
-    console.log(this.links);
+    // console.log(n);
+    // console.log("before deleting, links = ");
+    // console.log(this.links);
     while (i < this.links.length) {
         if ((this.links[i]['source'] === n)||(this.links[i]['target'] === n)) {
             this.links.splice(i,1);
@@ -185,17 +178,17 @@ GraphView.prototype.removeNode = function (id) {
             i++;
         }
     }
-    console.log("after deleting, links = ");
-    console.log(this.links);
-    console.log("before deleting, nodes = ");
-    console.log(this.nodes);
+    // console.log("after deleting, links = ");
+    // console.log(this.links);
+    // console.log("before deleting, nodes = ");
+    // console.log(this.nodes);
     var index = this.findNodeIndex(id);
     if(index !== undefined) {
         this.nodes.splice(index, 1);
         $.post( "/removeNode", {id: id});
     }
-    console.log("after deleting, nodes = ");
-    console.log(this.nodes);
+    // console.log("after deleting, nodes = ");
+    // console.log(this.nodes);
     this.update();
 };
 
@@ -401,7 +394,6 @@ GraphView.prototype.toggle_selection = function() {
 }
 
 GraphView.prototype.save_graph = function() {
-    //TODO for now, save graph wont delete the deleted node in db.
     $.post( "/saveGraph").done(function(message) {
         console.log(message);
         if (message == "200") alert("Successfully saved.");
@@ -487,11 +479,9 @@ GraphView.prototype.downloadjson = function(callback) {
 
 GraphView.prototype.update = function() {
     var hiddenLabel = ["index", "weight", "x", "y", "px", "py", "fixed", "id", "source", "target", "variable", "bounds"]; 
+    var hiddenLabel2 = ["preference", "index", "weight", "x", "y", "px", "py", "fixed", "id", "source", "target", "variable", "bounds"]; 
 
     var graph = this;
-
-    console.log("update");
-    console.log(this.nodes);
 
     var node = this.vis.selectAll("g.node").data(this.nodes, function(d){return d.id});
 
@@ -515,23 +505,17 @@ GraphView.prototype.update = function() {
 
     // var c20c = d3.scale.category20c().domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     // console.log(c20c(5)); 
-
-    //BUG: update issue, redo: delete a random node
     nodeEnter.append("circle")
         .attr("class","circle")
         .attr("r", 15)
         .attr("x", "-8px")
         .attr("y", "-8px")
-        .attr("id", function(d) {
-            console.log(d.id);
-            return d.id;
-        })
+        .attr("id", function(d) {return d.id;})
         // .attr("fill", function(d) {
         //     console.log(c20c(5));
         //     return c20c(5);
         // })
         .each(function(d) {
-            console.log(d);
             var header = d3.select(this);
             // loop through the keys - this assumes no extra data
             d3.keys(d).forEach(function(key) {
@@ -597,15 +581,13 @@ GraphView.prototype.update = function() {
         .text(function(d) { 
             var label = "";
             d3.keys(d).forEach(function(key) {
-                if ($.inArray(key, hiddenLabel) == -1 && key!="graphID")
+                if ($.inArray(key, hiddenLabel2) == -1 && key!="graphID")
                     label+=key+": "+d[key]+"; ";
             });
             return label;
         });
 
     node.exit().remove();
-
-    console.log(node);
 
     this.force.on("tick", function() {
         link
@@ -628,7 +610,7 @@ GraphView.prototype.update = function() {
             diffX = d.target.x - d.source.x;
             diffY = d.target.y - d.source.y;
             pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
-            offsetX = (diffX * 20) / pathLength;
+            offsetX = (diffX * 15) / pathLength;
             return (d.target.x - offsetX); 
         })
         .attr("y2", function(d) { 
@@ -636,15 +618,13 @@ GraphView.prototype.update = function() {
             diffX = d.target.x - d.source.x;
             diffY = d.target.y - d.source.y;
             pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
-            offsetY = (diffY * 20) / pathLength;
+            offsetY = (diffY * 15) / pathLength;
             return (d.target.y - offsetY);
         });
         node.attr("transform", function(d) { 
             return "translate(" + d.x + "," + d.y + ")"; 
         });
     });
-
-
 
     var link = this.vis.selectAll("line.link")
         .data(this.links, function(d) { return d.source.id + "-" + d.target.id; });

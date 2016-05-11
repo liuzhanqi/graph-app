@@ -21,28 +21,28 @@ for name in content:
 	nodes.append({"name" : name, "id" : id})
 counter = 0
 links = []
-for i in range(1, 20):
-	for j in range(1, 20):
+for i in range(0, 14):
+	for j in range(1, 15):
 		counter = counter + 1
 		id = "GraphID" + graphid + "Edge" + str(counter)
-		sid = "GraphID" + graphid + "Vertex" + str(i*20+j)
-		tid = "GraphID" + graphid + "Vertex" + str((i+1)*20+j)
+		sid = "GraphID" + graphid + "Vertex" + str(i*15+j)
+		tid = "GraphID" + graphid + "Vertex" + str((i+1)*15+j)
 		links.append({
 			"id": id,
 			"source": sid,
 			"target": tid,
 	        "years": random.randint(1,100)
 	    }) 
-	    counter = counter + 1
+		counter = counter + 1
 		id = "GraphID" + graphid + "Edge" + str(counter)
-		sid = "GraphID" + graphid + "Vertex" + str(i*20+j)
-		tid = "GraphID" + graphid + "Vertex" + str(i*20+j+1)
+		sid = "GraphID" + graphid + "Vertex" + str(i*15+j)
+		tid = "GraphID" + graphid + "Vertex" + str(i*15+j+1)
 		links.append({
 			"id": id,
 			"source": sid,
 			"target": tid,
-	        "years": random.randint(1,100)
-	    }) 
+		    "years": random.randint(1,100)
+		}) 
 result["nodes"] = nodes
 result["links"] = links
 with open('net.json', 'w') as outfile:

@@ -1,4 +1,5 @@
 {
+    "graphID": "CityRing2", 
     "definition": {
         "edgeAttribute": [
             "km"
@@ -1520,7 +1521,6 @@
             "id": "GraphIDCityRing2Vertex377"
         }
     ], 
-    "graphID": "CityRing2", 
     "links": [
         {
             "source": "GraphIDCityRing2Vertex1", 

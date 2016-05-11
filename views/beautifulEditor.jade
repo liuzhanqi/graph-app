@@ -116,8 +116,7 @@ html
                                         label Hops
                                         input.form-control(type='text' id="extractcenterhop" name="extractCenterByHop")
                                     .form-group
-                                        button(id="highlightbutton" class="btn btn-default") Highlight
-                                        button(id="extractbutton" class="btn btn-default") Extract
+                                        button(id="extractcenterbutton" class="btn btn-default") Extract
                     .panel.panel-default
                         #headingFour.panel-heading(role='tab')
                             h4.panel-title
@@ -136,7 +135,6 @@ html
                                         label Hops
                                         input.form-control(type='text' id="extracthop" name="extractByHop")
                                     .form-group
-                                        button(id="highlightbutton" class="btn btn-default") Highlight
                                         button(id="extractbutton" class="btn btn-default") Extract
                     .panel.panel-default
                         #headingFive.panel-heading(role='tab')
@@ -166,14 +164,11 @@ html
                                 button(id='hierarchy', class='form-control btn btn-primary') Hierarchy Layout
                                 button(id='flow', class='form-control btn btn-primary') Flow Layout
                 
-    script(src='//cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min.js')
     script(src='./javascripts/jquery.min.js')
     script(src='//d3js.org/d3.v3.js')
     script(src='http://marvl.infotech.monash.edu/webcola/cola.v3.min.js')
-    script(src='http://d3js.org/queue.v1.min.js')
     script(src='./javascripts/GraphView.js')
     script(src='./javascripts/graph-painter.js')
-    // script(src='./javascripts/form-actor.js')
     script(src='./javascripts/jscolor.min.js')
     script(src='https://code.jquery.com/ui/1.10.3/jquery-ui.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')

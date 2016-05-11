@@ -12,8 +12,8 @@ var httpUrlForTransaction = 'http://' + host + ':' + port + '/db/data/transactio
 var Graph = function() {
 	this.vertexList = [];
 	this.edgeList = [];
-	Edge.INDEXMAX = 0;
-	Vertex.INDEXMAX = 0;
+	Edge.INDEXMAX = 100;
+	Vertex.INDEXMAX = 200;
 	this.graphID = "";
 	this.state = "new";
 	console.log("Graph Constructor that.savedToDB = true;");
@@ -138,8 +138,8 @@ Graph.prototype.getGraphDefinition = function(callback) {
 	    		//console.log("Vertex = " + Vertex);
 	    		// TODO: here, that.Vertex is undefined for newly created graph definition
 	    		definition=resp.results[0].data[0].row[0];
-	    		vertexIndexMax = 0;
-	    		edgeIndexMax = 0;
+	    		vertexIndexMax = 100;
+	    		edgeIndexMax = 200;
 	    		if (resp.results[0].data[0].row[1]) {
 	    			vertexIndexMax = resp.results[0].data[0].row[1];
 	    		}

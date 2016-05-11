@@ -1,280 +1,90 @@
 {
-    "graphID": "friend",
+    "graphID": "Tree",
     "definition": {
-        "nodeAttribute": [
-            "name"
-        ],
+        "nodeName": "Fruits",
+        "edgeName": "Relationship",
+        "isDirected": true,
         "edgeAttribute": [
-            "years"
+            "likes"
         ],
-        "nodeName": "people",
-        "edgeName": "know",
-        "isDirected": true
+        "nodeAttribute": [
+            "name",
+            "preference"
+        ]
     },
     "nodes": [
         {
-            "name": "ivy",
-            "id": "GraphIDfriendVertex4"
+            "name": "Tangerine",
+            "id": "GraphIDTreeVertex57",
+            "preference": 2
         },
         {
-            "name": "ray",
-            "id": "GraphIDfriendVertex14"
+            "name": "Papaya",
+            "id": "GraphIDTreeVertex58",
+            "preference": 5
         },
         {
-            "name": "ruby",
-            "id": "GraphIDfriendVertex16"
+            "name": "Guava",
+            "id": "GraphIDTreeVertex29",
+            "preference": 3
         },
         {
-            "name": "jack",
-            "id": "GraphIDfriendVertex17"
+            "name": "Passionfruit",
+            "id": "GraphIDTreeVertex59",
+            "preference": 1
         },
         {
-            "name": "derek",
-            "id": "GraphIDfriendVertex28"
+            "name": "Cloudberry",
+            "id": "GraphIDTreeVertex14",
+            "preference": 6
         },
         {
-            "name": "rick",
-            "id": "GraphIDfriendVertex26"
+            "name": "Grapefruit",
+            "id": "GraphIDTreeVertex28",
+            "preference": 3
         },
         {
-            "name": "peter",
-            "id": "GraphIDfriendVertex1"
-        },
-        {
-            "name": "jason",
-            "id": "GraphIDfriendVertex18"
-        },
-        {
-            "name": "sam",
-            "id": "GraphIDfriendVertex3"
-        },
-        {
-            "name": "eric",
-            "id": "GraphIDfriendVertex19"
-        },
-        {
-            "name": "jimmy",
-            "id": "GraphIDfriendVertex20"
-        },
-        {
-            "name": "betty",
-            "id": "GraphIDfriendVertex2"
-        },
-        {
-            "name": "kate",
-            "id": "GraphIDfriendVertex6"
-        },
-        {
-            "name": "zillion",
-            "id": "GraphIDfriendVertex25"
-        },
-        {
-            "name": "candy",
-            "id": "GraphIDfriendVertex21"
-        },
-        {
-            "name": "cat",
-            "id": "GraphIDfriendVertex24"
-        },
-        {
-            "name": "jason",
-            "id": "GraphIDfriendVertex5"
-        },
-        {
-            "name": "jen",
-            "id": "GraphIDfriendVertex7"
-        },
-        {
-            "name": "amy",
-            "id": "GraphIDfriendVertex8"
-        },
-        {
-            "name": "dion",
-            "id": "GraphIDfriendVertex10"
-        },
-        {
-            "name": "peter",
-            "id": "GraphIDfriendVertex9"
-        },
-        {
-            "name": "cindy",
-            "id": "GraphIDfriendVertex13"
-        },
-        {
-            "name": "alex",
-            "id": "GraphIDfriendVertex11"
-        },
-        {
-            "name": "bob",
-            "id": "GraphIDfriendVertex12"
-        },
-        {
-            "name": "david",
-            "id": "GraphIDfriendVertex22"
+            "name": "Mandarine",
+            "id": "GraphIDTreeVertex56",
+            "preference": 2
         }
     ],
     "links": [
         {
-            "id": "GraphIDfriendEdge17",
-            "source": "GraphIDfriendVertex4",
-            "target": "GraphIDfriendVertex14",
-            "years": "3"
+            "id": "GraphIDTreeEdge56",
+            "source": "GraphIDTreeVertex28",
+            "target": "GraphIDTreeVertex57",
+            "years": 90
         },
         {
-            "id": "GraphIDfriendEdge18",
-            "source": "GraphIDfriendVertex14",
-            "target": "GraphIDfriendVertex16",
-            "years": ""
+            "id": "GraphIDTreeEdge57",
+            "source": "GraphIDTreeVertex29",
+            "target": "GraphIDTreeVertex58",
+            "years": 1
         },
         {
-            "id": "GraphIDfriendEdge21",
-            "source": "GraphIDfriendVertex16",
-            "target": "GraphIDfriendVertex17",
-            "years": "3"
+            "id": "GraphIDTreeEdge28",
+            "source": "GraphIDTreeVertex14",
+            "target": "GraphIDTreeVertex29",
+            "years": 76
         },
         {
-            "id": "GraphIDfriendEdge32",
-            "source": "GraphIDfriendVertex28",
-            "target": "GraphIDfriendVertex17",
-            "years": "1"
+            "id": "GraphIDTreeEdge58",
+            "source": "GraphIDTreeVertex29",
+            "target": "GraphIDTreeVertex59",
+            "years": 95
         },
         {
-            "id": "GraphIDfriendEdge33",
-            "source": "GraphIDfriendVertex17",
-            "target": "GraphIDfriendVertex26",
-            "years": "4"
+            "id": "GraphIDTreeEdge27",
+            "source": "GraphIDTreeVertex14",
+            "target": "GraphIDTreeVertex28",
+            "years": 53
         },
         {
-            "id": "GraphIDfriendEdge4",
-            "source": "GraphIDfriendVertex4",
-            "target": "GraphIDfriendVertex1",
-            "years": "3"
-        },
-        {
-            "id": "GraphIDfriendEdge34",
-            "source": "GraphIDfriendVertex26",
-            "target": "GraphIDfriendVertex18",
-            "years": ""
-        },
-        {
-            "id": "GraphIDfriendEdge25",
-            "source": "GraphIDfriendVertex3",
-            "target": "GraphIDfriendVertex18",
-            "years": "4"
-        },
-        {
-            "id": "GraphIDfriendEdge24",
-            "source": "GraphIDfriendVertex20",
-            "target": "GraphIDfriendVertex3",
-            "years": "6"
-        },
-        {
-            "id": "GraphIDfriendEdge6",
-            "source": "GraphIDfriendVertex1",
-            "target": "GraphIDfriendVertex3",
-            "years": "2"
-        },
-        {
-            "id": "GraphIDfriendEdge23",
-            "source": "GraphIDfriendVertex19",
-            "target": "GraphIDfriendVertex20",
-            "years": "5"
-        },
-        {
-            "id": "GraphIDfriendEdge35",
-            "source": "GraphIDfriendVertex18",
-            "target": "GraphIDfriendVertex20",
-            "years": ""
-        },
-        {
-            "id": "GraphIDfriendEdge5",
-            "source": "GraphIDfriendVertex1",
-            "target": "GraphIDfriendVertex2",
-            "years": "2"
-        },
-        {
-            "id": "GraphIDfriendEdge9",
-            "source": "GraphIDfriendVertex5",
-            "target": "GraphIDfriendVertex6",
-            "years": "4"
-        },
-        {
-            "id": "GraphIDfriendEdge27",
-            "source": "GraphIDfriendVertex6",
-            "target": "GraphIDfriendVertex25",
-            "years": "3"
-        },
-        {
-            "id": "GraphIDfriendEdge28",
-            "source": "GraphIDfriendVertex25",
-            "target": "GraphIDfriendVertex21",
-            "years": "2"
-        },
-        {
-            "id": "GraphIDfriendEdge29",
-            "source": "GraphIDfriendVertex21",
-            "target": "GraphIDfriendVertex24",
-            "years": "1"
-        },
-        {
-            "id": "GraphIDfriendEdge30",
-            "source": "GraphIDfriendVertex24",
-            "target": "GraphIDfriendVertex5",
-            "years": ""
-        },
-        {
-            "id": "GraphIDfriendEdge2",
-            "source": "GraphIDfriendVertex2",
-            "target": "GraphIDfriendVertex5",
-            "years": "2"
-        },
-        {
-            "id": "GraphIDfriendEdge10",
-            "source": "GraphIDfriendVertex6",
-            "target": "GraphIDfriendVertex7",
-            "years": "6"
-        },
-        {
-            "id": "GraphIDfriendEdge11",
-            "source": "GraphIDfriendVertex7",
-            "target": "GraphIDfriendVertex8",
-            "years": "6"
-        },
-        {
-            "id": "GraphIDfriendEdge12",
-            "source": "GraphIDfriendVertex7",
-            "target": "GraphIDfriendVertex10",
-            "years": "8"
-        },
-        {
-            "id": "GraphIDfriendEdge13",
-            "source": "GraphIDfriendVertex6",
-            "target": "GraphIDfriendVertex9",
-            "years": "7"
-        },
-        {
-            "id": "GraphIDfriendEdge14",
-            "source": "GraphIDfriendVertex9",
-            "target": "GraphIDfriendVertex13",
-            "years": "6"
-        },
-        {
-            "id": "GraphIDfriendEdge15",
-            "source": "GraphIDfriendVertex6",
-            "target": "GraphIDfriendVertex11",
-            "years": "2"
-        },
-        {
-            "id": "GraphIDfriendEdge16",
-            "source": "GraphIDfriendVertex11",
-            "target": "GraphIDfriendVertex12",
-            "years": "1"
-        },
-        {
-            "id": "GraphIDfriendEdge31",
-            "source": "GraphIDfriendVertex5",
-            "target": "GraphIDfriendVertex22",
-            "years": "4"
+            "id": "GraphIDTreeEdge55",
+            "source": "GraphIDTreeVertex28",
+            "target": "GraphIDTreeVertex56",
+            "years": 18
         }
     ]
 }
